@@ -30,6 +30,13 @@ The design exceeded expectations and customers love the greenery and lighting.`,
       text: `My living room transformation was beyond expectations. 
 Elegant, warm, and beautifully balanced — a space I truly love.`,
     },
+   {
+  name: "Abu Lais",
+  tag: "Salon Owner, Toni & Guy",
+  text: `From an old structure to Asia’s biggest Toni & Guy salon — Rukhsar created a calm, soulful space.
+
+Her Wabi-Sabi design turned flaws into beauty. A vibe clients truly love.`,
+},
   ];
 
   // ✅ Detect mobile

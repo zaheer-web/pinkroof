@@ -8,10 +8,7 @@ import img5 from "../img/za-19.jpeg";
 import img6 from "../img/za-20.jpeg";
 import img7 from "../img/za-26.jpeg";
 import img8 from "../img/za-29.jpeg";
-import img9 from "../img/za-29.jpeg";
-import img10 from "../img/za-29.jpeg";
-import img11 from "../img/za-29.jpeg";
-import img12 from "../img/za-29.jpeg";
+
 import img13 from "../img/za-12.jpeg";
 import img14 from "../img/za-6.jpeg";
 import img15 from "../img/za-7.jpeg";
@@ -20,10 +17,6 @@ import img17 from "../img/za-30.jpg";
 import img18 from "../img/za-31.jpg";
 import img19 from "../img/za-32.jpg";
 import img20 from "../img/za-33.jpg";
-import img21 from "../img/za-29.jpeg";
-import img22 from "../img/za-29.jpeg";
-import img23 from "../img/za-29.jpeg";
-import img24 from "../img/za-29.jpeg";
 
 export default function Projects() {
   const [active, setActive] = useState("All");
@@ -37,8 +30,8 @@ export default function Projects() {
     "Commercial",
     "2D Design",
     "3D View",
-    "360 View",
-    "720 Walkthrough",
+    // "360 View",
+    
   ];
 
   const projects = [
@@ -52,10 +45,7 @@ export default function Projects() {
     { category: "Commercial", img: img5 },
     { category: "Commercial", img: img8 },
 
-    { category: "720 Walkthrough", img: img9 },
-    { category: "720 Walkthrough", img: img10 },
-    { category: "720 Walkthrough", img: img11 },
-    { category: "720 Walkthrough", img: img12 },
+    
 
     { category: "2D Design", img: img13 },
     { category: "2D Design", img: img14 },
@@ -67,13 +57,20 @@ export default function Projects() {
     { category: "3D View", img: img17 },
     { category: "3D View", img: img18 },
 
-    { category: "360 View", img: img21 },
-    { category: "360 View", img: img22 },
-    { category: "360 View", img: img23 },
-    { category: "360 View", img: img24 },
+    // 🔥 360 VIEW (IFRAME)
+    // {
+    //   category: "360 View",
+    //   type: "iframe",
+    //   src: "https://www.coohom.com/pub/tool/panorama/show?obsPlanId=3FO3GY4DJN3P&locale=en_US&utm_source=light720_share&utm_medium=linkcopy&utm_content=3FO3GY4DJN3P",
+    // },
+    // {
+    //   category: "360 View",
+    //   type: "iframe",
+    //   src: "https://www.coohom.com/pub/tool/panorama/show?obsPlanId=3FO3MHOP9AW4&locale=en_US&utm_source=light720_share&utm_medium=linkcopy&utm_content=3FO3MHOP9AW4",
+    // },
   ];
 
-  // 🔥 RESPONSIVE IMAGE COUNT
+  // RESPONSIVE COUNT
   useEffect(() => {
     const updateCount = () => {
       if (window.innerWidth < 768) {
@@ -87,7 +84,6 @@ export default function Projects() {
 
     updateCount();
     window.addEventListener("resize", updateCount);
-
     return () => window.removeEventListener("resize", updateCount);
   }, []);
 
@@ -106,7 +102,7 @@ export default function Projects() {
     return pattern[index % 4];
   };
 
-  // LIGHTBOX NAV
+  // LIGHTBOX
   const next = () => {
     setSelectedIndex((prev) => (prev + 1) % filtered.length);
   };
@@ -151,20 +147,33 @@ export default function Projects() {
         {filtered.slice(0, visibleCount).map((item, i) => (
           <div
             key={i}
-            onClick={() => setSelectedIndex(i)}
+            onClick={() => item.type !== "iframe" && setSelectedIndex(i)}
             className={`relative group overflow-hidden cursor-pointer ${getSpan(i)}`}
           >
-            <img
-              src={item.img}
-              alt=""
-              className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-            />
 
-            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/60 transition"></div>
+            {/* 🔥 IFRAME */}
+            {item.type === "iframe" ? (
+              <iframe
+                src={item.src}
+                className="w-full h-full border-0 scale-[1.3]"
+                loading="lazy"
+              ></iframe>
+            ) : (
+              <>
+                <img
+                  src={item.img}
+                  alt=""
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/60 transition"></div>
+              </>
+            )}
 
+            {/* LABEL */}
             <p className="absolute bottom-3 left-3 text-white text-[10px] md:text-xs uppercase tracking-widest">
               {item.category}
             </p>
+
           </div>
         ))}
       </div>
@@ -175,7 +184,7 @@ export default function Projects() {
         {visibleCount < filtered.length && (
           <button
             onClick={() => setVisibleCount(filtered.length)}
-            className="cursor-pointer px-6 py-3 bg-black text-white text-xs uppercase tracking-widest hover:opacity-80 transition"
+            className="px-6 py-3 bg-black text-white text-xs uppercase tracking-widest hover:opacity-80 transition"
           >
             View More
           </button>
@@ -184,7 +193,7 @@ export default function Projects() {
         {visibleCount > initialCount && (
           <button
             onClick={() => setVisibleCount(initialCount)}
-            className="cursor-pointer px-6 py-3 border border-black text-black text-xs uppercase tracking-widest hover:bg-black hover:text-white transition"
+            className="px-6 py-3 border border-black text-black text-xs uppercase tracking-widest hover:bg-black hover:text-white transition"
           >
             Show Less
           </button>
@@ -193,7 +202,7 @@ export default function Projects() {
       </div>
 
       {/* LIGHTBOX */}
-      {selectedIndex !== null && (
+      {selectedIndex !== null && filtered[selectedIndex].type !== "iframe" && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
 
           <button
@@ -224,6 +233,7 @@ export default function Projects() {
           </button>
         </div>
       )}
+
     </section>
   );
 }
