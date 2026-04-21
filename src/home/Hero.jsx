@@ -1,103 +1,59 @@
 import { Link } from "react-router-dom";
-import img from "../img/za-1.jpeg"
-
 
 export default function Hero() {
   return (
-    <section className="min-h-screen grid md:grid-cols-2 pt-20 
-    bg-gradient-to-br from-white via-pink-100 to-pink-300">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* LEFT TEXT */}
-      <div className="flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 relative">
+      {/* 360 BACKGROUND */}
+       <iframe
+        src="https://www.coohom.com/pub/tool/panorama/show?obsPlanId=3FO3MHOP9AW4&locale=en_US&utm_source=light720_share&utm_medium=linkcopy&utm_content=3FO3MHOP9AW4"
+        className="absolute inset-0 w-full h-full border-0 scale-[1.4]"
+        allowFullScreen
+        loading="lazy"
+      ></iframe>
+      
 
-        {/* SOFT PINK LIGHT */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,182,193,0.15),transparent_60%)]"></div>
+      {/* DARK + COLOR OVERLAY */}
+      {/* <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div> */}
 
-        <div className="relative z-10">
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 md:px-12 lg:px-20">
 
-          {/* TOP TAG */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-[1px] bg-black"></div>
-            <span className="text-[10px] tracking-[0.3em] uppercase text-black">
+        <div className="max-w-xl text-white">
+
+          {/* TAG */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-[1px] bg-white"></div>
+            <span className="text-[10px] tracking-[0.3em] uppercase">
               Pink Roof Interiors
             </span>
           </div>
 
           {/* HEADING */}
-          <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-tight text-black mb-6">
-            Creative Spaces <br />
-            <span className="italic">Designed for</span> <br />
-            Modern Living
+          <h1 className="font-serif text-[2.3rem] md:text-[3.5rem] lg:text-[4.2rem] leading-tight mb-5">
+            Designing Spaces <br />
+            <span className="italic">That Feel Like Home</span>
           </h1>
 
-          {/* UPDATED DESCRIPTION */}
-          <p className="text-base md:text-lg lg:text-xl leading-relaxed max-w-xl mb-10 text-black font-medium">
-            Pink Roof Interior is a creative and client-focused interior design firm dedicated 
-            to transforming spaces into elegant, functional, and personalized environments. 
-            Specializing in residential projects, we bring style and comfort together to craft 
-            homes that truly reflect our clients’ lifestyles and aspirations.
+          {/* SHORT DESCRIPTION */}
+          <p className="text-sm md:text-base lg:text-lg text-white leading-relaxed mb-8">
+            We craft elegant and functional interiors tailored to your lifestyle — 
+            from modern homes to luxury spaces with timeless design.
           </p>
 
-          {/* EXTRA LINE (SECOND PART SPLIT FOR READABILITY) */}
-          <p className="text-sm md:text-base text-black leading-relaxed max-w-xl mb-10">
-            From modern apartments to luxurious villas, every project is thoughtfully curated 
-            with attention to detail, innovative solutions, and timeless design appeal.
-          </p>
-
-          {/* BUTTONS */}
-          
-          <div className="flex gap-4 flex-wrap">
-            <Link to="/portfolio">
-            <button className="cursor-pointer bg-black text-white px-6 py-3 text-xs tracking-widest uppercase hover:opacity-90 transition">
+          {/* BUTTON */}
+          <Link to="/portfolio">
+            <button className="bg-white text-black px-6 py-3 text-xs tracking-widest uppercase hover:bg-gray-200 transition">
               View Portfolio
             </button>
-            </Link>
-
-            
-          </div>
-        </div>
-      </div>
-
-      {/* RIGHT IMAGE */}
-      <div className="relative overflow-hidden">
-
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-pink-100 to-pink-200"></div>
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,192,203,0.25),transparent_60%)]"></div>
-
-        <img
-          src={img}
-          alt="interior"
-          className="relative w-full h-full object-cover mix-blend-multiply opacity-90 hover:scale-105 transition duration-700"
-        />
-
-        {/* STATS */}
-        <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 flex gap-6 md:gap-8 
-        bg-white/90 backdrop-blur-lg px-4 md:px-6 py-3 md:py-4 rounded-md shadow-lg">
-
-          <div className="text-center">
-            <h3 className="text-xl md:text-2xl font-serif text-black">12+</h3>
-            <p className="text-[9px] md:text-[10px] tracking-widest uppercase text-black">
-              Years Experience
-            </p>
-          </div>
-
-          <div className="text-center">
-            <h3 className="text-xl md:text-2xl font-serif text-black">340+</h3>
-            <p className="text-[9px] md:text-[10px] tracking-widest uppercase text-black">
-              Projects
-            </p>
-          </div>
-
-          <div className="text-center">
-            <h3 className="text-xl md:text-2xl font-serif text-black">98%</h3>
-            <p className="text-[9px] md:text-[10px] tracking-widest uppercase text-black">
-              Satisfaction
-            </p>
-          </div>
+          </Link>
 
         </div>
       </div>
+
+    
+      
 
     </section>
   );
