@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative h-[80vh] md:min-h-screen flex items-start md:items-center overflow-hidden pt-24 md:pt-0">
 
       {/* 360 BACKGROUND */}
        <iframe
