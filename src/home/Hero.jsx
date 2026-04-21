@@ -25,7 +25,7 @@ export default function Hero() {
           {/* TAG */}
           <div className="flex items-center gap-3 mb-5">
             <div className="w-10 h-[1px] bg-white"></div>
-            <span className="text-[10px] tracking-[0.3em] uppercase">
+            <span className="text-[13px] tracking-[0.3em] uppercase">
               Pink Roof Interiors
             </span>
           </div>
