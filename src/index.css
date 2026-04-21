@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=DM+Sans&display=swap');
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+:root{
+  --cream:#F7F4EE;
+  --warm-white:#FDFBF7;
+  --charcoal:#1C1C1A;
+  --taupe:#9B8F82;
+  --sand:#D6C9B8;
+  --gold:#C8A96E;
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap'); */
+
+body{
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Custom reusable input style */
+.input{
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #D6C9B8;
+  background: #FDFBF7;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input:focus{
+  border-color: #C8A96E;
+}
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
