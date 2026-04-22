@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
+import logo from "../img/logo.png"; // 👈 logo add
 
 export default function Footer() {
   return (
@@ -10,9 +11,13 @@ export default function Footer() {
 
         {/* LEFT BRAND */}
         <div>
-          <h2 className="font-heading text-2xl mb-4">
-            Pink Roof<span className="text-[#b88b8b]">.</span>
-          </h2>
+          {/* LOGO */}
+          <div className="flex items-center gap-3 mb-4">
+            <img src={logo} alt="logo" className="h-10 w-auto" />
+            <h2 className="font-heading text-2xl">
+              Pink Roof<span className="text-[#b88b8b]">.</span>
+            </h2>
+          </div>
 
           <p className="text-sm leading-relaxed mb-6 text-black/70">
             Pink Roof Interiors creates modern and functional spaces that reflect 
@@ -22,28 +27,19 @@ export default function Footer() {
           {/* SOCIAL */}
           <div className="flex gap-4">
 
-            <a
-              href="#"
-              className="w-10 h-10 flex items-center justify-center border border-black hover:bg-black hover:text-[#FEFEFD] transition"
-            >
-              <FaInstagram />
-            </a>
-
-            <a
-              href="#"
-              className="w-10 h-10 flex items-center justify-center border border-black hover:bg-black hover:text-[#FEFEFD] transition"
-            >
-              <FaFacebookF />
-            </a>
-
-            <a
-              href="https://wa.me/918563980030"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center border border-black hover:bg-black hover:text-[#FEFEFD] transition"
-            >
-              <FaWhatsapp />
-            </a>
+            {[FaInstagram, FaFacebookF, FaWhatsapp].map((Icon, i) => (
+              <a
+                key={i}
+                href={i === 2 ? "https://wa.me/918563980030" : "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center border border-black 
+                rounded-full transition-all duration-300
+                hover:bg-[#FBE6E5] hover:scale-110 hover:shadow-md"
+              >
+                <Icon />
+              </a>
+            ))}
 
           </div>
         </div>
@@ -52,10 +48,16 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase mb-6 tracking-widest">Services</h4>
           <ul className="space-y-3 text-sm text-black/70">
-            <li>Salon Interiors</li>
-            <li>Residential Design</li>
-            <li>Commercial Spaces</li>
-            <li>Renovation</li>
+
+            {["Salon Interiors", "Residential Design", "Commercial Spaces", "Renovation"].map((item, i) => (
+              <li key={i} className="group cursor-pointer">
+                <span className="relative inline-block transition group-hover:text-black">
+                  {item}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                </span>
+              </li>
+            ))}
+
           </ul>
         </div>
 
@@ -63,12 +65,23 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase mb-6 tracking-widest">Quick Links</h4>
           <ul className="space-y-3 text-sm text-black/70">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/process">Process</Link></li>
-            <li><Link to="/services">Services</Link></li>
-            <li><Link to="/portfolio">Portfolio</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
+
+            {[
+              { to: "/", label: "Home" },
+              { to: "/about", label: "About" },
+              { to: "/process", label: "Process" },
+              { to: "/services", label: "Services" },
+              { to: "/portfolio", label: "Portfolio" },
+              { to: "/contact", label: "Contact" },
+            ].map((item, i) => (
+              <li key={i}>
+                <Link to={item.to} className="group relative inline-block transition hover:text-black">
+                  {item.label}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              </li>
+            ))}
+
           </ul>
         </div>
 
@@ -76,22 +89,35 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase mb-6 tracking-widest">Contact</h4>
           <ul className="space-y-3 text-sm text-black/70">
-            <li>India</li>
-            <li>pinkroofinteriors@gmail.com</li>
-            <li>+91 8563980030</li>
+
+            {["India", "pinkroofinteriors@gmail.com", "+91 8563980030"].map((item, i) => (
+              <li key={i} className="group cursor-pointer">
+                <span className="relative inline-block transition group-hover:text-black">
+                  {item}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                </span>
+              </li>
+            ))}
+
           </ul>
         </div>
 
       </div>
 
       {/* BOTTOM */}
-      <div className="border-t border-black/10 px-6 md:px-16 py-6 flex justify-between text-xs text-black/60">
+      <div className="border-t border-black/10 px-6 md:px-16 py-6 flex justify-between text-xs text-black/60 flex-wrap gap-3">
+
         <p>© 2026 Pink Roof Interiors</p>
+
         <div className="flex gap-4">
-          <span>Privacy</span>
-          <span>·</span>
-          <span>Terms</span>
+          {["Privacy", "Terms"].map((item, i) => (
+            <span key={i} className="relative group cursor-pointer">
+              {item}
+              <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-black transition-all duration-300 group-hover:w-full"></span>
+            </span>
+          ))}
         </div>
+
       </div>
 
     </footer>

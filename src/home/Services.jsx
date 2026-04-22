@@ -54,7 +54,7 @@ export default function Services() {
 
         <Link to="/services">
           <button className="border border-black px-5 py-2 md:px-6 md:py-3 text-xs tracking-[0.12em] uppercase 
-          hover:bg-black hover:text-[#FEFEFD] transition duration-300">
+          transition duration-300 hover:bg-black hover:text-white">
             See All Services
           </button>
         </Link>
@@ -62,13 +62,14 @@ export default function Services() {
       </div>
 
       {/* GRID */}
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
 
         {services.map((item, i) => (
           <div
             key={i}
-            className="group bg-[#FEFEFD]/80 backdrop-blur-md relative overflow-hidden rounded-xl 
-            transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:bg-black"
+            className="group bg-white/70 backdrop-blur-md relative overflow-hidden 
+            transition-all duration-300 shadow-sm 
+            hover:shadow-lg hover:-translate-y-2 hover:bg-[#FBE6E5]"
           >
 
             {/* IMAGE */}
@@ -76,28 +77,30 @@ export default function Services() {
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-40 md:h-44 object-cover group-hover:scale-105 transition duration-500"
+                className="w-full h-44 object-cover 
+                transition duration-500 group-hover:scale-105"
               />
             </div>
 
             {/* CONTENT */}
             <div className="p-5 md:p-6">
 
-              {/* LINE */}
-              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FBE6E5] group-hover:w-full transition-all duration-500"></div>
+              {/* SOFT LINE */}
+              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#d6a5a5] 
+              group-hover:w-full transition-all duration-500"></div>
 
               {/* NUMBER */}
-              <p className="font-heading text-sm text-black mb-2 group-hover:text-[#FEFEFD] transition">
+              <p className="font-heading text-sm text-[#b88b8b] mb-2">
                 {item.no}
               </p>
 
               {/* TITLE */}
-              <h3 className="font-heading text-base md:text-lg text-black mb-2 group-hover:text-[#FEFEFD] transition">
+              <h3 className="font-heading text-base md:text-lg text-black mb-2">
                 {item.title}
               </h3>
 
               {/* DESC */}
-              <p className="text-xs md:text-sm leading-relaxed text-black/70 group-hover:text-[#FBE6E5] transition font-body">
+              <p className="text-sm md:text-[15px] leading-relaxed text-gray-600 font-body">
                 {item.desc}
               </p>
 

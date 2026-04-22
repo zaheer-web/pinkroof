@@ -5,8 +5,8 @@ import { Typewriter } from "react-simple-typewriter";
 // Images
 import hero1 from "../img/za-13.jpeg";
 import hero2 from "../img/za-22.jpeg";
-import hero3 from "../img/za-29.jpeg";
-import hero4 from "../img/za-24.jpeg";
+import hero3 from "../img/za-33.jpg";
+import hero4 from "../img/za-30.jpg";
 
 const sliderImages = [hero1, hero2, hero3, hero4];
 
@@ -24,7 +24,7 @@ const MainHero = () => {
     <div className="w-full overflow-hidden bg-black">
       <section className="relative w-full h-screen overflow-hidden">
 
-        {/* 🔥 BACKGROUND CROSSFADE (NO FLASH) */}
+        {/* 🔥 BACKGROUND CROSSFADE */}
         <div className="absolute inset-0">
           <AnimatePresence>
             <motion.img
@@ -32,23 +32,31 @@ const MainHero = () => {
               src={sliderImages[currentIndex]}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="absolute inset-0 w-full h-full object-cover"
             />
           </AnimatePresence>
         </div>
 
-        {/* 🔥 SOFT OVERLAY */}
+        {/* 🔥 OVERLAY */}
         <div className="absolute inset-0 bg-black/50 z-10" />
 
-        {/* 🔥 CONTENT */}
-        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 z-20">
+        {/* 🔥 CONTENT WITH SCROLL ANIMATION */}
+        <motion.div
+          initial={{ opacity: 0, x: -120 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.4 }}
+          transition={{ type: "spring", stiffness: 60, duration: 0.8 }}
+          className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 z-20"
+        >
           <div className="text-center md:text-left max-w-2xl">
 
             {/* HEADING */}
             <motion.h1
               initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
               transition={{ duration: 1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading leading-tight"
               style={{ color: "#FEFEFD" }}
@@ -76,8 +84,9 @@ const MainHero = () => {
             {/* TEXT */}
             <motion.p
               initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ delay: 0.3, duration: 1 }}
               className="mt-6 text-lg font-body"
               style={{ color: "#FBE6E5" }}
             >
@@ -86,7 +95,7 @@ const MainHero = () => {
             </motion.p>
 
           </div>
-        </div>
+        </motion.div>
 
         {/* 🔥 DOTS */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-30">

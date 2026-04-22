@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../img/logo.png"; // 👈 apna logo
+import logo from "../img/logo.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // ✅ Scroll detect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -16,9 +15,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Active link style (same)
   const linkClass = ({ isActive }) =>
-    `text-[12px] tracking-[0.12em] uppercase transition relative
+    `text-[14px] tracking-[0.12em] uppercase transition relative
      ${
        isActive
          ? "text-pink-500"
@@ -38,27 +36,17 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-
-        {/* 🔥 LOGO (ICON + TEXT) */}
-        <Link to="/" className="flex items-center gap-2">
-
+        {/* 🔥 LOGO ONLY */}
+        <Link to="/" className="flex items-center">
           <img
             src={logo}
             alt="logo"
-            className="h-9 md:h-10 w-auto object-contain"
+            className="h-12 md:h-14 md:pl-5 w-auto object-contain transition"
           />
-
-          <span
-            className={`text-[18px] md:text-[20px] font-light tracking-[0.15em] font-serif transition
-            ${scrolled ? "text-black" : "text-white"}`}
-          >
-            Pink Roof <span className="text-pink-500">Interiors</span>
-          </span>
-
         </Link>
 
         {/* DESKTOP MENU */}
-        <ul className="hidden md:flex items-center gap-9">
+        <ul className="hidden md:flex items-center gap-10">
           {["/", "/about", "/process", "/services", "/portfolio", "/contact"].map((path, i) => {
             const labels = ["Home", "About", "Process", "Services", "Portfolio", "Contact"];
             return (
@@ -83,7 +71,7 @@ export default function Navbar() {
           href="https://wa.me/918563980030"
           target="_blank"
           rel="noopener noreferrer"
-          className={`hidden md:inline-block text-[11px] tracking-[0.1em] uppercase px-5 py-2 border transition
+          className={`hidden md:inline-block text-[12px] tracking-[0.1em] uppercase px-5 py-2 border transition
           ${
             scrolled
               ? "border-black text-black hover:bg-black hover:text-white"
@@ -111,7 +99,6 @@ export default function Navbar() {
           open ? "flex" : "hidden"
         }`}
       >
-        {/* CLOSE */}
         <button
           onClick={() => setOpen(false)}
           className="absolute top-6 right-8 text-2xl text-black"
@@ -119,7 +106,6 @@ export default function Navbar() {
           ✕
         </button>
 
-        {/* LINKS */}
         {[
           { to: "/", label: "Home" },
           { to: "/about", label: "About" },

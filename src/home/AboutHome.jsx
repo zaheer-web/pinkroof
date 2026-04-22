@@ -4,12 +4,12 @@ import img3 from "../img/za-5.jpeg";
 
 export default function AboutHome() {
   return (
-    <section className="grid md:grid-cols-2 items-stretch min-h-[520px] 
-    bg-gradient-to-br from-[#FEFEFD] via-[#FBE6E5] to-[#f8dede]">
-
+    <section
+      className="grid md:grid-cols-2 items-stretch min-h-[520px] 
+    bg-gradient-to-br from-[#FEFEFD] via-[#FBE6E5] to-[#f8dede]"
+    >
       {/* 👈 LEFT IMAGES */}
       <div className="grid grid-cols-2 gap-[4px] h-full relative">
-
         {/* SOFT GLOW */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,230,229,0.25),transparent_60%)]"></div>
 
@@ -40,7 +40,6 @@ export default function AboutHome() {
 
       {/* 👉 RIGHT CONTENT */}
       <div className="relative flex flex-col justify-center px-6 md:px-12 lg:px-16 py-12 md:py-16">
-
         {/* BG */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#FEFEFD] via-[#FBE6E5] to-[#f8dede]"></div>
 
@@ -49,7 +48,6 @@ export default function AboutHome() {
 
         {/* CONTENT */}
         <div className="relative z-10">
-
           {/* LABEL */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-[1px] bg-black"></div>
@@ -66,14 +64,13 @@ export default function AboutHome() {
 
           {/* DESC */}
           <p className="text-base md:text-lg text-black/90 leading-relaxed max-w-lg mb-8 font-body">
-            Pink Roof Interiors creates residential and commercial spaces that balance 
-            function, clarity, and modern elegance — designed to reflect your lifestyle 
-            and built to stand the test of time.
+            Pink Roof Interiors creates residential and commercial spaces that
+            balance function, clarity, and modern elegance — designed to reflect
+            your lifestyle and built to stand the test of time.
           </p>
 
-          {/* FEATURES */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
+          {/* 🔥 NEW FEATURE CARDS */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {[
               ["◈", "Custom Interiors", "Tailored to your needs"],
               ["◇", "Quality Execution", "Precision in every detail"],
@@ -82,28 +79,35 @@ export default function AboutHome() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="group border border-black/30 p-4 flex gap-3 cursor-pointer 
-                transition-all duration-300 hover:bg-black hover:text-[#FEFEFD]"
+                className="group border border-[#e5cfcf] bg-white/60 backdrop-blur-sm 
+                p-5 flex gap-4 rounded-xl cursor-pointer 
+                transition-all duration-300 
+                hover:bg-[#FBE6E5] hover:border-[#d6a5a5] hover:shadow-md 
+                hover:-translate-y-1"
               >
-                <div className="w-8 h-8 flex items-center justify-center text-black group-hover:text-white">
+                {/* ICON */}
+                <div
+                  className="w-10 h-10 flex items-center justify-center 
+                  text-lg md:text-xl rounded-full bg-[#FBE6E5] text-[#b88b8b] 
+                  group-hover:bg-white transition"
+                >
                   {item[0]}
                 </div>
+
+                {/* TEXT */}
                 <div>
-                  <h4 className="text-sm font-medium">
+                  <h4 className="text-base md:text-lg font-medium text-black">
                     {item[1]}
                   </h4>
-                  <p className="text-xs opacity-70">
+                  <p className="text-sm md:text-[15px] text-gray-600 leading-snug">
                     {item[2]}
                   </p>
                 </div>
               </div>
             ))}
-
           </div>
-
         </div>
       </div>
-
     </section>
   );
 }
