@@ -26,10 +26,15 @@ export default function Projects() {
 
   const categories = [
     "All",
+    "Facade",
     "Residential",
-    "Commercial",
-    "2D Design",
-    "3D View",
+    "Commercial/Hotel",
+    "2D &3D View",
+    "Kitchen",
+    "Government",
+    "Salon",
+    "Restaurant",
+    "Cafe"
   ];
 
   const projects = [
@@ -106,7 +111,7 @@ export default function Projects() {
       </h2>
 
       {/* FILTER */}
-      <div className="flex gap-3 mb-10 flex-wrap">
+      <div className=" flex gap-3 mb-10 flex-wrap">
         {categories.map((cat, i) => (
           <button
             key={i}
