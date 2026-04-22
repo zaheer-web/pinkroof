@@ -7,10 +7,12 @@ import Projects from '../home/Projects'
 import CTA from '../home/CTA'
 import AboutHome from '../home/AboutHome'
 import Testimonials from '../home/Testimonials'
+import MainHero from '../home/MainHero'
 
 function Home() {
   return (
    <>
+   <MainHero/>
    <Hero/>
    <Marquee/>
    <AboutHome/>

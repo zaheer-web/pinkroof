@@ -1,9 +1,49 @@
+/* 🔥 FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=DM+Sans&display=swap');
+
+/* 🔥 ROOT COLORS (UPDATED THEME) */
+:root{
+  --bg-light:#FEFEFD;
+  --bg-soft:#FBE6E5;
+  --bg-accent:#f8dede;
+
+  --charcoal:#1C1C1A;
+  --taupe:#9B8F82;
+  --sand:#D6C9B8;
+  --gold:#C8A96E;
+}
+
+/* 🔥 GLOBAL BACKGROUND */
+body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    var(--bg-light) 0%,
+    var(--bg-soft) 50%,
+    var(--bg-accent) 100%
+  );
+
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* 🔥 HEADING FONT */
+.font-heading{
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* 🔥 BODY FONT */
+.font-body{
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* 🔥 MARQUEE */
 .marquee-track {
   display: flex;
   gap: 3rem;
-  animation: marquee 22s linear infinite;
+  animation: marquee 24s linear infinite;
 }
 
 @keyframes marquee {
@@ -14,34 +54,28 @@
     transform: translateX(-50%);
   }
 }
-:root{
-  --cream:#F7F4EE;
-  --warm-white:#FDFBF7;
-  --charcoal:#1C1C1A;
-  --taupe:#9B8F82;
-  --sand:#D6C9B8;
-  --gold:#C8A96E;
-}
-/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap'); */
 
-body{
-  font-family: 'DM Sans', sans-serif;
-}
-
-/* Custom reusable input style */
+/* 🔥 INPUT STYLE */
 .input{
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid #D6C9B8;
-  background: #FDFBF7;
+  border: 1px solid var(--sand);
+  background: var(--bg-light);
   font-size: 14px;
   outline: none;
   transition: 0.3s;
 }
 
 .input:focus{
-  border-color: #C8A96E;
+  border-color: var(--gold);
 }
+
+/* 🔥 SMOOTH SCROLL */
+html{
+  scroll-behavior: smooth;
+}
+
+/* 🔥 SHINE EFFECT (OPTIONAL) */
 @keyframes shine {
   to {
     background-position: 200% center;

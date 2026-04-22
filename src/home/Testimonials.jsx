@@ -30,16 +30,16 @@ The design exceeded expectations and customers love the greenery and lighting.`,
       text: `My living room transformation was beyond expectations. 
 Elegant, warm, and beautifully balanced — a space I truly love.`,
     },
-   {
-  name: "Abu Lais",
-  tag: "Salon Owner, Toni & Guy",
-  text: `From an old structure to Asia’s biggest Toni & Guy salon — Rukhsar created a calm, soulful space.
+    {
+      name: "Abu Lais",
+      tag: "Salon Owner, Toni & Guy",
+      text: `From an old structure to Asia’s biggest Toni & Guy salon — Rukhsar created a calm, soulful space.
 
 Her Wabi-Sabi design turned flaws into beauty. A vibe clients truly love.`,
-},
+    },
   ];
 
-  // ✅ Detect mobile
+  // 📱 Detect mobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -49,7 +49,7 @@ Her Wabi-Sabi design turned flaws into beauty. A vibe clients truly love.`,
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Auto slide
+  // 🔁 Auto slide
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonials.length);
@@ -59,12 +59,12 @@ Her Wabi-Sabi design turned flaws into beauty. A vibe clients truly love.`,
 
   return (
     <section className="px-6 md:px-16 py-24 
-    bg-gradient-to-br from-white via-pink-100 to-pink-300">
+    bg-gradient-to-br from-[#FEFEFD] via-[#FBE6E5] to-[#f8dede]">
 
       {/* HEADER */}
       <div className="text-center mb-16">
-        <h2 className="font-serif text-4xl md:text-5xl text-black">
-          Client <span className="italic">Testimonials</span>
+        <h2 className="font-heading text-4xl md:text-5xl text-black">
+          Client <span className="italic text-[#b88b8b]">Testimonials</span>
         </h2>
       </div>
 
@@ -84,30 +84,32 @@ Her Wabi-Sabi design turned flaws into beauty. A vibe clients truly love.`,
               className="w-full md:w-1/3 flex-shrink-0 px-4"
             >
 
-              <div className="bg-white rounded-2xl shadow-md p-6 h-full flex flex-col justify-between hover:shadow-xl transition">
+              <div className="bg-[#FEFEFD]/90 backdrop-blur-md rounded-2xl shadow-md p-6 h-full flex flex-col justify-between hover:shadow-xl transition">
 
                 {/* TOP */}
                 <div>
 
                   {/* AVATAR */}
-                  <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center mb-3 text-sm">
+                  <div className="w-10 h-10 rounded-full bg-black text-[#FEFEFD] flex items-center justify-center mb-3 text-sm">
                     {item.name.slice(0, 2)}
                   </div>
 
                   {/* STARS */}
-                  <div className="text-yellow-500 mb-3 text-sm">★★★★★</div>
+                  <div className="text-[#C8A96E] mb-3 text-sm">★★★★★</div>
 
                   {/* TEXT */}
-                  <p className="text-sm text-gray-700 leading-relaxed mb-6">
+                  <p className="text-sm text-black/80 leading-relaxed mb-6">
                     “{item.text}”
                   </p>
 
                 </div>
 
                 {/* USER */}
-                <div className="border-t pt-3">
-                  <h4 className="text-sm font-semibold">{item.name}</h4>
-                  <p className="text-xs text-gray-500">{item.tag}</p>
+                <div className="border-t border-black/10 pt-3">
+                  <h4 className="text-sm font-semibold text-black">
+                    {item.name}
+                  </h4>
+                  <p className="text-xs text-black/50">{item.tag}</p>
                 </div>
 
               </div>
@@ -125,7 +127,7 @@ Her Wabi-Sabi design turned flaws into beauty. A vibe clients truly love.`,
             key={i}
             onClick={() => setIndex(i)}
             className={`w-3 h-3 rounded-full transition ${
-              index === i ? "bg-black scale-125" : "bg-gray-400"
+              index === i ? "bg-black scale-125" : "bg-black/30"
             }`}
           />
         ))}

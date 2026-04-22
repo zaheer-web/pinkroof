@@ -30,8 +30,6 @@ export default function Projects() {
     "Commercial",
     "2D Design",
     "3D View",
-    // "360 View",
-    
   ];
 
   const projects = [
@@ -45,8 +43,6 @@ export default function Projects() {
     { category: "Commercial", img: img5 },
     { category: "Commercial", img: img8 },
 
-    
-
     { category: "2D Design", img: img13 },
     { category: "2D Design", img: img14 },
     { category: "2D Design", img: img15 },
@@ -56,21 +52,9 @@ export default function Projects() {
     { category: "3D View", img: img20 },
     { category: "3D View", img: img17 },
     { category: "3D View", img: img18 },
-
-    // 🔥 360 VIEW (IFRAME)
-    // {
-    //   category: "360 View",
-    //   type: "iframe",
-    //   src: "https://www.coohom.com/pub/tool/panorama/show?obsPlanId=3FO3GY4DJN3P&locale=en_US&utm_source=light720_share&utm_medium=linkcopy&utm_content=3FO3GY4DJN3P",
-    // },
-    // {
-    //   category: "360 View",
-    //   type: "iframe",
-    //   src: "https://www.coohom.com/pub/tool/panorama/show?obsPlanId=3FO3MHOP9AW4&locale=en_US&utm_source=light720_share&utm_medium=linkcopy&utm_content=3FO3MHOP9AW4",
-    // },
   ];
 
-  // RESPONSIVE COUNT
+  // 📱 Responsive count
   useEffect(() => {
     const updateCount = () => {
       if (window.innerWidth < 768) {
@@ -102,7 +86,6 @@ export default function Projects() {
     return pattern[index % 4];
   };
 
-  // LIGHTBOX
   const next = () => {
     setSelectedIndex((prev) => (prev + 1) % filtered.length);
   };
@@ -114,11 +97,12 @@ export default function Projects() {
   };
 
   return (
-    <section className="px-4 md:px-16 py-20 bg-gradient-to-br from-white via-pink-100 to-pink-300">
+    <section className="px-4 md:px-16 py-20 
+    bg-gradient-to-br from-[#FEFEFD] via-[#FBE6E5] to-[#f8dede]">
 
       {/* HEADER */}
-      <h2 className="font-serif text-3xl md:text-5xl text-black mb-10">
-        Our Projects
+      <h2 className="font-heading text-3xl md:text-5xl text-black mb-10 tracking-tight">
+        Our <span className="italic text-[#b88b8b]">Projects</span>
       </h2>
 
       {/* FILTER */}
@@ -130,10 +114,10 @@ export default function Projects() {
               setActive(cat);
               setSelectedIndex(null);
             }}
-            className={`px-4 py-2 text-xs border rounded-full ${
+            className={`px-4 py-2 text-xs border rounded-full transition ${
               active === cat
-                ? "bg-black text-white"
-                : "border-black text-black hover:bg-black hover:text-white"
+                ? "bg-black text-[#FEFEFD]"
+                : "border-black/40 text-black hover:bg-black hover:text-[#FEFEFD]"
             }`}
           >
             {cat}
@@ -147,30 +131,19 @@ export default function Projects() {
         {filtered.slice(0, visibleCount).map((item, i) => (
           <div
             key={i}
-            onClick={() => item.type !== "iframe" && setSelectedIndex(i)}
+            onClick={() => setSelectedIndex(i)}
             className={`relative group overflow-hidden cursor-pointer ${getSpan(i)}`}
           >
 
-            {/* 🔥 IFRAME */}
-            {item.type === "iframe" ? (
-              <iframe
-                src={item.src}
-                className="w-full h-full border-0 scale-[1.3]"
-                loading="lazy"
-              ></iframe>
-            ) : (
-              <>
-                <img
-                  src={item.img}
-                  alt=""
-                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/60 transition"></div>
-              </>
-            )}
+            <img
+              src={item.img}
+              alt=""
+              className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+            />
 
-            {/* LABEL */}
-            <p className="absolute bottom-3 left-3 text-white text-[10px] md:text-xs uppercase tracking-widest">
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/60 transition"></div>
+
+            <p className="absolute bottom-3 left-3 text-[#FEFEFD] text-[10px] md:text-xs uppercase tracking-widest">
               {item.category}
             </p>
 
@@ -184,7 +157,7 @@ export default function Projects() {
         {visibleCount < filtered.length && (
           <button
             onClick={() => setVisibleCount(filtered.length)}
-            className="px-6 py-3 bg-black text-white text-xs uppercase tracking-widest hover:opacity-80 transition"
+            className="px-6 py-3 bg-black text-[#FEFEFD] text-xs uppercase tracking-widest hover:opacity-80 transition"
           >
             View More
           </button>
@@ -193,7 +166,7 @@ export default function Projects() {
         {visibleCount > initialCount && (
           <button
             onClick={() => setVisibleCount(initialCount)}
-            className="px-6 py-3 border border-black text-black text-xs uppercase tracking-widest hover:bg-black hover:text-white transition"
+            className="px-6 py-3 border border-black text-black text-xs uppercase tracking-widest hover:bg-black hover:text-[#FEFEFD] transition"
           >
             Show Less
           </button>
@@ -202,7 +175,7 @@ export default function Projects() {
       </div>
 
       {/* LIGHTBOX */}
-      {selectedIndex !== null && filtered[selectedIndex].type !== "iframe" && (
+      {selectedIndex !== null && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
 
           <button

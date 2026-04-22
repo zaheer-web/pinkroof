@@ -1,32 +1,64 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../img/logo.png"; // 👈 apna logo
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // ✅ Active class logic
+  // ✅ Scroll detect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // ✅ Active link style (same)
   const linkClass = ({ isActive }) =>
     `text-[12px] tracking-[0.12em] uppercase transition relative
-     ${isActive ? "text-pink-500" : "text-black hover:text-pink-500"}`;
+     ${
+       isActive
+         ? "text-pink-500"
+         : scrolled
+         ? "text-black hover:text-pink-500"
+         : "text-white hover:text-pink-300"
+     }`;
 
   return (
     <>
       {/* NAVBAR */}
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-16 py-5 
-      bg-gradient-to-r from-white via-pink-100 to-pink-200 
-      backdrop-blur-md border-b border-pink-200">
+      <header
+        className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-16 py-5 transition-all duration-300
+        ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-md border-b border-pink-200 shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
 
-        {/* LOGO */}
-        <Link
-          to="/"
-          className="text-[20px] font-light tracking-[0.15em] text-black font-serif"
-        >
-          Pink Roof <span className="text-pink-500">Interiors</span>
+        {/* 🔥 LOGO (ICON + TEXT) */}
+        <Link to="/" className="flex items-center gap-2">
+
+          <img
+            src={logo}
+            alt="logo"
+            className="h-9 md:h-10 w-auto object-contain"
+          />
+
+          <span
+            className={`text-[18px] md:text-[20px] font-light tracking-[0.15em] font-serif transition
+            ${scrolled ? "text-black" : "text-white"}`}
+          >
+            Pink Roof <span className="text-pink-500">Interiors</span>
+          </span>
+
         </Link>
 
         {/* DESKTOP MENU */}
         <ul className="hidden md:flex items-center gap-9">
-
           {["/", "/about", "/process", "/services", "/portfolio", "/contact"].map((path, i) => {
             const labels = ["Home", "About", "Process", "Services", "Portfolio", "Contact"];
             return (
@@ -44,28 +76,31 @@ export default function Navbar() {
               </li>
             );
           })}
-
         </ul>
 
         {/* CTA */}
         <a
-  href="https://wa.me/918563980030"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hidden md:inline-block text-[11px] tracking-[0.1em] uppercase px-5 py-2 
-  border border-black text-black hover:bg-black hover:text-white transition"
->
-  Consultation
-</a>
+          href="https://wa.me/918563980030"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`hidden md:inline-block text-[11px] tracking-[0.1em] uppercase px-5 py-2 border transition
+          ${
+            scrolled
+              ? "border-black text-black hover:bg-black hover:text-white"
+              : "border-white text-white hover:bg-white hover:text-black"
+          }`}
+        >
+          Consultation
+        </a>
 
         {/* HAMBURGER */}
         <button
           onClick={() => setOpen(true)}
           className="md:hidden flex flex-col gap-[5px]"
         >
-          <span className="w-6 h-[1.5px] bg-black"></span>
-          <span className="w-6 h-[1.5px] bg-black"></span>
-          <span className="w-6 h-[1.5px] bg-black"></span>
+          <span className={`w-6 h-[1.5px] ${scrolled ? "bg-black" : "bg-white"}`}></span>
+          <span className={`w-6 h-[1.5px] ${scrolled ? "bg-black" : "bg-white"}`}></span>
+          <span className={`w-6 h-[1.5px] ${scrolled ? "bg-black" : "bg-white"}`}></span>
         </button>
       </header>
 

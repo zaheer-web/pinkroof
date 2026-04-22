@@ -10,19 +10,19 @@ export default function Marquee() {
   ];
 
   return (
-    <div className="bg-[#1c1c1a] overflow-hidden py-3">
-      
+    <div className="bg-[#111110] overflow-hidden py-3 border-y border-[#FBE6E5]/20">
+
       <div className="marquee flex whitespace-nowrap">
 
-        {/* Track */}
-        <div className="marquee-track flex gap-12">
+        {/* TRACK */}
+        <div className="marquee-track flex gap-10 md:gap-14">
           {[...items, ...items].map((item, i) => (
             <span
               key={i}
-              className="text-[11px] tracking-[0.2em] uppercase text-[#c8a96e] flex items-center gap-4"
+              className="text-[11px] md:text-[12px] tracking-[0.25em] uppercase text-[#FBE6E5] flex items-center gap-4 font-body"
             >
               {item}
-              <span className="text-gray-500 text-[8px]">✦</span>
+              <span className="text-[#FEFEFD]/40 text-[8px]">✦</span>
             </span>
           ))}
         </div>
@@ -39,7 +39,7 @@ export default function Marquee() {
           .marquee-track {
             display: flex;
             width: max-content;
-            animation: marquee 18s linear infinite;
+            animation: marquee 20s linear infinite;
           }
 
           @keyframes marquee {
@@ -51,7 +51,7 @@ export default function Marquee() {
             }
           }
 
-          /* Smoothness fix */
+          /* Hover pause */
           .marquee-track:hover {
             animation-play-state: paused;
           }
