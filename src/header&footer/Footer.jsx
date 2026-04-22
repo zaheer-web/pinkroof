@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
-import logo from "../img/logo.png"; // 👈 logo add
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import logo from "../img/logo.png";
 
 export default function Footer() {
   return (
@@ -11,7 +11,6 @@ export default function Footer() {
 
         {/* LEFT BRAND */}
         <div>
-          {/* LOGO */}
           <div className="flex items-center gap-3 mb-4">
             <img src={logo} alt="logo" className="h-10 w-auto" />
             <h2 className="font-heading text-2xl">
@@ -24,22 +23,32 @@ export default function Footer() {
             your style and purpose.
           </p>
 
-          {/* SOCIAL */}
+          {/* 🔥 SOCIAL (UPDATED) */}
           <div className="flex gap-4">
 
-            {[FaInstagram, FaFacebookF, FaWhatsapp].map((Icon, i) => (
-              <a
-                key={i}
-                href={i === 2 ? "https://wa.me/918563980030" : "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center border border-black 
-                rounded-full transition-all duration-300
-                hover:bg-[#FBE6E5] hover:scale-110 hover:shadow-md"
-              >
-                <Icon />
-              </a>
-            ))}
+            {/* INSTAGRAM */}
+            <a
+              href="https://www.instagram.com/interiorpinkroof/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center border border-black 
+              rounded-full transition-all duration-300
+              hover:bg-[#FBE6E5] hover:scale-110 hover:shadow-md"
+            >
+              <FaInstagram />
+            </a>
+
+            {/* WHATSAPP */}
+            <a
+              href="https://wa.me/918563980030"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center border border-black 
+              rounded-full transition-all duration-300
+              hover:bg-[#FBE6E5] hover:scale-110 hover:shadow-md"
+            >
+              <FaWhatsapp />
+            </a>
 
           </div>
         </div>
@@ -48,7 +57,6 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase mb-6 tracking-widest">Services</h4>
           <ul className="space-y-3 text-sm text-black/70">
-
             {["Salon Interiors", "Residential Design", "Commercial Spaces", "Renovation"].map((item, i) => (
               <li key={i} className="group cursor-pointer">
                 <span className="relative inline-block transition group-hover:text-black">
@@ -57,7 +65,6 @@ export default function Footer() {
                 </span>
               </li>
             ))}
-
           </ul>
         </div>
 
@@ -65,7 +72,6 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase mb-6 tracking-widest">Quick Links</h4>
           <ul className="space-y-3 text-sm text-black/70">
-
             {[
               { to: "/", label: "Home" },
               { to: "/about", label: "About" },
@@ -81,7 +87,6 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
-
           </ul>
         </div>
 
@@ -89,7 +94,6 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase mb-6 tracking-widest">Contact</h4>
           <ul className="space-y-3 text-sm text-black/70">
-
             {["India", "pinkroofinteriors@gmail.com", "+91 8563980030"].map((item, i) => (
               <li key={i} className="group cursor-pointer">
                 <span className="relative inline-block transition group-hover:text-black">
@@ -98,7 +102,6 @@ export default function Footer() {
                 </span>
               </li>
             ))}
-
           </ul>
         </div>
 

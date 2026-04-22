@@ -8,17 +8,20 @@ import CTA from '../home/CTA'
 import AboutHome from '../home/AboutHome'
 import Testimonials from '../home/Testimonials'
 import MainHero from '../home/MainHero'
+import View360 from '../home/View360'
 
 function Home() {
   return (
    <>
    <MainHero/>
    <Hero/>
+   
    <Marquee/>
    <AboutHome/>
    <Services/>
    <Projects/>
    <Testimonials/>
+   <View360/>
    <CTA/>
    
    </>
