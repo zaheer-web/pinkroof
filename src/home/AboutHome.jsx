@@ -178,72 +178,7 @@ export default function AboutHome() {
 
         {/* FLOATING CARD */}
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="
-            absolute
-
-            bottom-6
-            sm:bottom-10
-
-            left-1/2
-            -translate-x-1/2
-
-            sm:left-8
-            sm:translate-x-0
-
-            bg-white/70
-            backdrop-blur-2xl
-
-            px-5
-            sm:px-6
-
-            py-3
-            sm:py-4
-
-            rounded-2xl
-
-            shadow-[0_20px_50px_rgba(219,56,132,0.18)]
-
-            border
-            border-white/40
-
-            w-[85%]
-            sm:w-auto
-
-            text-center
-            sm:text-left
-          "
-        >
-          <h3
-            className="
-              text-2xl
-              sm:text-3xl
-
-              font-semibold
-              text-[#db3884]
-            "
-          >
-            340+
-          </h3>
-
-          <p
-            className="
-              text-[10px]
-              sm:text-sm
-
-              tracking-[0.18em]
-              uppercase
-
-              text-[#5f4150]
-            "
-          >
-            Projects Completed
-          </p>
-        </motion.div>
+       
       </motion.div>
 
       {/* ================= RIGHT CONTENT ================= */}
