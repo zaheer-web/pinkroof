@@ -101,7 +101,7 @@ function Lightbox({ video, onClose }) {
         flex
         items-center
         justify-center
-        bg-black/95
+        bg-black/90
         backdrop-blur-xl
         p-3
       "
@@ -126,9 +126,10 @@ function Lightbox({ video, onClose }) {
           border-white/20
           bg-white/10
           text-white
+          backdrop-blur-xl
           transition
           duration-300
-          hover:bg-[#d89a9a]
+          hover:bg-[#db3884]
         "
       >
         ✕
@@ -192,10 +193,11 @@ function VideoCard({ item, onClick, index }) {
         h-[180px]
         cursor-pointer
         overflow-hidden
-        rounded-none
-        border-[2px]
-        border-white/10
-        bg-black
+        border
+        border-[#ef91bc]/30
+        bg-white/60
+        backdrop-blur-xl
+        shadow-[0_10px_35px_rgba(219,56,132,0.10)]
 
         sm:h-[220px]
         md:h-[260px]
@@ -250,10 +252,10 @@ function VideoCard({ item, onClick, index }) {
           absolute
           inset-0
           z-[3]
-          bg-black/20
+          bg-[#db3884]/10
           transition-all
           duration-500
-          group-hover:bg-black/10
+          group-hover:bg-[#db3884]/25
         "
       />
 
@@ -278,8 +280,8 @@ function VideoCard({ item, onClick, index }) {
             items-center
             justify-center
             border
-            border-white/20
-            bg-white/10
+            border-white/30
+            bg-white/20
             text-sm
             text-white
             backdrop-blur-xl
@@ -287,7 +289,7 @@ function VideoCard({ item, onClick, index }) {
             duration-300
 
             group-hover:scale-110
-            group-hover:bg-[#d89a9a]/40
+            group-hover:bg-[#db3884]
 
             md:h-16
             md:w-16
@@ -313,9 +315,9 @@ export default function VideoGallerySection() {
           relative
           overflow-hidden
           bg-gradient-to-br
-          from-[#FEFEFD]
-          via-[#FBE6E5]
-          to-[#f8dede]
+          from-[#fffafd]
+          via-[#fff1f8]
+          to-[#fdebf4]
           px-3
           py-16
 
@@ -329,12 +331,13 @@ export default function VideoGallerySection() {
 
         <div
           className="
+            pointer-events-none
             absolute
             -left-24
             top-0
             h-[260px]
             w-[260px]
-            bg-pink-300/20
+            bg-[#ef91bc]/25
             blur-[100px]
 
             md:h-[320px]
@@ -344,12 +347,13 @@ export default function VideoGallerySection() {
 
         <div
           className="
+            pointer-events-none
             absolute
             bottom-0
             right-0
             h-[240px]
             w-[240px]
-            bg-pink-200/30
+            bg-[#d67eb3]/25
             blur-[100px]
 
             md:h-[300px]
@@ -358,6 +362,39 @@ export default function VideoGallerySection() {
         />
 
         <div className="relative z-10 mx-auto max-w-[1500px]">
+          {/* HEADING */}
+
+          <div className="mb-10 md:mb-14">
+            <p
+              className="
+                mb-3
+                text-[11px]
+                uppercase
+                tracking-[0.35em]
+                text-[#db3884]
+              "
+            >
+              Pink Roof Interiors
+            </p>
+
+            <h2
+              className="
+                text-3xl
+                font-semibold
+                leading-tight
+                text-[#2a0f1f]
+
+                md:text-5xl
+              "
+            >
+              Our Video{" "}
+
+              <span className="italic text-[#db3884]">
+                Gallery
+              </span>
+            </h2>
+          </div>
+
           {/* VIDEO GRID */}
 
           <div

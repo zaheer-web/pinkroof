@@ -27,21 +27,22 @@ export default function View360() {
         md:px-10
         lg:px-20
         bg-gradient-to-br
-        from-[#FEFEFD]
-        via-[#FBE6E5]
-        to-[#f8dede]
+        from-[#fffafd]
+        via-[#fff1f8]
+        to-[#fdebf4]
       "
     >
       {/* BG GLOW */}
 
       <div
         className="
+          pointer-events-none
           absolute
           top-0
           right-0
           w-[320px]
           h-[320px]
-          bg-pink-200/40
+          bg-[#ef91bc]/20
           blur-[120px]
           rounded-full
         "
@@ -49,12 +50,13 @@ export default function View360() {
 
       <div
         className="
+          pointer-events-none
           absolute
           bottom-0
           left-0
           w-[320px]
           h-[320px]
-          bg-pink-300/30
+          bg-[#d67eb3]/20
           blur-[120px]
           rounded-full
         "
@@ -79,20 +81,20 @@ export default function View360() {
         {/* TOP LABEL */}
 
         <div className="flex items-center justify-center gap-3 mb-5">
-          <div className="w-10 h-[1px] bg-black"></div>
+          <div className="w-10 h-[1px] bg-[#db3884]"></div>
 
           <p
             className="
               text-[10px]
               uppercase
               tracking-[4px]
-              text-[#b88b8b]
+              text-[#db3884]
             "
           >
             Interactive Experience
           </p>
 
-          <div className="w-10 h-[1px] bg-black"></div>
+          <div className="w-10 h-[1px] bg-[#db3884]"></div>
         </div>
 
         {/* HEADING */}
@@ -102,14 +104,14 @@ export default function View360() {
             text-4xl
             md:text-6xl
             font-heading
-            text-black
+            text-[#2a0f1f]
             leading-none
             mb-6
           "
         >
           Explore Our{" "}
 
-          <span className="italic text-[#b88b8b]">
+          <span className="italic text-[#db3884]">
             360° Designs
           </span>
         </h2>
@@ -118,7 +120,7 @@ export default function View360() {
 
         <p
           className="
-            text-black/65
+            text-[#4b2d3d]
             text-sm
             md:text-lg
             leading-relaxed
@@ -159,14 +161,14 @@ export default function View360() {
               relative
               overflow-hidden
               border
-              border-white/40
-              bg-white/60
+              border-[#ef91bc]/30
+              bg-white/70
               backdrop-blur-xl
-              shadow-xl
+              shadow-[0_15px_40px_rgba(219,56,132,0.08)]
               transition-all
               duration-500
               hover:-translate-y-2
-              hover:shadow-2xl
+              hover:shadow-[0_20px_60px_rgba(219,56,132,0.18)]
             "
           >
             {/* TOP GLOW */}
@@ -178,7 +180,10 @@ export default function View360() {
                 left-0
                 h-[3px]
                 w-0
-                bg-[#d6a5a5]
+                bg-gradient-to-r
+                from-[#db3884]
+                via-[#d6559d]
+                to-[#ef91bc]
                 transition-all
                 duration-700
                 group-hover:w-full
@@ -193,8 +198,8 @@ export default function View360() {
                 md:px-7
                 py-5
                 border-b
-                border-black/5
-                bg-white/40
+                border-[#ef91bc]/20
+                bg-white/50
                 backdrop-blur-md
               "
             >
@@ -214,7 +219,7 @@ export default function View360() {
                       text-2xl
                       md:text-3xl
                       font-heading
-                      text-black
+                      text-[#2a0f1f]
                       mb-2
                     "
                   >
@@ -225,7 +230,7 @@ export default function View360() {
                     className="
                       text-sm
                       md:text-base
-                      text-black/60
+                      text-[#5f4150]
                       leading-relaxed
                       max-w-xl
                     "
@@ -242,12 +247,13 @@ export default function View360() {
                     items-center
                     gap-2
                     border
-                    border-[#d6a5a5]/40
-                    bg-[#fff]/70
+                    border-[#ef91bc]/40
+                    bg-white/80
                     px-4
                     py-2
                     backdrop-blur-md
                     shrink-0
+                    shadow-md
                   "
                 >
                   <span
@@ -255,7 +261,7 @@ export default function View360() {
                       w-2.5
                       h-2.5
                       rounded-full
-                      bg-[#d89a9a]
+                      bg-[#db3884]
                       animate-pulse
                     "
                   ></span>
@@ -265,7 +271,7 @@ export default function View360() {
                       text-[10px]
                       uppercase
                       tracking-[3px]
-                      text-black/70
+                      text-[#db3884]
                     "
                   >
                     Live View
@@ -330,8 +336,8 @@ export default function View360() {
                 md:px-7
                 py-4
                 border-t
-                border-black/5
-                bg-white/30
+                border-[#ef91bc]/20
+                bg-white/40
               "
             >
               <p
@@ -339,7 +345,7 @@ export default function View360() {
                   text-[11px]
                   uppercase
                   tracking-[3px]
-                  text-black/50
+                  text-[#5f4150]/70
                 "
               >
                 Premium 360 Experience
@@ -352,9 +358,10 @@ export default function View360() {
                 rel="noopener noreferrer"
                 className="
                   text-sm
-                  text-[#b88b8b]
-                  hover:text-black
+                  text-[#db3884]
+                  hover:text-[#d6559d]
                   transition
+                  font-medium
                 "
               >
                 Open Full View →

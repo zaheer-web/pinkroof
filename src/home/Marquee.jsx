@@ -10,26 +10,88 @@ export default function Marquee() {
   ];
 
   return (
-    <div className="bg-[#111110] overflow-hidden py-3 border-y border-[#FBE6E5]/20">
+    <div
+      className="
+        relative
+        overflow-hidden
+        py-4
+        border-y
+        border-[#ef91bc]/20
+        bg-gradient-to-r
+        from-[#fffafd]
+        via-[#fff1f8]
+        to-[#fdebf4]
+      "
+    >
+      {/* GLOW EFFECT */}
 
-      <div className="marquee flex whitespace-nowrap">
+      <div
+        className="
+          pointer-events-none
+          absolute
+          top-0
+          left-0
+          w-[250px]
+          h-[250px]
+          bg-[#ef91bc]/15
+          blur-[100px]
+        "
+      ></div>
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-0
+          right-0
+          w-[250px]
+          h-[250px]
+          bg-[#d67eb3]/15
+          blur-[100px]
+        "
+      ></div>
+
+      {/* MARQUEE */}
+
+      <div className="marquee flex whitespace-nowrap relative z-10">
 
         {/* TRACK */}
+
         <div className="marquee-track flex gap-10 md:gap-14">
           {[...items, ...items].map((item, i) => (
             <span
               key={i}
-              className="text-[11px] md:text-[12px] tracking-[0.25em] uppercase text-[#FBE6E5] flex items-center gap-4 font-body"
+              className="
+                text-[11px]
+                md:text-[12px]
+                tracking-[0.28em]
+                uppercase
+                text-[#db3884]
+                flex
+                items-center
+                gap-4
+                font-medium
+              "
             >
               {item}
-              <span className="text-[#FEFEFD]/40 text-[8px]">✦</span>
+
+              {/* STAR */}
+
+              <span
+                className="
+                  text-[#d67eb3]
+                  text-[8px]
+                "
+              >
+                ✦
+              </span>
             </span>
           ))}
         </div>
-
       </div>
 
       {/* CSS */}
+
       <style>
         {`
           .marquee {
@@ -46,18 +108,19 @@ export default function Marquee() {
             0% {
               transform: translateX(0%);
             }
+
             100% {
               transform: translateX(-50%);
             }
           }
 
-          /* Hover pause */
+          /* Hover Pause */
+
           .marquee-track:hover {
             animation-play-state: paused;
           }
         `}
       </style>
-
     </div>
   );
 }

@@ -112,8 +112,6 @@ export default function Projects() {
     { category: "Hostel", img: ho4 },
   ];
 
-  // RESPONSIVE COUNT
-
   useEffect(() => {
     const updateCount = () => {
       if (window.innerWidth < 768) {
@@ -170,38 +168,44 @@ export default function Projects() {
         py-14
         md:py-20
         bg-gradient-to-br
-        from-[#FEFEFD]
-        via-[#FBE6E5]
-        to-[#f8dede]
+        from-[#fffafd]
+        via-[#fff1f8]
+        to-[#fdebf4]
       "
     >
-      {/* HEADER */}
+      {/* GLOW */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.7),transparent_40%)]"></div>
 
+      <div className="pointer-events-none absolute -top-40 -left-40 h-[350px] w-[350px] bg-[#ef91bc]/20 blur-3xl"></div>
+
+      <div className="pointer-events-none absolute bottom-0 right-0 h-[300px] w-[300px] bg-[#d67eb3]/20 blur-3xl"></div>
+
+      {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 1 }}
+        className="relative z-20"
       >
         <h2
           className="
             font-heading
             text-3xl
             md:text-5xl
-            text-black
+            text-[#2a0f1f]
             mb-10
             tracking-tight
           "
         >
           Our{" "}
-          <span className="italic text-[#b88b8b]">
+          <span className="italic text-[#db3884]">
             Projects
           </span>
         </h2>
       </motion.div>
 
       {/* FILTER MENU */}
-
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -212,6 +216,8 @@ export default function Projects() {
           w-full
           overflow-x-auto
           scrollbar-hide
+          relative
+          z-30
         "
       >
         <div
@@ -220,7 +226,6 @@ export default function Projects() {
             gap-3
             min-w-max
             pb-2
-
             md:flex-wrap
             md:min-w-0
           "
@@ -228,6 +233,7 @@ export default function Projects() {
           {categories.map((cat, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => {
                 setActive(cat);
                 setSelectedIndex(null);
@@ -239,6 +245,9 @@ export default function Projects() {
                 }
               }}
               className={`
+                relative
+                z-40
+                cursor-pointer
                 shrink-0
                 px-5
                 py-3
@@ -252,8 +261,8 @@ export default function Projects() {
 
                 ${
                   active === cat
-                    ? "bg-black text-[#FEFEFD] border-black"
-                    : "border-black/20 bg-white/60 text-black hover:bg-black hover:text-[#FEFEFD]"
+                    ? "bg-[#db3884] text-white border-[#db3884] shadow-[0_10px_25px_rgba(219,56,132,0.25)]"
+                    : "border-[#ef91bc] bg-white/80 text-[#db3884] hover:bg-[#db3884] hover:text-white"
                 }
 
                 md:px-6
@@ -267,18 +276,17 @@ export default function Projects() {
       </motion.div>
 
       {/* GRID */}
-
       <div
         className="
+          relative
+          z-10
           grid
           grid-cols-2
           md:grid-cols-3
           xl:grid-cols-4
-
           auto-rows-[140px]
           sm:auto-rows-[180px]
           md:auto-rows-[220px]
-
           gap-2
           md:gap-4
         "
@@ -300,12 +308,11 @@ export default function Projects() {
               overflow-hidden
               cursor-pointer
               border
-              border-black/10
+              border-[#ef91bc]/20
+              shadow-[0_10px_30px_rgba(219,56,132,0.08)]
               ${getSpan(i)}
             `}
           >
-            {/* IMAGE */}
-
             <img
               src={item.img}
               alt=""
@@ -319,14 +326,12 @@ export default function Projects() {
               "
             />
 
-            {/* OVERLAY */}
-
             <div
               className="
                 absolute
                 inset-0
-                bg-black/20
-                group-hover:bg-black/50
+                bg-[#db3884]/5
+                group-hover:bg-[#db3884]/25
                 transition-all
                 duration-500
               "
@@ -336,7 +341,6 @@ export default function Projects() {
       </div>
 
       {/* BUTTONS */}
-
       <div className="flex justify-center mt-10 gap-4">
         {visibleCount < filtered.length && (
           <motion.button
@@ -350,15 +354,15 @@ export default function Projects() {
             className="
               px-6
               py-3
-              bg-black
-              text-[#FEFEFD]
+              bg-[#db3884]
+              text-white
               text-xs
               uppercase
               tracking-widest
               transition-all
               duration-500
-              hover:opacity-80
               hover:scale-105
+              shadow-xl
             "
           >
             View More
@@ -376,15 +380,15 @@ export default function Projects() {
               px-6
               py-3
               border
-              border-black
-              text-black
+              border-[#db3884]
+              text-[#db3884]
               text-xs
               uppercase
               tracking-widest
               transition-all
               duration-500
-              hover:bg-black
-              hover:text-[#FEFEFD]
+              hover:bg-[#db3884]
+              hover:text-white
             "
           >
             Show Less
@@ -393,7 +397,6 @@ export default function Projects() {
       </div>
 
       {/* LIGHTBOX */}
-
       <AnimatePresence>
         {selectedIndex !== null && (
           <motion.div
@@ -410,8 +413,6 @@ export default function Projects() {
               z-50
             "
           >
-            {/* CLOSE */}
-
             <button
               onClick={() => setSelectedIndex(null)}
               className="
@@ -425,8 +426,6 @@ export default function Projects() {
             >
               ✕
             </button>
-
-            {/* PREV */}
 
             <button
               onClick={prev}
@@ -442,8 +441,6 @@ export default function Projects() {
               ‹
             </button>
 
-            {/* IMAGE */}
-
             <motion.img
               key={filtered[selectedIndex].img}
               initial={{ scale: 0.8 }}
@@ -458,8 +455,6 @@ export default function Projects() {
                 object-contain
               "
             />
-
-            {/* NEXT */}
 
             <button
               onClick={next}

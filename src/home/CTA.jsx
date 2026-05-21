@@ -12,35 +12,37 @@ export default function CTA() {
         py-24
         md:py-32
         bg-gradient-to-br
-        from-[#FEFEFD]
-        via-[#FBE6E5]
-        to-[#f8dede]
+        from-[#fffafd]
+        via-[#fff1f8]
+        to-[#fdebf4]
       "
     >
       {/* BLUR EFFECTS */}
 
       <div
         className="
+          pointer-events-none
           absolute
           top-0
           left-0
           h-[300px]
           w-[300px]
           rounded-full
-          bg-pink-300/20
+          bg-[#ef91bc]/20
           blur-[120px]
         "
       ></div>
 
       <div
         className="
+          pointer-events-none
           absolute
           bottom-0
           right-0
           h-[320px]
           w-[320px]
           rounded-full
-          bg-pink-200/30
+          bg-[#d67eb3]/20
           blur-[120px]
         "
       ></div>
@@ -52,7 +54,7 @@ export default function CTA() {
           absolute
           inset-0
           opacity-[0.04]
-          [background-image:linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)]
+          [background-image:linear-gradient(to_right,#db3884_1px,transparent_1px),linear-gradient(to_bottom,#db3884_1px,transparent_1px)]
           [background-size:60px_60px]
         "
       ></div>
@@ -83,20 +85,20 @@ export default function CTA() {
             mb-7
           "
         >
-          <div className="w-10 h-[1px] bg-black"></div>
+          <div className="w-10 h-[1px] bg-[#db3884]"></div>
 
           <span
             className="
               text-[10px]
               tracking-[0.35em]
               uppercase
-              text-[#b88b8b]
+              text-[#db3884]
             "
           >
             Start Your Journey
           </span>
 
-          <div className="w-10 h-[1px] bg-black"></div>
+          <div className="w-10 h-[1px] bg-[#db3884]"></div>
         </motion.div>
 
         {/* HEADING */}
@@ -115,14 +117,14 @@ export default function CTA() {
             sm:text-5xl
             md:text-6xl
             lg:text-7xl
-            text-black
+            text-[#2a0f1f]
             leading-[1.1]
             mb-8
           "
         >
           Let’s Design <br />
 
-          <span className="italic text-[#b88b8b]">
+          <span className="italic text-[#db3884]">
             Your Dream Space
           </span>
         </motion.h2>
@@ -140,7 +142,7 @@ export default function CTA() {
           className="
             max-w-2xl
             mx-auto
-            text-black/65
+            text-[#5f4150]
             text-sm
             md:text-lg
             leading-relaxed
@@ -186,14 +188,17 @@ export default function CTA() {
                 group
                 relative
                 overflow-hidden
-                bg-black
+                bg-gradient-to-r
+                from-[#db3884]
+                via-[#d6559d]
+                to-[#d67eb3]
                 text-white
                 px-10
                 py-4
                 text-[11px]
                 uppercase
                 tracking-[0.25em]
-                shadow-xl
+                shadow-[0_15px_40px_rgba(219,56,132,0.25)]
                 transition-all
                 duration-500
               "
@@ -236,8 +241,10 @@ export default function CTA() {
                 relative
                 overflow-hidden
                 border
-                border-black
-                text-black
+                border-[#db3884]
+                bg-white/70
+                backdrop-blur-xl
+                text-[#db3884]
                 px-10
                 py-4
                 text-[11px]
@@ -246,6 +253,7 @@ export default function CTA() {
                 transition-all
                 duration-500
                 hover:text-white
+                shadow-lg
               "
             >
               {/* BG ANIMATION */}
@@ -256,7 +264,10 @@ export default function CTA() {
                   inset-0
                   origin-left
                   scale-x-0
-                  bg-black
+                  bg-gradient-to-r
+                  from-[#db3884]
+                  via-[#d6559d]
+                  to-[#d67eb3]
                   transition-transform
                   duration-500
                   group-hover:scale-x-100
@@ -290,48 +301,48 @@ export default function CTA() {
           "
         >
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#b88b8b] animate-pulse"></div>
+            <div className="w-2 h-2 bg-[#db3884] animate-pulse"></div>
 
             <span
               className="
                 text-[11px]
                 uppercase
                 tracking-[3px]
-                text-black/45
+                text-[#5f4150]
               "
             >
               Luxury Interiors
             </span>
           </div>
 
-          <div className="w-[1px] h-4 bg-black/20 hidden sm:block"></div>
+          <div className="w-[1px] h-4 bg-[#db3884]/20 hidden sm:block"></div>
 
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#b88b8b] animate-pulse"></div>
+            <div className="w-2 h-2 bg-[#d6559d] animate-pulse"></div>
 
             <span
               className="
                 text-[11px]
                 uppercase
                 tracking-[3px]
-                text-black/45
+                text-[#5f4150]
               "
             >
               Modern Architecture
             </span>
           </div>
 
-          <div className="w-[1px] h-4 bg-black/20 hidden sm:block"></div>
+          <div className="w-[1px] h-4 bg-[#db3884]/20 hidden sm:block"></div>
 
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#b88b8b] animate-pulse"></div>
+            <div className="w-2 h-2 bg-[#d67eb3] animate-pulse"></div>
 
             <span
               className="
                 text-[11px]
                 uppercase
                 tracking-[3px]
-                text-black/45
+                text-[#5f4150]
               "
             >
               Premium Spaces

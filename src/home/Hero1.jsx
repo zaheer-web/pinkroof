@@ -22,20 +22,17 @@ const fadeUp = {
 };
 
 export default function Hero1() {
-
   return (
-
     <section
       className="
         relative
         min-h-screen
         w-full
         overflow-hidden
-        bg-[#FBE6E5]
-        text-[#1a1410]
+        bg-[#fff0f7]
+        text-[#2a0d1d]
       "
     >
-
       {/* DECORATIVE BLOBS */}
       <div
         className="
@@ -46,7 +43,7 @@ export default function Hero1() {
           h-[420px]
           w-[420px]
           rounded-full
-          bg-[#d7b1b1]/30
+          bg-[#db3884]/30
           blur-3xl
         "
       />
@@ -60,7 +57,7 @@ export default function Hero1() {
           h-[380px]
           w-[380px]
           rounded-full
-          bg-[#b88b8b]/25
+          bg-[#d6559d]/25
           blur-3xl
         "
       />
@@ -70,8 +67,8 @@ export default function Hero1() {
           pointer-events-none
           absolute
           inset-0
-          opacity-[0.04]
-          [background-image:radial-gradient(#1a1410_1px,transparent_1px)]
+          opacity-[0.05]
+          [background-image:radial-gradient(#db3884_1px,transparent_1px)]
           [background-size:22px_22px]
         "
       />
@@ -94,10 +91,8 @@ export default function Hero1() {
           lg:gap-8
         "
       >
-
         {/* LEFT CONTENT */}
         <div className="lg:col-span-7">
-
           {/* TAG */}
           <motion.div
             variants={fadeUp}
@@ -111,19 +106,20 @@ export default function Hero1() {
               gap-2
               rounded-full
               border
-              border-[#b88b8b]/30
-              bg-white/60
+              border-[#db3884]/20
+              bg-white/70
               px-4
               py-1.5
               text-xs
               font-medium
               uppercase
               tracking-[0.18em]
-              text-[#1a1410]/70
-              backdrop-blur
+              text-[#2a0d1d]/80
+              backdrop-blur-xl
+              shadow-lg
             "
           >
-            <Sparkles className="h-3.5 w-3.5 text-[#b88b8b]" />
+            <Sparkles className="h-3.5 w-3.5 text-[#db3884]" />
 
             Pink Roof Interior Studio
           </motion.div>
@@ -143,12 +139,11 @@ export default function Hero1() {
               lg:text-[88px]
             "
           >
-
             Pink Roof
 
             <br />
 
-            <span className="italic text-[#b88b8b]">
+            <span className="italic text-[#db3884]">
               Interior
             </span>
 
@@ -157,7 +152,6 @@ export default function Hero1() {
             Design Studio
 
             <span className="relative inline-block ml-3">
-
               .
 
               <motion.svg
@@ -174,14 +168,12 @@ export default function Hero1() {
                 <motion.path
                   d="M2 8 Q 150 -2 298 6"
                   fill="none"
-                  stroke="#b88b8b"
+                  stroke="#db3884"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                 />
               </motion.svg>
-
             </span>
-
           </motion.h1>
 
           {/* DESCRIPTION */}
@@ -195,7 +187,7 @@ export default function Hero1() {
               max-w-lg
               text-base
               leading-relaxed
-              text-[#1a1410]/70
+              text-[#2a0d1d]/70
               md:text-lg
             "
           >
@@ -219,7 +211,6 @@ export default function Hero1() {
               gap-4
             "
           >
-
             <button
               className="
                 group
@@ -227,15 +218,18 @@ export default function Hero1() {
                 items-center
                 gap-3
                 rounded-full
-                bg-[#b88b8b]
+                bg-[#db3884]
                 px-7
                 py-4
                 text-sm
                 font-medium
                 text-white
                 transition-all
+                duration-300
+                shadow-xl
                 hover:gap-4
-                hover:bg-[#a67878]
+                hover:bg-[#d6559d]
+                hover:shadow-[#db3884]/40
               "
             >
               Explore Projects
@@ -258,10 +252,9 @@ export default function Hero1() {
                 gap-3
                 text-sm
                 font-medium
-                text-[#1a1410]
+                text-[#2a0d1d]
               "
             >
-
               <span
                 className="
                   grid
@@ -270,20 +263,21 @@ export default function Hero1() {
                   place-items-center
                   rounded-full
                   border
-                  border-[#b88b8b]/30
+                  border-[#db3884]/30
+                  bg-white/70
                   transition-all
-                  group-hover:border-[#b88b8b]
-                  group-hover:bg-[#b88b8b]
+                  duration-300
+                  group-hover:border-[#db3884]
+                  group-hover:bg-[#db3884]
                   group-hover:text-white
+                  shadow-md
                 "
               >
                 <Play className="h-4 w-4 fill-current" />
               </span>
 
               Watch Showreel
-
             </button>
-
           </motion.div>
 
           {/* STATS */}
@@ -299,20 +293,17 @@ export default function Hero1() {
               grid-cols-3
               gap-6
               border-t
-              border-[#b88b8b]/20
+              border-[#db3884]/20
               pt-8
             "
           >
-
             {[
               { n: "340+", l: "Projects" },
               { n: "7+", l: "Years Experience" },
               { n: "98%", l: "Client Satisfaction" },
             ].map((s) => (
-
               <div key={s.l}>
-
-                <div className="font-serif text-3xl md:text-4xl">
+                <div className="font-serif text-3xl md:text-4xl text-[#db3884]">
                   {s.n}
                 </div>
 
@@ -322,70 +313,56 @@ export default function Hero1() {
                     text-xs
                     uppercase
                     tracking-widest
-                    text-[#1a1410]/60
+                    text-[#2a0d1d]/60
                   "
                 >
                   {s.l}
                 </div>
-
               </div>
-
             ))}
-
           </motion.div>
-
         </div>
 
         {/* RIGHT IMAGE */}
         <div className="relative lg:col-span-5">
-
           <motion.div
             initial={{
               opacity: 0,
               scale: 0.95,
               y: 40,
             }}
-
             animate={{
               opacity: 1,
               scale: 1,
               y: 0,
             }}
-
             transition={{
               duration: 1,
               ease: [0.22, 1, 0.36, 1],
             }}
-
             className="relative"
           >
-
             {/* MAIN IMAGE */}
             <div
               className="
                 relative
                 overflow-hidden
                 rounded-[2rem]
-                shadow-2xl
+                shadow-[0_25px_80px_rgba(219,56,132,0.25)]
                 ring-1
-                ring-black/5
+                ring-[#db3884]/10
               "
             >
-
               <motion.img
                 src={heroMain}
                 alt="Pink Roof Interior"
-
                 className="
                   h-[560px]
                   w-full
                   object-cover
                 "
-
                 initial={{ scale: 1.15 }}
-
                 animate={{ scale: 1 }}
-
                 transition={{
                   duration: 1.8,
                   ease: "easeOut",
@@ -397,7 +374,7 @@ export default function Hero1() {
                   absolute
                   inset-0
                   bg-gradient-to-t
-                  from-[#00000020]
+                  from-[#db388450]
                   via-transparent
                   to-transparent
                 "
@@ -406,14 +383,11 @@ export default function Hero1() {
               {/* FLOATING TAG */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-
                 animate={{ opacity: 1, y: 0 }}
-
                 transition={{
                   delay: 1,
                   duration: 0.6,
                 }}
-
                 className="
                   absolute
                   left-5
@@ -427,33 +401,27 @@ export default function Hero1() {
                   py-2
                   text-xs
                   font-medium
-                  text-[#1a1410]
-                  backdrop-blur
+                  text-[#2a0d1d]
+                  backdrop-blur-xl
+                  shadow-xl
                 "
               >
-
                 <span
                   className="
                     h-2
                     w-2
                     animate-pulse
                     rounded-full
-                    bg-[#b88b8b]
+                    bg-[#db3884]
                   "
                 />
 
                 Pink Roof Featured Project
-
               </motion.div>
-
             </div>
-
           </motion.div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

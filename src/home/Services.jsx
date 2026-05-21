@@ -46,13 +46,17 @@ export default function Services() {
         py-16
         md:py-24
         bg-gradient-to-br
-        from-[#FEFEFD]
-        via-[#FBE6E5]
-        to-[#f8dede]
+        from-[#db3884]
+        via-[#d6559d]
+        to-[#e99fc5]
       "
     >
-      {/* SOFT BG GLOW */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.6),transparent_40%)]"></div>
+      {/* BACKGROUND GLOW */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.18),transparent_40%)]"></div>
+
+      <div className="absolute -top-32 -left-32 h-[350px] w-[350px] bg-[#ef91bc]/30 blur-3xl"></div>
+
+      <div className="absolute bottom-0 right-0 h-[300px] w-[300px] bg-[#d67eb3]/30 blur-3xl"></div>
 
       {/* HEADER */}
       <motion.div
@@ -75,9 +79,9 @@ export default function Services() {
         <div>
           {/* LABEL */}
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-10 h-[1px] bg-black"></div>
+            <div className="w-10 h-[1px] bg-white"></div>
 
-            <span className="text-[10px] tracking-[0.35em] uppercase text-black">
+            <span className="text-[10px] tracking-[0.35em] uppercase text-white/90">
               Pink Roof Interiors
             </span>
           </div>
@@ -91,12 +95,12 @@ export default function Services() {
               md:text-6xl
               leading-none
               tracking-tight
-              text-black
+              text-white
             "
           >
             Our{" "}
 
-            <span className="italic text-[#b88b8b]">
+            <span className="italic text-[#fff0f7]">
               Services
             </span>
           </h2>
@@ -107,17 +111,21 @@ export default function Services() {
           <button
             className="
               border
-              border-black
-              px-6
+              border-white/70
+              bg-white/10
+              backdrop-blur-xl
+              px-7
               py-3
               text-[11px]
               tracking-[0.25em]
               uppercase
+              text-white
               transition-all
               duration-500
-              hover:bg-black
-              hover:text-white
+              hover:bg-white
+              hover:text-[#db3884]
               hover:scale-105
+              shadow-xl
             "
           >
             See All Services
@@ -150,16 +158,15 @@ export default function Services() {
               group
               relative
               overflow-hidden
-              bg-white/70
-              backdrop-blur-xl
+              bg-white/12
+              backdrop-blur-2xl
               border
-              border-[#ecd8d8]
-              shadow-lg
+              border-white/20
+              shadow-[0_20px_50px_rgba(0,0,0,0.15)]
               transition-all
               duration-500
               hover:-translate-y-3
-              hover:shadow-2xl
-              hover:bg-[#fff7f7]
+              hover:bg-white/18
             "
           >
             {/* TOP LINE */}
@@ -168,9 +175,9 @@ export default function Services() {
                 absolute
                 top-0
                 left-0
-                h-[3px]
+                h-[4px]
                 w-0
-                bg-[#d6a5a5]
+                bg-white
                 transition-all
                 duration-500
                 group-hover:w-full
@@ -189,7 +196,7 @@ export default function Services() {
                   transition-all
                   duration-700
                   group-hover:scale-110
-                  brightness-90
+                  brightness-95
                   group-hover:brightness-100
                 "
               />
@@ -202,7 +209,7 @@ export default function Services() {
                 className="
                   text-sm
                   tracking-[0.2em]
-                  text-[#b88b8b]
+                  text-[#fff0f7]
                   mb-3
                   font-semibold
                 "
@@ -216,11 +223,11 @@ export default function Services() {
                   text-[22px]
                   leading-snug
                   font-semibold
-                  text-black
+                  text-white
                   mb-3
                   transition
                   duration-300
-                  group-hover:text-[#b88b8b]
+                  group-hover:text-[#fff0f7]
                 "
               >
                 {item.title}
@@ -231,7 +238,7 @@ export default function Services() {
                 className="
                   text-[15px]
                   leading-relaxed
-                  text-gray-600
+                  text-white/75
                 "
               >
                 {item.desc}
@@ -242,8 +249,8 @@ export default function Services() {
                 className="
                   mt-6
                   w-10
-                  h-[1px]
-                  bg-[#d6a5a5]
+                  h-[2px]
+                  bg-white
                   transition-all
                   duration-500
                   group-hover:w-full

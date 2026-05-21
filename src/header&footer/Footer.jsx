@@ -13,6 +13,8 @@ import {
   Phone,
 } from "lucide-react";
 
+import { motion } from "framer-motion";
+
 import logo from "../img/logo.png";
 
 export default function Footer() {
@@ -63,22 +65,23 @@ export default function Footer() {
           relative
           overflow-hidden
           bg-gradient-to-br
-          from-[#FEFEFD]
-          via-[#FBE6E5]
-          to-[#f8dede]
-          text-black
+          from-[#fffafd]
+          via-[#fff1f8]
+          to-[#fdebf4]
+          text-[#2a0f1f]
         "
       >
         {/* GLOW */}
 
         <div
           className="
+            pointer-events-none
             absolute
             top-0
             right-0
-            w-[300px]
-            h-[300px]
-            bg-pink-200/30
+            w-[320px]
+            h-[320px]
+            bg-[#ef91bc]/20
             blur-[120px]
             rounded-full
           "
@@ -86,14 +89,27 @@ export default function Footer() {
 
         <div
           className="
+            pointer-events-none
             absolute
             bottom-0
             left-0
-            w-[300px]
-            h-[300px]
-            bg-pink-300/20
+            w-[320px]
+            h-[320px]
+            bg-[#d67eb3]/20
             blur-[120px]
             rounded-full
+          "
+        ></div>
+
+        {/* GRID PATTERN */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.03]
+            [background-image:linear-gradient(to_right,#db3884_1px,transparent_1px),linear-gradient(to_bottom,#db3884_1px,transparent_1px)]
+            [background-size:60px_60px]
           "
         ></div>
 
@@ -114,7 +130,7 @@ export default function Footer() {
           {/* LEFT BRAND */}
 
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-5">
               <img
                 src={logo}
                 alt="logo"
@@ -125,10 +141,11 @@ export default function Footer() {
                 className="
                   font-heading
                   text-2xl
+                  text-[#2a0f1f]
                 "
               >
                 Pink Roof
-                <span className="text-[#b88b8b]">
+                <span className="text-[#db3884]">
                   .
                 </span>
               </h2>
@@ -139,7 +156,7 @@ export default function Footer() {
                 text-sm
                 leading-relaxed
                 mb-6
-                text-black/70
+                text-[#5f4150]
               "
             >
               Pink Roof Interiors creates modern and
@@ -150,49 +167,63 @@ export default function Footer() {
             {/* SOCIAL */}
 
             <div className="flex gap-4">
-              <a
+              <motion.a
+                whileHover={{
+                  scale: 1.08,
+                  y: -3,
+                }}
                 href="https://www.instagram.com/interiorpinkroof/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  w-10
-                  h-10
+                  w-11
+                  h-11
                   flex
                   items-center
                   justify-center
                   border
-                  border-black
+                  border-[#ef91bc]
+                  text-[#db3884]
+                  bg-white/70
+                  backdrop-blur-xl
                   transition-all
                   duration-300
-                  hover:bg-[#FBE6E5]
-                  hover:scale-110
-                  hover:shadow-md
+                  hover:bg-[#db3884]
+                  hover:text-white
+                  shadow-lg
                 "
               >
                 <FaInstagram />
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{
+                  scale: 1.08,
+                  y: -3,
+                }}
                 href="https://wa.me/918563980030"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  w-10
-                  h-10
+                  w-11
+                  h-11
                   flex
                   items-center
                   justify-center
                   border
-                  border-black
+                  border-[#ef91bc]
+                  text-[#db3884]
+                  bg-white/70
+                  backdrop-blur-xl
                   transition-all
                   duration-300
-                  hover:bg-[#FBE6E5]
-                  hover:scale-110
-                  hover:shadow-md
+                  hover:bg-[#db3884]
+                  hover:text-white
+                  shadow-lg
                 "
               >
                 <FaWhatsapp />
-              </a>
+              </motion.a>
             </div>
           </div>
 
@@ -204,13 +235,14 @@ export default function Footer() {
                 text-xs
                 uppercase
                 mb-6
-                tracking-widest
+                tracking-[3px]
+                text-[#db3884]
               "
             >
               Services
             </h4>
 
-            <ul className="space-y-3 text-sm text-black/70">
+            <ul className="space-y-4 text-sm text-[#5f4150]">
               {[
                 "Salon Interiors",
                 "Residential Design",
@@ -225,8 +257,9 @@ export default function Footer() {
                     className="
                       relative
                       inline-block
-                      transition
-                      group-hover:text-black
+                      transition-all
+                      duration-300
+                      group-hover:text-[#db3884]
                     "
                   >
                     {item}
@@ -238,7 +271,7 @@ export default function Footer() {
                         -bottom-1
                         w-0
                         h-[1px]
-                        bg-black
+                        bg-[#db3884]
                         transition-all
                         duration-300
                         group-hover:w-full
@@ -258,13 +291,14 @@ export default function Footer() {
                 text-xs
                 uppercase
                 mb-6
-                tracking-widest
+                tracking-[3px]
+                text-[#db3884]
               "
             >
               Quick Links
             </h4>
 
-            <ul className="space-y-3 text-sm text-black/70">
+            <ul className="space-y-4 text-sm text-[#5f4150]">
               {[
                 { to: "/", label: "Home" },
                 { to: "/about", label: "About" },
@@ -280,8 +314,9 @@ export default function Footer() {
                       group
                       relative
                       inline-block
-                      transition
-                      hover:text-black
+                      transition-all
+                      duration-300
+                      hover:text-[#db3884]
                     "
                   >
                     {item.label}
@@ -293,7 +328,7 @@ export default function Footer() {
                         -bottom-1
                         w-0
                         h-[1px]
-                        bg-black
+                        bg-[#db3884]
                         transition-all
                         duration-300
                         group-hover:w-full
@@ -313,13 +348,14 @@ export default function Footer() {
                 text-xs
                 uppercase
                 mb-6
-                tracking-widest
+                tracking-[3px]
+                text-[#db3884]
               "
             >
               Contact
             </h4>
 
-            <ul className="space-y-3 text-sm text-black/70">
+            <ul className="space-y-4 text-sm text-[#5f4150]">
               {[
                 "India",
                 "pinkroofinteriors@gmail.com",
@@ -333,8 +369,9 @@ export default function Footer() {
                     className="
                       relative
                       inline-block
-                      transition
-                      group-hover:text-black
+                      transition-all
+                      duration-300
+                      group-hover:text-[#db3884]
                     "
                   >
                     {item}
@@ -346,7 +383,7 @@ export default function Footer() {
                         -bottom-1
                         w-0
                         h-[1px]
-                        bg-black
+                        bg-[#db3884]
                         transition-all
                         duration-300
                         group-hover:w-full
@@ -363,22 +400,24 @@ export default function Footer() {
 
         <div
           className="
+            relative
+            z-10
             border-t
-            border-black/10
+            border-[#ef91bc]/20
             px-6
             md:px-16
             py-6
             flex
             justify-between
             text-xs
-            text-black/60
+            text-[#5f4150]
             flex-wrap
             gap-3
           "
         >
           <p>© 2026 Pink Roof Interiors</p>
 
-          <div className="flex gap-4">
+          <div className="flex gap-5">
             {["Privacy", "Terms"].map((item, i) => (
               <span
                 key={i}
@@ -386,6 +425,8 @@ export default function Footer() {
                   relative
                   group
                   cursor-pointer
+                  hover:text-[#db3884]
+                  transition-all
                 "
               >
                 {item}
@@ -397,7 +438,7 @@ export default function Footer() {
                     -bottom-1
                     w-0
                     h-[1px]
-                    bg-black
+                    bg-[#db3884]
                     transition-all
                     duration-300
                     group-hover:w-full
@@ -420,13 +461,13 @@ export default function Footer() {
           w-full
           z-[999]
           border-t
-          border-[#ead3d3]
-          bg-[#FEFEFD]/95
+          border-[#ef91bc]/20
+          bg-white/80
           backdrop-blur-2xl
-          shadow-[0_-5px_30px_rgba(0,0,0,0.06)]
+          shadow-[0_-10px_30px_rgba(219,56,132,0.08)]
         "
       >
-        {/* TOP SHINE */}
+        {/* TOP LINE */}
 
         <div
           className="
@@ -437,14 +478,14 @@ export default function Footer() {
             h-[1px]
             bg-gradient-to-r
             from-transparent
-            via-[#d6a5a5]
+            via-[#db3884]
             to-transparent
           "
         ></div>
 
         {/* MENU */}
 
-        <div className="grid grid-cols-5 h-[72px]">
+        <div className="grid grid-cols-5 h-[74px]">
           {navItems.map((item, index) => {
             const active =
               location.pathname === item.path;
@@ -464,38 +505,24 @@ export default function Footer() {
                   duration-300
                 "
               >
-                {/* ACTIVE BG */}
-
-                <div
-                  className={`
-                    absolute
-                    top-[7px]
-                    w-[46px]
-                    h-[46px]
-                    transition-all
-                    duration-300
-                    
-                    ${
-                      active
-                        ? "bg-[#FBE6E5] scale-100"
-                        : "scale-0"
-                    }
-                  `}
-                ></div>
-
                 {/* ICON */}
 
                 <div
                   className={`
                     relative
                     z-10
+                    flex
+                    items-center
+                    justify-center
+                    w-[42px]
+                    h-[42px]
                     transition-all
                     duration-300
-                    
+
                     ${
                       active
-                        ? "text-[#b88b8b]"
-                        : "text-black/65"
+                        ? "text-[#db3884]"
+                        : "text-[#5f4150]"
                     }
                   `}
                 >
@@ -511,34 +538,34 @@ export default function Footer() {
                     text-[10px]
                     transition-all
                     duration-300
-                    
+
                     ${
                       active
-                        ? "text-[#b88b8b] font-medium"
-                        : "text-black/55"
+                        ? "text-[#db3884] font-medium"
+                        : "text-[#5f4150]"
                     }
                   `}
                 >
                   {item.label}
                 </span>
 
-                {/* ACTIVE DOT */}
+                {/* ACTIVE LINE */}
 
                 <div
                   className={`
                     absolute
-                    bottom-[6px]
-                    w-1
-                    h-1
-                    rounded-full
-                    bg-[#b88b8b]
+                    bottom-0
+                    left-1/2
+                    -translate-x-1/2
+                    h-[2px]
+                    bg-[#db3884]
                     transition-all
                     duration-300
-                    
+
                     ${
                       active
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-0"
+                        ? "w-8 opacity-100"
+                        : "w-0 opacity-0"
                     }
                   `}
                 ></div>
