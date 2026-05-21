@@ -113,6 +113,7 @@ export default function Projects() {
   ];
 
   // RESPONSIVE COUNT
+
   useEffect(() => {
     const updateCount = () => {
       if (window.innerWidth < 768) {
@@ -148,9 +149,7 @@ export default function Projects() {
   };
 
   const next = () => {
-    setSelectedIndex((prev) =>
-      (prev + 1) % filtered.length
-    );
+    setSelectedIndex((prev) => (prev + 1) % filtered.length);
   };
 
   const prev = () => {
@@ -164,9 +163,12 @@ export default function Projects() {
       className="
         relative
         overflow-hidden
-        px-4
-        md:px-16
-        py-20
+        px-3
+        sm:px-4
+        md:px-10
+        lg:px-16
+        py-14
+        md:py-20
         bg-gradient-to-br
         from-[#FEFEFD]
         via-[#FBE6E5]
@@ -174,6 +176,7 @@ export default function Projects() {
       "
     >
       {/* HEADER */}
+
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -191,63 +194,93 @@ export default function Projects() {
           "
         >
           Our{" "}
-
           <span className="italic text-[#b88b8b]">
             Projects
           </span>
         </h2>
       </motion.div>
 
-      {/* FILTER */}
+      {/* FILTER MENU */}
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: false }}
         transition={{ duration: 1 }}
-        className="flex gap-3 mb-10 flex-wrap"
+        className="
+          mb-10
+          w-full
+          overflow-x-auto
+          scrollbar-hide
+        "
       >
-        {categories.map((cat, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              setActive(cat);
-              setSelectedIndex(null);
+        <div
+          className="
+            flex
+            gap-3
+            min-w-max
+            pb-2
 
-              if (window.innerWidth < 768) {
-                setVisibleCount(4);
-              } else {
-                setVisibleCount(8);
-              }
-            }}
-            className={`
-              px-4
-              py-2
-              text-xs
-              border
-              transition-all
-              duration-500
+            md:flex-wrap
+            md:min-w-0
+          "
+        >
+          {categories.map((cat, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setActive(cat);
+                setSelectedIndex(null);
 
-              ${
-                active === cat
-                  ? "bg-black text-[#FEFEFD]"
-                  : "border-black/40 text-black hover:bg-black hover:text-[#FEFEFD]"
-              }
-            `}
-          >
-            {cat}
-          </button>
-        ))}
+                if (window.innerWidth < 768) {
+                  setVisibleCount(4);
+                } else {
+                  setVisibleCount(8);
+                }
+              }}
+              className={`
+                shrink-0
+                px-5
+                py-3
+                text-[11px]
+                uppercase
+                tracking-[2px]
+                border
+                whitespace-nowrap
+                transition-all
+                duration-500
+
+                ${
+                  active === cat
+                    ? "bg-black text-[#FEFEFD] border-black"
+                    : "border-black/20 bg-white/60 text-black hover:bg-black hover:text-[#FEFEFD]"
+                }
+
+                md:px-6
+                md:text-xs
+              `}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </motion.div>
 
       {/* GRID */}
+
       <div
         className="
           grid
           grid-cols-2
-          md:grid-cols-4
-          auto-rows-[180px]
+          md:grid-cols-3
+          xl:grid-cols-4
+
+          auto-rows-[140px]
+          sm:auto-rows-[180px]
           md:auto-rows-[220px]
+
           gap-2
+          md:gap-4
         "
       >
         {filtered.slice(0, visibleCount).map((item, i) => (
@@ -266,10 +299,13 @@ export default function Projects() {
               group
               overflow-hidden
               cursor-pointer
+              border
+              border-black/10
               ${getSpan(i)}
             `}
           >
             {/* IMAGE */}
+
             <img
               src={item.img}
               alt=""
@@ -284,48 +320,23 @@ export default function Projects() {
             />
 
             {/* OVERLAY */}
+
             <div
               className="
                 absolute
                 inset-0
-                bg-black/30
-                group-hover:bg-black/60
+                bg-black/20
+                group-hover:bg-black/50
                 transition-all
                 duration-500
               "
             ></div>
-
-            {/* CATEGORY */}
-            <div className="absolute bottom-4 left-4 z-10">
-              <p
-                className="
-                  text-[#FEFEFD]
-                  text-[10px]
-                  md:text-xs
-                  uppercase
-                  tracking-widest
-                  mb-2
-                "
-              >
-                {item.category}
-              </p>
-
-              <div
-                className="
-                  w-8
-                  h-[1px]
-                  bg-white
-                  transition-all
-                  duration-500
-                  group-hover:w-20
-                "
-              ></div>
-            </div>
           </motion.div>
         ))}
       </div>
 
       {/* BUTTONS */}
+
       <div className="flex justify-center mt-10 gap-4">
         {visibleCount < filtered.length && (
           <motion.button
@@ -382,6 +393,7 @@ export default function Projects() {
       </div>
 
       {/* LIGHTBOX */}
+
       <AnimatePresence>
         {selectedIndex !== null && (
           <motion.div
@@ -391,7 +403,7 @@ export default function Projects() {
             className="
               fixed
               inset-0
-              bg-black/90
+              bg-black/95
               flex
               items-center
               justify-center
@@ -399,6 +411,7 @@ export default function Projects() {
             "
           >
             {/* CLOSE */}
+
             <button
               onClick={() => setSelectedIndex(null)}
               className="
@@ -407,26 +420,30 @@ export default function Projects() {
                 right-6
                 text-white
                 text-3xl
+                z-50
               "
             >
               ✕
             </button>
 
             {/* PREV */}
+
             <button
               onClick={prev}
               className="
                 absolute
-                left-4
+                left-3
                 md:left-10
                 text-white
                 text-4xl
+                z-50
               "
             >
               ‹
             </button>
 
             {/* IMAGE */}
+
             <motion.img
               key={filtered[selectedIndex].img}
               initial={{ scale: 0.8 }}
@@ -436,21 +453,23 @@ export default function Projects() {
               src={filtered[selectedIndex].img}
               alt=""
               className="
-                max-h-[80vh]
-                max-w-[90%]
+                max-h-[85vh]
+                max-w-[92%]
                 object-contain
               "
             />
 
             {/* NEXT */}
+
             <button
               onClick={next}
               className="
                 absolute
-                right-4
+                right-3
                 md:right-10
                 text-white
                 text-4xl
+                z-50
               "
             >
               ›
