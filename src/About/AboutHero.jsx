@@ -1,358 +1,87 @@
 import React from "react";
 
-// BACKGROUND IMAGE
-import bgImg from "../img/za-4.jpeg";
-
 export default function AboutHero() {
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-        min-h-screen
-        flex
-        items-center
-        px-6 md:px-12 lg:px-20
-        py-24
-      "
-    >
+    <section className="w-full bg-[#fcf9f8] overflow-hidden py-20 px-6 md:px-16 mt-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
+        {/* LEFT IMAGE */}
+        <div className="relative group">
+          
+          {/* Border Effect */}
+          <div className="absolute -inset-4 border border-[#db3884]/20 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-700"></div>
 
-      {/* BACKGROUND IMAGE */}
-      <div className="absolute inset-0">
-
-        <img
-          src={bgImg}
-          alt="Interior Background"
-          className="
-            w-full
-            h-full
-            object-cover
-          "
-        />
-
-        {/* DARK OVERLAY */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-black/35
-          "
-        />
-
-        {/* GRADIENT OVERLAY */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-r
-            from-[#FEFEFD]/5
-            via-[#FBE6E5]/5
-            to-[#f8dede]/0
-          "
-        />
-
-      </div>
-
-      {/* CONTENT */}
-      <div
-        className="
-          relative
-          z-10
-          grid
-          lg:grid-cols-2
-          gap-16
-          items-center
-          w-full
-        "
-      >
-
-        {/* LEFT SIDE */}
-        <div className="max-w-2xl">
-
-          {/* TAG */}
-          <div className="flex items-center gap-3 mb-6">
-
-            <div className="w-10 h-[1px] bg-black"></div>
-
-            <span
-              className="
-                text-[10px]
-                tracking-[0.35em]
-                uppercase
-                text-black
-              "
-            >
-              About Pink Roof
-            </span>
-
+          {/* Main Image */}
+          <div className="overflow-hidden  ">
+            <img
+              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop"
+              alt="Luxury Interior"
+              className="w-full h-[550px] object-cover transition-all duration-1000 group-hover:scale-105"
+            />
           </div>
 
-          {/* HEADING */}
-          <h1
-            className="
-              font-heading
-              text-[2.8rem]
-              md:text-[5rem]
-              leading-[1]
-              text-black
-            "
-          >
-            Crafting Spaces
-            <br />
+         
+        </div>
 
-            <span className="italic text-[#b88b8b]">
-              With Elegance
-            </span>
-
-          </h1>
-
-          {/* DESCRIPTION */}
-          <p
-            className="
-              text-base
-              md:text-lg
-              text-black
-              leading-relaxed
-              mt-8
-              max-w-xl
-              font-body
-            "
-          >
-            Pink Roof Interior is a creative and client-focused
-            design studio transforming interiors into elegant,
-            functional and emotionally engaging experiences.
+        {/* RIGHT CONTENT */}
+        <div>
+          
+          {/* Subtitle */}
+          <p className="uppercase tracking-[4px] text-[#db3884] text-sm font-semibold mb-5">
+            Luxury Interior
           </p>
 
-          <p
-            className="
-              text-sm
-              md:text-base
-              text-black
-              leading-relaxed
-              mt-5
-              max-w-xl
-              font-body
-            "
-          >
-            From modern apartments to luxury villas, we blend
-            innovation, comfort and timeless aesthetics to create
-            spaces that truly feel personal and inspiring.
+          {/* Heading */}
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight text-[#db3884] mb-8">
+            Designing Spaces That Feel Beautiful
+          </h2>
+
+          {/* Description */}
+          <p className="text-gray-600 text-lg leading-9 mb-12">
+            At Pink Roof Interior, we curate bespoke living experiences.
+            Our approach combines the precision of modern architecture
+            with luxurious aesthetics and timeless elegance.
           </p>
 
-          {/* BUTTONS */}
-          <div className="flex flex-wrap gap-5 mt-10">
+          {/* Features */}
+          <div className="space-y-8 mb-12">
+            
+            {[
+              "Premium Interior Concepts",
+              "Modern Luxury Aesthetics",
+              "Elegant Space Planning",
+            ].map((item, index) => (
+              <div key={index} className="group">
+                
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-lg font-semibold text-gray-800 group-hover:text-[#db3884] transition">
+                    {item}
+                  </h3>
 
-            <button
-              className="
-                border
-                border-black
-                text-black
-                px-7
-                py-4
-                text-xs
-                tracking-[0.25em]
-                uppercase
-                transition-all
-                duration-300
-                hover:bg-black
-                hover:text-white
-              "
-            >
-              Explore Projects
+                  
+                </div>
+
+                <div className="h-[1px] bg-gray-200 relative overflow-hidden">
+                  <div className="absolute top-0 left-0 h-full w-0 bg-[#db3884] group-hover:w-full transition-all duration-700"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-5">
+            
+            <button className="bg-[#db3884] hover:bg-[#c72f76] text-white px-10 py-4  uppercase tracking-[2px] text-sm font-semibold transition-all duration-300 hover:shadow-xl">
+              Explore Design
             </button>
 
-            <button
-              className="
-                bg-black
-                text-white
-                px-7
-                py-4
-                text-xs
-                tracking-[0.25em]
-                uppercase
-                transition-all
-                duration-300
-                hover:bg-[#b88b8b]
-              "
-            >
+            <button className="border border-[#db3884] text-[#db3884] hover:bg-[#db3884] hover:text-white px-10 py-4 uppercase tracking-[2px] text-sm font-semibold transition-all duration-300">
               Contact Us
             </button>
 
           </div>
-
         </div>
-
-        {/* RIGHT SIDE CARD */}
-        <div className="relative flex justify-center lg:justify-end">
-
-          {/* MAIN CARD */}
-          <div
-            className="
-              relative
-              bg-[#FEFEFD]/75
-              backdrop-blur-xl
-              border
-              border-white/50
-              
-              p-10
-              shadow-2xl
-              max-w-[420px]
-            "
-          >
-
-            {/* NUMBER */}
-            <h2
-              className="
-                text-[6rem]
-                md:text-[8rem]
-                font-heading
-                leading-none
-                text-[#b88b8b]/20
-              "
-            >
-              12
-            </h2>
-
-            {/* CONTENT */}
-            <div className="-mt-3">
-
-              <h3
-                className="
-                  text-3xl
-                  md:text-4xl
-                  font-heading
-                  text-black
-                "
-              >
-                Years
-              </h3>
-
-              <p
-                className="
-                  text-gray-900
-                  leading-relaxed
-                  mt-5
-                "
-              >
-                Delivering premium interior and architectural
-                solutions with creativity, passion and timeless
-                sophistication.
-              </p>
-
-            </div>
-
-            {/* STATS */}
-            <div className="grid grid-cols-2 gap-6 mt-10">
-
-              <div
-                className="
-                  bg-white
-                  rounded-2xl
-                  p-5
-                  shadow-md
-                "
-              >
-
-                <h4
-                  className="
-                    text-3xl
-                    font-heading
-                    text-black
-                  "
-                >
-                  340+
-                </h4>
-
-                <p
-                  className="
-                    text-[11px]
-                    uppercase
-                    tracking-[0.25em]
-                    text-gray-500
-                    mt-2
-                  "
-                >
-                  Projects
-                </p>
-
-              </div>
-
-              <div
-                className="
-                  bg-white
-                  rounded-2xl
-                  p-5
-                  shadow-md
-                "
-              >
-
-                <h4
-                  className="
-                    text-3xl
-                    font-heading
-                    text-black
-                  "
-                >
-                  98%
-                </h4>
-
-                <p
-                  className="
-                    text-[11px]
-                    uppercase
-                    tracking-[0.25em]
-                    text-gray-500
-                    mt-2
-                  "
-                >
-                  Satisfaction
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* FLOATING BADGE */}
-          <div
-            className="
-              absolute
-              -top-6
-              right-0
-              bg-black
-              text-white
-              px-6
-              py-4
-              rounded-2xl
-              shadow-xl
-            "
-          >
-
-            <span
-              className="
-                text-[10px]
-                uppercase
-                tracking-[0.3em]
-                text-white/60
-              "
-            >
-              Premium Studio
-            </span>
-
-            <h4 className="text-lg font-semibold mt-1">
-              Interior Design
-            </h4>
-
-          </div>
-
-        </div>
-
       </div>
-
-      {/* BOTTOM LINE */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-black/10"></div>
-
     </section>
   );
 }

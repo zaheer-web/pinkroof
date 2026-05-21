@@ -203,7 +203,7 @@ export default function Navbar() {
                 py-2.5
                 lg:py-3
 
-                rounded-full
+               
 
                 bg-gradient-to-r
                 from-[#db3884]
@@ -395,7 +395,7 @@ export default function Navbar() {
                 py-3
                 sm:py-4
 
-                rounded-full
+             
 
                 bg-gradient-to-r
                 from-[#db3884]

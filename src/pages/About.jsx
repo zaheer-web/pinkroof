@@ -9,11 +9,13 @@ import AwardsSection from '../About/AwardsSection'
 function About() {
   return (
     <>
-    <AboutHero/>
     <AboutStory/>
+
+    <AboutHero/>
+    <TeamSection/>
+
     <StatsBar/>
     <ValuesSection/>
-    <TeamSection/>
     
     
     </>

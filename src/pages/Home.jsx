@@ -11,6 +11,10 @@ import MainHero from '../home/MainHero'
 import View360 from '../home/View360'
 import VideoGallerySection from '../home/VideoGallerySection'
 import Hero1 from '../home/Hero1'
+import AboutStory from '../About/AboutStory'
+
+
+
 
 
 function Home() {
@@ -18,6 +22,8 @@ function Home() {
    <>
    <Hero1/>
    <MainHero/>
+    <AboutStory/>
+     
    <Hero/>
    
    <Marquee/>

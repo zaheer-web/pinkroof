@@ -8,8 +8,9 @@ import FAQSection from '../Process/FAQSection'
 function Process() {
   return (
     <>
-    <DesignHero/>
     <Intro/>
+
+    <DesignHero/>
     <ProcessSteps/>
     <TimelineBar/>
     <FAQSection/>

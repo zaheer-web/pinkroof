@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ValuesSection() {
+const ValuesSection = () => {
   const values = [
     {
       num: "01",
@@ -25,271 +25,71 @@ export default function ValuesSection() {
   ];
 
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-        py-24 md:py-28
-        px-5 sm:px-6 md:px-12 lg:px-20
-        bg-gradient-to-br
-        from-[#FEFEFD]
-        via-[#FBE6E5]
-        to-[#f7dddd]
-      "
-    >
+    <section className="relative overflow-hidden py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-[#fcf9f8] font-['Bodoni_Moda',_serif]">
+      {/* Dynamic Background Accents */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#db3884]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#db3884]/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* BACKGROUND BLUR */}
-      <div
-        className="
-          absolute
-          top-0
-          left-0
-          w-[260px]
-          md:w-[340px]
-          h-[260px]
-          md:h-[340px]
-          bg-[#b88b8b]/10
-          blur-[120px]
-          rounded-full
-        "
-      />
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* HEADER SECTION */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 mb-20">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-px bg-[#2a1a1a]" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-[#2a1a1a] font-semibold">
+                What Guides Us
+              </span>
+            </div>
 
-      <div
-        className="
-          absolute
-          bottom-0
-          right-0
-          w-[240px]
-          md:w-[320px]
-          h-[240px]
-          md:h-[320px]
-          bg-[#d8bcbc]/20
-          blur-[120px]
-          rounded-full
-        "
-      />
-
-      {/* HEADER */}
-      <div
-        className="
-          relative
-          z-10
-          flex
-          flex-col
-          lg:flex-row
-          lg:items-end
-          lg:justify-between
-          gap-10
-          mb-16
-        "
-      >
-
-        {/* LEFT */}
-        <div className="max-w-2xl">
-
-          {/* LABEL */}
-          <div className="flex items-center gap-4 mb-5">
-
-            <div className="w-10 md:w-12 h-[1px] bg-black"></div>
-
-            <span
-              className="
-                text-[9px]
-                md:text-[10px]
-                uppercase
-                tracking-[0.35em]
-                text-black
-              "
-            >
-              What Guides Us
-            </span>
-
+            <h2 className="text-5xl md:text-7xl font-light text-[#2a1a1a] leading-tight">
+              Our Core <br />
+              <span className="italic text-[#db3884]">Values</span>
+            </h2>
           </div>
 
-          {/* HEADING */}
-          <h2
-            className="
-              font-heading
-              text-[2.5rem]
-              sm:text-[3rem]
-              md:text-[5rem]
-              leading-[1.05]
-              text-black
-            "
-          >
-            Our Core
-            <span className="italic text-[#b88b8b]">
-              {" "}Values
-            </span>
-          </h2>
-
+          <p className="max-w-md text-[#5a4848] text-lg leading-relaxed font-sans">
+            Our philosophy is rooted in timeless aesthetics, thoughtful functionality, and creating meaningful spaces that truly elevate modern living.
+          </p>
         </div>
 
-        {/* RIGHT TEXT */}
-        <p
-          className="
-            max-w-xl
-            text-gray-600
-            leading-relaxed
-            text-sm
-            md:text-base
-          "
-        >
-          Our philosophy is rooted in timeless aesthetics,
-          thoughtful functionality and creating meaningful
-          spaces that truly elevate modern living.
-        </p>
-
-      </div>
-
-      {/* VALUES GRID */}
-      <div
-        className="
-          relative
-          z-10
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          xl:grid-cols-4
-          gap-6 md:gap-8
-        "
-      >
-
-        {values.map((item, index) => (
-
-          <div
-            key={index}
-            className="
-              group
-              relative
-              overflow-hidden
-              bg-white/70
-              backdrop-blur-xl
-              border
-              border-white/40
+        {/* VALUES GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((item, index) => (
+            <div
+              key={index}
+              className="group relative bg-white/40 backdrop-blur-xl border border-white/60 p-10 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-[#db3884]/10 hover:-translate-y-4 cursor-default overflow-hidden"
+            >
+              {/* Animated Top Border */}
+              <div className="absolute top-0 left-0 w-0 h-1 bg-[#db3884] transition-all duration-700 group-hover:w-full" />
               
-              p-8 md:p-10
-              shadow-lg
-              hover:shadow-[0_25px_60px_rgba(0,0,0,0.12)]
-              transition-all
-              duration-500
-              hover:-translate-y-3
-              cursor-pointer
-            "
-          >
+              {/* Number Watermark */}
+              <div className="text-7xl font-light text-[#db3884]/10 group-hover:text-[#db3884]/30 transition-colors duration-500 leading-none">
+                {item.num}
+              </div>
 
-            {/* TOP GRADIENT */}
-            <div
-              className="
-                absolute
-                top-0
-                left-0
-                w-full
-                h-[3px]
-                bg-gradient-to-r
-                from-[#b88b8b]
-                via-[#d9bcbc]
-                to-transparent
-                opacity-0
-                group-hover:opacity-100
-                transition
-                duration-500
-              "
-            />
+              {/* Card Content */}
+              <div className="mt-8">
+                <h3 className="text-2xl font-semibold text-[#2a1a1a] mb-5 group-hover:text-[#db3884] transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-[#5a4848] text-sm leading-relaxed font-sans group-hover:text-[#2a1a1a] transition-colors duration-300">
+                  {item.desc}
+                </p>
+              </div>
 
-            {/* NUMBER */}
-            <div
-              className="
-                text-[3.5rem]
-                md:text-[4.5rem]
-                leading-none
-                font-heading
-                text-[#b88b8b]/20
-                group-hover:text-[#b88b8b]
-                transition-all
-                duration-500
-              "
-            >
-              {item.num}
+              {/* Decorative Corner Icon */}
+              <div className="absolute top-8 right-8 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-[#db3884] opacity-0 group-hover:opacity-100 transition-all duration-500 transform rotate-45 group-hover:rotate-0">
+                <span className="text-xl">✦</span>
+              </div>
+
+              {/* Interactive Bloom Effect */}
+              <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-[#db3884]/5 rounded-full scale-0 group-hover:scale-150 transition-transform duration-1000" />
             </div>
-
-            {/* TITLE */}
-            <h3
-              className="
-                text-2xl
-                md:text-3xl
-                font-heading
-                text-black
-                mt-5
-                group-hover:translate-x-1
-                transition-all
-                duration-300
-              "
-            >
-              {item.title}
-            </h3>
-
-            {/* DESCRIPTION */}
-            <p
-              className="
-                text-gray-600
-                text-sm
-                md:text-[15px]
-                leading-relaxed
-                mt-5
-              "
-            >
-              {item.desc}
-            </p>
-
-            {/* HOVER CIRCLE */}
-            <div
-              className="
-                absolute
-                -bottom-14
-                -right-14
-                w-36
-                h-36
-                rounded-full
-                bg-[#b88b8b]/10
-                scale-0
-                group-hover:scale-100
-                transition-all
-                duration-700
-              "
-            />
-
-            {/* HOVER ICON */}
-            <div
-              className="
-                absolute
-                top-6
-                right-6
-                w-10
-                h-10
-                rounded-full
-                bg-white/70
-                backdrop-blur-md
-                flex
-                items-center
-                justify-center
-                text-[#b88b8b]
-                text-lg
-                opacity-0
-                group-hover:opacity-100
-                transition-all
-                duration-500
-              "
-            >
-              ✦
-            </div>
-
-          </div>
-
-        ))}
-
+          ))}
+        </div>
       </div>
-
     </section>
   );
-}
+};
+
+export default ValuesSection;
