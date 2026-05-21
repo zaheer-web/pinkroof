@@ -10,10 +10,13 @@ import Testimonials from '../home/Testimonials'
 import MainHero from '../home/MainHero'
 import View360 from '../home/View360'
 import VideoGallerySection from '../home/VideoGallerySection'
+import Hero1 from '../home/Hero1'
+
 
 function Home() {
   return (
    <>
+   <Hero1/>
    <MainHero/>
    <Hero/>
    

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { motion, useAnimationFrame } from "framer-motion";
 
 import img1 from "../img/3image/th-1.png";
 import img2 from "../img/cafe/ca-2.avif";
@@ -12,145 +13,106 @@ import img9 from "../img/za-4.jpeg";
 import img10 from "../img/za-12.jpeg";
 
 export default function MainHero() {
+  const allImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
-  // 🔥 ORIGINAL ROWS
-  const originalRow1 = [img1, img2, img3, img4, img5];
-  const originalRow2 = [img6, img7, img8, img9, img10];
-  const originalRow3 = [img2, img4, img6, img8, img10];
-
-  // 🔥 REPEAT IMAGES
-  const row1 = [...originalRow1, ...originalRow1];
-  const row2 = [...originalRow2, ...originalRow2];
-  const row3 = [...originalRow3, ...originalRow3];
-
-  // 🔥 STATES
-  const [slide1, setSlide1] = useState(0);
-  const [slide2, setSlide2] = useState(0);
-  const [slide3, setSlide3] = useState(0);
-
-  // 🔥 AUTO SLIDER
-  useEffect(() => {
-
-    const interval1 = setInterval(() => {
-      setSlide1((prev) =>
-        prev >= originalRow1.length ? 0 : prev + 1
-      );
-    }, 1500);
-
-    const interval2 = setInterval(() => {
-      setSlide2((prev) =>
-        prev >= originalRow2.length ? 0 : prev + 1
-      );
-    }, 1000);
-
-    const interval3 = setInterval(() => {
-      setSlide3((prev) =>
-        prev >= originalRow3.length ? 0 : prev + 1
-      );
-    }, 1500);
-
-    return () => {
-      clearInterval(interval1);
-      clearInterval(interval2);
-      clearInterval(interval3);
-    };
-
-  }, []);
-
-  // 🔥 SLIDER ROW COMPONENT
-  const SliderRow = ({
-    images,
-    currentSlide,
-    height,
-  }) => {
-
-    return (
-      <div className="overflow-hidden">
-
-        <div
-          className="
-            flex
-            gap-1
-            transition-transform
-            duration-1000
-            ease-in-out
-          "
-          style={{
-            transform: `translateX(-${currentSlide * 33.4}%)`,
-          }}
-        >
-
-          {images.map((img, index) => (
-
-            <div
-              key={index}
-              className={`
-                min-w-[28.8%]
-                flex-shrink-0
-                overflow-hidden
-                
-                ${height}
-              `}
-            >
-
-              <img
-                src={img}
-                alt=""
-                className="
-                  h-full
-                  w-full
-                  object-cover
-                  brightness-75
-                  transition
-                  duration-700
-                  hover:scale-105
-                  w-full
-                  hover:brightness-95
-                "
-              />
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </div>
-    );
-  };
+  // Distribute images across 3 rows, each row uses ALL images but in different order
+  const row1Images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+  const row2Images = [img6, img7, img8, img9, img10, img1, img2, img3, img4, img5];
+  const row3Images = [img3, img8, img1, img10, img5, img7, img2, img9, img4, img6];
 
   return (
-    <section className="relative overflow-hidden bg-black py-2 md:py-2">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#FBE6E5] via-[#F8D7D5] to-[#FCEFEE] py-12 md:py-20">
+      {/* Animated gradient blobs */}
+      <motion.div
+        className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-tr from-rose-300/40 to-orange-200/30 blur-3xl"
+        animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-gradient-to-tr from-pink-300/40 to-purple-200/30 blur-3xl"
+        animate={{ x: [0, -50, 0], y: [0, -30, 0], scale: [1, 1.15, 1] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 via-black/10 to-black/30" />
+      {/* Overlay sheen */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.4),transparent_60%)]" />
 
-      {/* CONTENT */}
-      <div className="relative z-20 flex flex-col gap-1 ">
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-20 mx-auto mb-10 max-w-5xl px-6 text-center md:mb-14"
+      >
+        <span className="mb-4 inline-block rounded-full border border-rose-400/40 bg-white/50 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-rose-700 backdrop-blur-sm">
+          Crafted Interiors
+        </span>
+        <h1 className="bg-gradient-to-r from-neutral-900 via-rose-900 to-neutral-900 bg-clip-text text-4xl font-bold leading-tight tracking-tight text-transparent md:text-6xl lg:text-7xl">
+          Designing Spaces <br className="hidden md:block" />
+          That Tell Your Story
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-base text-neutral-700 md:text-lg">
+          From cozy cafés to elegant homes — explore a curated gallery of our latest interior creations.
+        </p>
+      </motion.div>
 
-        {/* ROW 1 */}
-        <SliderRow
-          images={row1}
-          currentSlide={slide1}
-          height="h-[220px] md:h-[320px]"
-        />
-
-        {/* ROW 2 */}
-        <SliderRow
-          images={row2}
-          currentSlide={slide2}
-          height="h-[180px] md:h-[260px]"
-        />
-
-        {/* ROW 3 */}
-        <SliderRow
-          images={row3}
-          currentSlide={slide3}
-          height="h-[220px] md:h-[320px]"
-        />
-
+      {/* Marquee rows */}
+      <div className="relative z-20 flex flex-col gap-3 md:gap-4">
+        <MarqueeRow images={row1Images} speed={40} direction="left" height="h-[180px] md:h-[280px]" />
+        <MarqueeRow images={row2Images} speed={55} direction="right" height="h-[150px] md:h-[220px]" />
+        <MarqueeRow images={row3Images} speed={45} direction="left" height="h-[180px] md:h-[280px]" />
       </div>
-
     </section>
+  );
+}
+
+function MarqueeRow({ images, speed, direction, height }) {
+  const containerRef = useRef(null);
+  const xRef = useRef(0);
+  const [paused, setPaused] = useState(false);
+
+  // Duplicate images for seamless loop
+  const loopImages = [...images, ...images];
+
+  useAnimationFrame((_, delta) => {
+    if (paused || !containerRef.current) return;
+    const move = (speed * delta) / 1000;
+    xRef.current += direction === "left" ? -move : move;
+
+    const trackWidth = containerRef.current.scrollWidth / 2;
+    if (direction === "left" && xRef.current <= -trackWidth) xRef.current += trackWidth;
+    if (direction === "right" && xRef.current >= 0) xRef.current -= trackWidth;
+
+    containerRef.current.style.transform = `translateX(${xRef.current}px)`;
+  });
+
+  return (
+    <div
+      className="overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div ref={containerRef} className="flex gap-3 md:gap-4 will-change-transform">
+        {loopImages.map((img, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.04, y: -6 }}
+            transition={{ type: "spring", stiffness: 220, damping: 20 }}
+            className={`group relative w-[260px] flex-shrink-0 overflow-hidden  shadow-lg shadow-rose-900/10 ring-1 ring-white/40 md:w-[380px] ${height}`}
+          >
+            <img
+              src={img}
+              alt=""
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
+            />
+            {/* Gradient overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            {/* Shine sweep */}
+            <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }
