@@ -80,7 +80,7 @@ const AboutStory = () => {
         {/* RIGHT VISUALS */}
         <div className="relative h-[600px] md:h-[700px]">
           {/* Main Large Image */}
-          <div className="absolute top-0 right-0 w-4/5 h-[85%] overflow-hidden shadow-2xl group">
+          <div className="absolute top-0 right-0 w-4/5 h-[85%] overflow-hidden shadow-2xl group mr-10 md:mr-0">
             <img
               src={img}
               alt="Luxury Living Room"
@@ -89,9 +89,7 @@ const AboutStory = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#2a1a1a]/40 to-transparent" />
             
             {/* Watermark/Experience Badge */}
-            <div className="absolute top-8 right-8 text-white/20 text-8xl font-light pointer-events-none">
-              07
-            </div>
+            
 
             {/* Top Badge */}
             <div className="absolute top-0 left-0 bg-[#db3884] text-white px-6 py-4 shadow-xl flex items-center gap-3">
