@@ -11,56 +11,59 @@ import video5 from "../img/video/va-5.mp4";
 import video6 from "../img/video/va-6.mp4";
 import video7 from "../img/video/va-7.mp4";
 
+// ================= THUMBNAILS =================
+
+import thumb1 from "../img/3image/th-1.png";
+import thumb2 from "../img/3image/th-2.png";
+import thumb3 from "../img/3image/th-3.png";
+import thumb4 from "../img/3image/th-4.png";
+import thumb5 from "../img/3image/th-5.png";
+import thumb6 from "../img/3image/th-6.png";
+import thumb7 from "../img/3image/th-7.png";
+
 // ================= VIDEO DATA =================
 
 const videos = [
   {
     id: 1,
-    title: "Luxury Exterior",
-    category: "Architecture",
     video: video1,
+    thumbnail: thumb1,
   },
 
   {
     id: 2,
-    title: "Modern Interior",
-    category: "Interior Design",
     video: video2,
+    thumbnail: thumb2,
   },
 
   {
     id: 3,
-    title: "Premium Residence",
-    category: "Luxury Living",
     video: video3,
+    thumbnail: thumb3,
   },
 
   {
     id: 4,
-    title: "Elegant Elevation",
-    category: "Modern Design",
     video: video4,
+    thumbnail: thumb4,
   },
 
   {
     id: 5,
-    title: "Minimal Workspace",
-    category: "Commercial",
     video: video5,
+    thumbnail: thumb5,
   },
 
   {
     id: 6,
-    title: "Luxury Villa",
-    category: "Residential",
     video: video6,
+    thumbnail: thumb6,
   },
 
   {
     id: 7,
-    title: "Creative Space",
-    category: "Architecture",
     video: video7,
+    thumbnail: thumb7,
   },
 ];
 
@@ -189,6 +192,10 @@ function VideoCard({ item, onClick, index }) {
         h-[180px]
         cursor-pointer
         overflow-hidden
+        rounded-none
+        border-[2px]
+        border-white/10
+        bg-black
 
         sm:h-[220px]
         md:h-[260px]
@@ -216,61 +223,39 @@ function VideoCard({ item, onClick, index }) {
         "
       />
 
+      {/* THUMBNAIL */}
+
+      <motion.img
+        src={item.thumbnail}
+        alt=""
+        initial={{ opacity: 1 }}
+        animate={{
+          opacity: hovered ? 0 : 1,
+        }}
+        transition={{ duration: 0.4 }}
+        className="
+          absolute
+          inset-0
+          z-[2]
+          h-full
+          w-full
+          object-cover
+        "
+      />
+
       {/* OVERLAY */}
 
       <div
         className="
           absolute
           inset-0
-          bg-gradient-to-t
-          from-black/90
-          via-black/20
-          to-transparent
-          group-hover:from-black/95
+          z-[3]
+          bg-black/20
           transition-all
           duration-500
+          group-hover:bg-black/10
         "
       />
-
-      {/* CATEGORY */}
-
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false }}
-        transition={{
-          duration: 0.5,
-          delay: index * 0.05,
-        }}
-        className="
-          absolute
-          left-3
-          top-3
-          border
-          border-white/20
-          bg-black/20
-          px-3
-          py-1.5
-          backdrop-blur-xl
-
-          md:left-5
-          md:top-5
-        "
-      >
-        <p
-          className="
-            text-[9px]
-            uppercase
-            tracking-[2px]
-            text-white/80
-
-            md:text-[10px]
-            md:tracking-[3px]
-          "
-        >
-          {item.category}
-        </p>
-      </motion.div>
 
       {/* PLAY BUTTON */}
 
@@ -278,6 +263,7 @@ function VideoCard({ item, onClick, index }) {
         className="
           absolute
           inset-0
+          z-[4]
           flex
           items-center
           justify-center
@@ -287,8 +273,8 @@ function VideoCard({ item, onClick, index }) {
           whileHover={{ scale: 1.15 }}
           className="
             flex
-            h-12
-            w-12
+            h-14
+            w-14
             items-center
             justify-center
             border
@@ -311,51 +297,6 @@ function VideoCard({ item, onClick, index }) {
           ▶
         </motion.div>
       </div>
-
-      {/* CONTENT */}
-
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        transition={{
-          duration: 0.7,
-          delay: index * 0.06,
-        }}
-        className="
-          absolute
-          bottom-0
-          left-0
-          w-full
-          p-4
-
-          md:p-6
-        "
-      >
-        <h3
-          className="
-            text-[18px]
-            font-light
-            text-white
-
-            md:text-2xl
-          "
-        >
-          {item.title}
-        </h3>
-
-        <div
-          className="
-            mt-3
-            h-[1px]
-            w-10
-            bg-white
-            transition-all
-            duration-500
-            group-hover:w-24
-          "
-        ></div>
-      </motion.div>
     </motion.div>
   );
 }
@@ -393,7 +334,6 @@ export default function VideoGallerySection() {
             top-0
             h-[260px]
             w-[260px]
-            rounded-full
             bg-pink-300/20
             blur-[100px]
 
@@ -409,7 +349,6 @@ export default function VideoGallerySection() {
             right-0
             h-[240px]
             w-[240px]
-            rounded-full
             bg-pink-200/30
             blur-[100px]
 
@@ -419,79 +358,6 @@ export default function VideoGallerySection() {
         />
 
         <div className="relative z-10 mx-auto max-w-[1500px]">
-          {/* HEADER */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 1 }}
-            className="
-              mb-12
-              flex
-              flex-col
-              gap-6
-
-              lg:mb-16
-              lg:flex-row
-              lg:items-end
-              lg:justify-between
-            "
-          >
-            <div>
-              <div className="mb-4 flex items-center gap-3">
-                <div className="h-[1px] w-8 bg-black md:w-10" />
-
-                <p
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[4px]
-                    text-[#d89a9a]
-                  "
-                >
-                  Video Showcase
-                </p>
-              </div>
-
-              <h2
-                className="
-                  text-4xl
-                  font-light
-                  leading-none
-                  text-black
-
-                  sm:text-5xl
-                  md:text-7xl
-                "
-              >
-                Luxury
-                <span className="italic text-[#d89a9a]">
-                  {" "}Projects
-                </span>
-              </h2>
-            </div>
-
-            <motion.p
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1 }}
-              className="
-                max-w-2xl
-                text-sm
-                leading-relaxed
-                text-black/60
-
-                md:text-lg
-              "
-            >
-              Explore our cinematic collection of modern architecture,
-              luxury interiors, premium residences, and elegant
-              commercial design concepts.
-            </motion.p>
-          </motion.div>
-
           {/* VIDEO GRID */}
 
           <div
