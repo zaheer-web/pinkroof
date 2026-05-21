@@ -3,23 +3,23 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // ================= VIDEOS =================
 
-import video1 from "../img/video/va-1.mp4";
-import video2 from "../img/video/va-2.mp4";
-import video3 from "../img/video/va-3.mp4";
-import video4 from "../img/video/va-4.mp4";
-import video5 from "../img/video/va-5.mp4";
-import video6 from "../img/video/va-6.mp4";
+import video1 from "../img/video/va-8.mp4";
+import video2 from "../img/video/va-9.mp4";
+import video3 from "../img/video/va-10.mp4";
+import video4 from "../img/video/va-11.mp4";
+import video5 from "../img/video/va-12.mp4";
+import video6 from "../img/video/va-13.mp4";
 import video7 from "../img/video/va-7.mp4";
 
 // ================= THUMBNAILS =================
 
-import thumb1 from "../img/3image/th-1.png";
-import thumb2 from "../img/3image/th-2.png";
-import thumb3 from "../img/3image/th-3.png";
-import thumb4 from "../img/3image/th-4.png";
-import thumb5 from "../img/3image/th-5.png";
-import thumb6 from "../img/3image/th-6.png";
-import thumb7 from "../img/3image/th-7.png";
+import thumb1 from "../img/zo-5.png";
+import thumb2 from "../img/zo-6.png";
+import thumb3 from "../img/zo-1.png";
+import thumb4 from "../img/zo-3.png";
+import thumb5 from "../img/za-4.jpeg";
+import thumb6 from "../img/za-5.jpeg";
+import thumb7 from "../img/zo-7.png";
 
 // ================= VIDEO DATA =================
 

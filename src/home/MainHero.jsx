@@ -11,14 +11,36 @@ import img7 from "../img/residential/ra-2.png";
 import img8 from "../img/salon/sa-11.jpeg";
 import img9 from "../img/za-4.jpeg";
 import img10 from "../img/za-12.jpeg";
+import img11 from "../img/3image/th-2.png";
+import img12 from "../img/cafe/ca-1.webp";
+import img13 from "../img/facade/fa-3.jpeg";
+import img14 from "../img/hotel/ha-5.jpeg";
+import img15 from "../img/kitchen/ka-5.jpeg";
+import img16 from "../img/residential/ra-5.png";
+import img17 from "../img/residential/ra-8.png";
+import img18 from "../img/salon/sa-1.jpeg";
+import img19 from "../img/za-5.jpeg";
+import img20 from "../img/za-13.jpeg";
+import img21 from "../img/3image/th-4.png";
+import img22 from "../img/cafe/ca-3.jpg";
+import img23 from "../img/facade/fa-6.jpeg";
+import img24 from "../img/hotel/ha-2.jpeg";
+import img25 from "../img/kitchen/ka-1.jpeg";
+import img26 from "../img/residential/ra-3.png";
+import img27 from "../img/residential/ra-4.png";
+import img28 from "../img/salon/sa-4.jpeg";
+import img29 from "../img/za-6.jpeg";
+import img30 from "../img/bo-5.png";
 
 export default function MainHero() {
-  const allImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+  const allImages = [
+  img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24,img25,img26,img27,img28,img29,img30,
+];
 
   // Distribute images across 3 rows, each row uses ALL images but in different order
   const row1Images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
-  const row2Images = [img6, img7, img8, img9, img10, img1, img2, img3, img4, img5];
-  const row3Images = [img3, img8, img1, img10, img5, img7, img2, img9, img4, img6];
+  const row2Images = [img11, img12, img13, img14, img15, img16, img17, img18, img19, img20];
+  const row3Images = [img21, img22, img23, img24, img25, img26, img27, img28, img29, img30];
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#fff0f7] via-[#f9d4e7] to-[#ffeaf5] py-12 md:py-20">
@@ -62,7 +84,7 @@ export default function MainHero() {
 
       {/* Marquee rows */}
       <div className="relative z-20 flex flex-col gap-3 md:gap-4">
-        <MarqueeRow images={row1Images} speed={40} direction="left" height="h-[180px] md:h-[280px]" />
+        <MarqueeRow images={row1Images} speed={55} direction="left" height="h-[180px] md:h-[280px]" />
         <MarqueeRow images={row2Images} speed={55} direction="right" height="h-[150px] md:h-[220px]" />
         <MarqueeRow images={row3Images} speed={45} direction="left" height="h-[180px] md:h-[280px]" />
       </div>

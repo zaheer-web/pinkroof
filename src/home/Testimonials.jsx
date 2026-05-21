@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  const sliderRef = useRef(null);
 
   const testimonials = [
     {
@@ -64,11 +66,45 @@ A vibe clients truly love.`,
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length);
+      setIndex((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
     }, 4500);
 
     return () => clearInterval(timer);
   }, [testimonials.length]);
+
+  // MANUAL SWIPE
+
+  const handleDragEnd = (event, info) => {
+    const threshold = 80;
+
+    if (info.offset.x < -threshold) {
+      setIndex((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }
+
+    if (info.offset.x > threshold) {
+      setIndex((prev) =>
+        prev === 0 ? testimonials.length - 1 : prev - 1
+      );
+    }
+  };
+
+  // BUTTONS
+
+  const nextSlide = () => {
+    setIndex((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section
@@ -124,8 +160,6 @@ A vibe clients truly love.`,
         transition={{ duration: 1 }}
         className="relative z-10 text-center mb-16"
       >
-        {/* TOP LABEL */}
-
         <div className="flex items-center justify-center gap-3 mb-5">
           <div className="w-8 h-[1px] bg-[#db3884]"></div>
 
@@ -142,8 +176,6 @@ A vibe clients truly love.`,
 
           <div className="w-8 h-[1px] bg-[#db3884]"></div>
         </div>
-
-        {/* TITLE */}
 
         <h2
           className="
@@ -162,183 +194,279 @@ A vibe clients truly love.`,
         </h2>
       </motion.div>
 
-      {/* SLIDER */}
+      {/* SLIDER SECTION */}
 
-      <div className="relative z-10 overflow-hidden max-w-7xl mx-auto pb-4">
-        <motion.div
-          animate={{
-            x: `-${index * (isMobile ? 100 : 33.33)}%`,
-          }}
-          transition={{
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="flex"
-        >
-          {[...testimonials, ...testimonials].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{
-                duration: 0.8,
-                delay: i * 0.05,
-              }}
-              className="
-                w-full
-                md:w-1/3
-                flex-shrink-0
-                px-3
-              "
-            >
-              <div
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* TOP BUTTONS */}
+
+        <div className="flex items-center justify-end gap-4 mb-8 pr-3">
+          {/* PREV */}
+
+          <button
+            onClick={prevSlide}
+            className="
+              w-12
+              h-12
+              rounded-full
+
+              bg-white/80
+              backdrop-blur-xl
+
+              border
+              border-[#ef91bc]/30
+
+              flex
+              items-center
+              justify-center
+
+              text-[#db3884]
+              text-2xl
+
+              shadow-lg
+
+              hover:bg-[#db3884]
+              hover:text-white
+              hover:scale-110
+
+              transition-all
+              duration-300
+            "
+          >
+            ←
+          </button>
+
+          {/* NEXT */}
+
+          <button
+            onClick={nextSlide}
+            className="
+              w-12
+              h-12
+              rounded-full
+
+              bg-[#db3884]
+
+              flex
+              items-center
+              justify-center
+
+              text-white
+              text-2xl
+
+              shadow-lg
+
+              hover:scale-110
+              hover:bg-[#c72c75]
+
+              transition-all
+              duration-300
+            "
+          >
+            →
+          </button>
+        </div>
+
+        {/* SLIDER */}
+
+        <div className="overflow-visible pt-4 pb-10">
+          <motion.div
+            ref={sliderRef}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragEnd={handleDragEnd}
+            animate={{
+              x: `-${index * (isMobile ? 100 : 33.33)}%`,
+            }}
+            transition={{
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="
+              flex
+              cursor-grab
+              active:cursor-grabbing
+            "
+          >
+            {testimonials.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{
+                  duration: 0.8,
+                  delay: i * 0.05,
+                }}
                 className="
-                  group
-                  relative
-                  overflow-hidden
-                  h-full
-                  min-h-[320px]
-                  bg-white/75
-                  backdrop-blur-xl
-                  border
-                  border-[#ef91bc]/30
-                  p-6
-                  md:p-8
-                  shadow-[0_15px_40px_rgba(219,56,132,0.08)]
-                  transition-all
-                  duration-500
-                  hover:-translate-y-3
-                  hover:shadow-[0_20px_50px_rgba(219,56,132,0.18)]
+                  w-full
+                  md:w-1/3
+                  flex-shrink-0
+                  px-3
+                  py-4
                 "
               >
-                {/* HOVER GLOW */}
-
                 <div
                   className="
-                    absolute
-                    inset-0
-                    bg-gradient-to-br
-                    from-[#fffafd]
-                    via-[#fff1f8]
-                    to-[#fdebf4]
-                    opacity-0
-                    group-hover:opacity-100
+                    group
+                    relative
+                    overflow-hidden
+                    h-full
+                    min-h-[320px]
+
+                    rounded-[30px]
+
+                    bg-white/75
+                    backdrop-blur-xl
+
+                    border
+                    border-[#ef91bc]/30
+
+                    p-6
+                    md:p-8
+
+                    shadow-[0_15px_40px_rgba(219,56,132,0.08)]
+
                     transition-all
                     duration-500
-                  "
-                ></div>
 
-                {/* QUOTE ICON */}
-
-                <div
-                  className="
-                    absolute
-                    top-5
-                    right-5
-                    text-6xl
-                    text-[#db3884]/10
-                    font-serif
+                    hover:-translate-y-3
+                    hover:shadow-[0_25px_60px_rgba(219,56,132,0.20)]
                   "
                 >
-                  ”
-                </div>
+                  {/* HOVER GLOW */}
 
-                {/* CONTENT */}
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      bg-gradient-to-br
+                      from-[#fffafd]
+                      via-[#fff1f8]
+                      to-[#fdebf4]
+                      opacity-0
+                      group-hover:opacity-100
+                      transition-all
+                      duration-500
+                    "
+                  ></div>
 
-                <div className="relative z-10 flex flex-col h-full justify-between">
-                  <div>
-                    {/* AVATAR */}
+                  {/* QUOTE ICON */}
 
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="
-                        w-14
-                        h-14
-                        flex
-                        items-center
-                        justify-center
-                        bg-gradient-to-br
-                        from-[#db3884]
-                        to-[#d6559d]
-                        text-white
-                        text-sm
-                        font-medium
-                        mb-5
-                        shadow-lg
-                      "
-                    >
-                      {item.name.slice(0, 2)}
-                    </motion.div>
+                  <div
+                    className="
+                      absolute
+                      top-5
+                      right-5
+                      text-6xl
+                      text-[#db3884]/10
+                      font-serif
+                    "
+                  >
+                    ”
+                  </div>
 
-                    {/* STARS */}
+                  {/* CONTENT */}
 
-                    <div
-                      className="
-                        text-[#db3884]
-                        mb-4
-                        tracking-[3px]
-                        text-sm
-                      "
-                    >
-                      ★★★★★
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div>
+                      {/* AVATAR */}
+
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        className="
+                          w-14
+                          h-14
+                          rounded-full
+
+                          flex
+                          items-center
+                          justify-center
+
+                          bg-gradient-to-br
+                          from-[#db3884]
+                          to-[#d6559d]
+
+                          text-white
+                          text-sm
+                          font-medium
+
+                          mb-5
+                          shadow-lg
+                        "
+                      >
+                        {item.name.slice(0, 2)}
+                      </motion.div>
+
+                      {/* STARS */}
+
+                      <div
+                        className="
+                          text-[#db3884]
+                          mb-4
+                          tracking-[3px]
+                          text-sm
+                        "
+                      >
+                        ★★★★★
+                      </div>
+
+                      {/* TEXT */}
+
+                      <p
+                        className="
+                          text-[15px]
+                          leading-relaxed
+                          text-[#4b2d3d]
+                          mb-8
+                        "
+                      >
+                        “{item.text}”
+                      </p>
                     </div>
 
-                    {/* TEXT */}
+                    {/* USER */}
 
-                    <p
-                      className="
-                        text-[15px]
-                        leading-relaxed
-                        text-[#4b2d3d]
-                        mb-8
-                      "
-                    >
-                      “{item.text}”
-                    </p>
-                  </div>
+                    <div className="border-t border-[#ef91bc]/30 pt-4">
+                      <h4
+                        className="
+                          text-[16px]
+                          font-semibold
+                          text-[#2a0f1f]
+                          mb-1
+                        "
+                      >
+                        {item.name}
+                      </h4>
 
-                  {/* USER */}
-
-                  <div className="border-t border-[#ef91bc]/30 pt-4">
-                    <h4
-                      className="
-                        text-[16px]
-                        font-semibold
-                        text-[#2a0f1f]
-                        mb-1
-                      "
-                    >
-                      {item.name}
-                    </h4>
-
-                    <p
-                      className="
-                        text-[12px]
-                        uppercase
-                        tracking-[2px]
-                        text-[#db3884]/70
-                      "
-                    >
-                      {item.tag}
-                    </p>
+                      <p
+                        className="
+                          text-[12px]
+                          uppercase
+                          tracking-[2px]
+                          text-[#db3884]/70
+                        "
+                      >
+                        {item.tag}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
 
       {/* DOTS */}
 
-      <div className="relative z-10 flex justify-center mt-10 gap-3">
+      <div className="relative z-10 flex justify-center mt-6 gap-3">
         {testimonials.map((_, i) => (
           <motion.button
             key={i}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIndex(i)}
             className={`
+              rounded-full
               transition-all
               duration-500
 

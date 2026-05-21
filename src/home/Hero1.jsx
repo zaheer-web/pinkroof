@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Play, Sparkles } from "lucide-react";
 
-import heroMain from "../img/za-1.jpeg";
-import thumb1 from "../img/za-2.jpeg";
-import thumb2 from "../img/za-3.jpeg";
-import thumb3 from "../img/za-4.jpeg";
+import heroMain from "../img/za-13.jpeg";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -244,40 +242,7 @@ export default function Hero1() {
               />
             </button>
 
-            <button
-              className="
-                group
-                inline-flex
-                items-center
-                gap-3
-                text-sm
-                font-medium
-                text-[#2a0d1d]
-              "
-            >
-              <span
-                className="
-                  grid
-                  h-12
-                  w-12
-                  place-items-center
-                  rounded-full
-                  border
-                  border-[#db3884]/30
-                  bg-white/70
-                  transition-all
-                  duration-300
-                  group-hover:border-[#db3884]
-                  group-hover:bg-[#db3884]
-                  group-hover:text-white
-                  shadow-md
-                "
-              >
-                <Play className="h-4 w-4 fill-current" />
-              </span>
-
-              Watch Showreel
-            </button>
+            
           </motion.div>
 
           {/* STATS */}
@@ -347,7 +312,7 @@ export default function Hero1() {
               className="
                 relative
                 overflow-hidden
-                rounded-[2rem]
+                
                 shadow-[0_25px_80px_rgba(219,56,132,0.25)]
                 ring-1
                 ring-[#db3884]/10
