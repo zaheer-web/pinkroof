@@ -8,6 +8,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // SCROLL EFFECT
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
@@ -17,6 +19,12 @@ export default function Navbar() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // LOCK BODY SCROLL
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -43,8 +51,19 @@ export default function Navbar() {
 
           ${
             scrolled
-              ? "bg-white/70 backdrop-blur-2xl border-b border-[#ef91bc]/20 shadow-[0_10px_30px_rgba(219,56,132,0.08)] py-3"
-              : "bg-[#fffafd]/60 backdrop-blur-xl py-4"
+              ? `
+                bg-white/70
+                backdrop-blur-2xl
+                border-b
+                border-[#ef91bc]/20
+                shadow-[0_10px_30px_rgba(219,56,132,0.08)]
+                py-2
+              `
+              : `
+                bg-[#fffafd]/60
+                backdrop-blur-xl
+                py-3
+              `
           }
         `}
       >
@@ -52,22 +71,51 @@ export default function Navbar() {
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#db3884]/5 via-[#d6559d]/5 to-[#ef91bc]/5"></div>
 
-        <div className="max-w-[1480px] mx-auto flex items-center justify-between px-6 md:px-12 relative z-10">
-          
+        {/* CONTAINER */}
+
+        <div
+          className="
+            max-w-[1480px]
+            mx-auto
+            flex
+            items-center
+            justify-between
+            px-4
+            sm:px-6
+            md:px-10
+            lg:px-12
+            relative
+            z-10
+          "
+        >
           {/* LOGO */}
 
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <motion.img
               whileHover={{ scale: 1.03 }}
               src={logo}
               alt="logo"
-              className="h-12 md:h-14 w-auto object-contain"
+              className="
+                h-10
+                sm:h-11
+                md:h-14
+                w-auto
+                object-contain
+              "
             />
           </Link>
 
           {/* DESKTOP MENU */}
 
-          <ul className="hidden md:flex items-center gap-12">
+          <ul
+            className="
+              hidden
+              lg:flex
+              items-center
+              gap-6
+              xl:gap-10
+            "
+          >
             {navItems.map((item, i) => (
               <li key={i}>
                 <NavLink
@@ -75,9 +123,10 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     `
                     relative
-                    text-[13px]
+                    text-[12px]
+                    xl:text-[13px]
                     uppercase
-                    tracking-[0.18em]
+                    tracking-[0.16em]
                     font-medium
                     transition-all
                     duration-300
@@ -123,81 +172,105 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA BUTTON */}
+          {/* RIGHT SIDE */}
 
-          <motion.a
-            whileHover={{
-              scale: 1.05,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
-            href="https://wa.me/918563980030"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              hidden
-              md:inline-flex
-              items-center
-              justify-center
-              relative
-              overflow-hidden
-              px-7
-              py-3
-              bg-gradient-to-r
-              from-[#db3884]
-              via-[#d6559d]
-              to-[#d67eb3]
-              text-white
-              text-[11px]
-              uppercase
-              tracking-[0.18em]
-              transition-all
-              duration-500
-              shadow-[0_15px_35px_rgba(219,56,132,0.22)]
-            "
-          >
-            {/* SHINE */}
+          <div className="flex items-center gap-3">
+            {/* CTA BUTTON */}
 
-            <span
+            <motion.a
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              href="https://wa.me/918563980030"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
-                absolute
-                inset-0
-                translate-x-[-120%]
+                hidden
+                md:inline-flex
+
+                items-center
+                justify-center
+
+                relative
+                overflow-hidden
+
+                px-5
+                lg:px-7
+
+                py-2.5
+                lg:py-3
+
+                rounded-full
+
                 bg-gradient-to-r
-                from-transparent
-                via-white/20
-                to-transparent
+                from-[#db3884]
+                via-[#d6559d]
+                to-[#d67eb3]
+
+                text-white
+                text-[10px]
+                lg:text-[11px]
+
+                uppercase
+                tracking-[0.16em]
+
                 transition-all
-                duration-[1400ms]
-                hover:translate-x-[120%]
+                duration-500
+
+                shadow-[0_15px_35px_rgba(219,56,132,0.22)]
               "
-            ></span>
+            >
+              {/* SHINE */}
 
-            <span className="relative z-10">
-              Consultation
-            </span>
-          </motion.a>
+              <span
+                className="
+                  absolute
+                  inset-0
+                  translate-x-[-120%]
+                  bg-gradient-to-r
+                  from-transparent
+                  via-white/20
+                  to-transparent
+                  transition-all
+                  duration-[1400ms]
+                  hover:translate-x-[120%]
+                "
+              ></span>
 
-          {/* MOBILE BUTTON */}
+              <span className="relative z-10">
+                Consultation
+              </span>
+            </motion.a>
 
-          <button
-            onClick={() => setOpen(true)}
-            className="
-              md:hidden
-              flex
-              flex-col
-              gap-[5px]
-              relative
-              z-50
-            "
-          >
-            <span className="w-7 h-[2px] bg-[#db3884]"></span>
+            {/* MOBILE BUTTON */}
 
-            <span className="w-7 h-[2px] bg-[#d6559d]"></span>
+            <button
+              onClick={() => setOpen(true)}
+              className="
+                lg:hidden
 
-            <span className="w-7 h-[2px] bg-[#ef91bc]"></span>
-          </button>
+                flex
+                flex-col
+                justify-center
+                gap-[5px]
+
+                relative
+                z-50
+
+                w-10
+                h-10
+              "
+            >
+              <span className="w-7 h-[2px] bg-[#db3884] rounded-full"></span>
+
+              <span className="w-7 h-[2px] bg-[#d6559d] rounded-full"></span>
+
+              <span className="w-7 h-[2px] bg-[#ef91bc] rounded-full"></span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -213,15 +286,20 @@ export default function Navbar() {
               fixed
               inset-0
               z-[100]
+
               bg-gradient-to-br
               from-[#fffafd]
               via-[#fff1f8]
               to-[#fdebf4]
+
               flex
               flex-col
               items-center
               justify-center
-              gap-10
+
+              px-6
+              text-center
+
               overflow-hidden
             "
           >
@@ -238,10 +316,16 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="
                 absolute
-                top-6
-                right-8
+                top-5
+                right-5
+                sm:top-6
+                sm:right-8
+
                 text-[#db3884]
-                text-5xl
+
+                text-4xl
+                sm:text-5xl
+
                 z-50
               "
             >
@@ -250,39 +334,45 @@ export default function Navbar() {
 
             {/* MOBILE LINKS */}
 
-            {navItems.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: i * 0.08,
-                }}
-              >
-                <NavLink
-                  to={item.path}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    `
-                    text-3xl
-                    uppercase
-                    tracking-[0.2em]
-                    transition-all
-                    duration-300
-                    relative
-
-                    ${
-                      isActive
-                        ? "text-[#db3884]"
-                        : "text-[#2a0f1f] hover:text-[#db3884]"
-                    }
-                  `
-                  }
+            <div className="flex flex-col items-center gap-7 sm:gap-8">
+              {navItems.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: i * 0.08,
+                  }}
                 >
-                  {item.label}
-                </NavLink>
-              </motion.div>
-            ))}
+                  <NavLink
+                    to={item.path}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `
+                      text-2xl
+                      sm:text-3xl
+
+                      uppercase
+                      tracking-[0.18em]
+
+                      transition-all
+                      duration-300
+
+                      relative
+
+                      ${
+                        isActive
+                          ? "text-[#db3884]"
+                          : "text-[#2a0f1f] hover:text-[#db3884]"
+                      }
+                    `
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </motion.div>
+              ))}
+            </div>
 
             {/* MOBILE BUTTON */}
 
@@ -297,17 +387,29 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                mt-6
-                px-10
-                py-4
+                mt-10
+
+                px-8
+                sm:px-10
+
+                py-3
+                sm:py-4
+
+                rounded-full
+
                 bg-gradient-to-r
                 from-[#db3884]
                 via-[#d6559d]
                 to-[#d67eb3]
+
                 text-white
+
                 uppercase
-                tracking-[0.18em]
-                text-[11px]
+                tracking-[0.16em]
+
+                text-[10px]
+                sm:text-[11px]
+
                 shadow-[0_15px_35px_rgba(219,56,132,0.22)]
               "
             >
@@ -319,7 +421,7 @@ export default function Navbar() {
 
       {/* NAVBAR SPACE */}
 
-      <div className="h-[9px]"></div>
+      <div className="h-[5px] sm:h-[2px] md:h-[0px]"></div>
     </>
   );
 }
