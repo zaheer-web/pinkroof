@@ -1,4 +1,76 @@
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { createContact } from "../api/apiRoute";
+
 export default function ContactMain() {
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  // HANDLE CHANGE
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // HANDLE SUBMIT
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      message,
+    } = formData;
+
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !message
+    ) {
+      return toast.warning("Please fill all fields");
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await createContact(formData);
+
+      toast.success(
+        response.message || "Message sent successfully"
+      );
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+
+    } catch (error) {
+      toast.error(
+        error?.response?.data?.message ||
+        "Something went wrong"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-pink-50 via-white to-pink-100 px-4 sm:px-6 md:px-10 lg:px-16 py-16 md:py-24">
 
@@ -87,9 +159,6 @@ export default function ContactMain() {
               </div>
             ))}
           </div>
-
-          {/* SOCIAL BUTTONS */}
-         
         </div>
 
         {/* RIGHT SIDE FORM */}
@@ -99,7 +168,10 @@ export default function ContactMain() {
           <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 to-fuchsia-400 blur opacity-20" />
 
           {/* FORM BOX */}
-          <div className="relative bg-white/80 backdrop-blur-2xl border border-white shadow-2xl p-6 sm:p-8 md:p-10">
+          <form
+            onSubmit={handleSubmit}
+            className="relative bg-white/80 backdrop-blur-2xl border border-white shadow-2xl p-6 sm:p-8 md:p-10"
+          >
 
             <div className="mb-8">
               <h3 className="text-3xl font-bold text-gray-900 mb-3">
@@ -116,12 +188,18 @@ export default function ContactMain() {
 
               <input
                 type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
                 placeholder="First Name"
                 className="inputStyle"
               />
 
               <input
                 type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
                 placeholder="Last Name"
                 className="inputStyle"
               />
@@ -129,50 +207,45 @@ export default function ContactMain() {
 
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Email Address"
               className="inputStyle mb-4"
             />
 
             <input
               type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
               placeholder="Phone Number"
               className="inputStyle mb-4"
             />
 
-            {/* SELECTS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-
-              <select className="inputStyle">
-                <option>Interior Design</option>
-                <option>Branding</option>
-                <option>Web Design</option>
-                <option>Consultation</option>
-              </select>
-
-              <select className="inputStyle">
-                <option>Budget Range</option>
-                <option>₹10k - ₹50k</option>
-                <option>₹50k - ₹1L</option>
-                <option>₹1L+</option>
-              </select>
-            </div>
-
             {/* MESSAGE */}
             <textarea
               rows="5"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Tell us about your project..."
               className="inputStyle mb-6 resize-none"
             />
 
             {/* BUTTON */}
-            <button className="w-full py-4 bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-semibold tracking-wide hover:scale-[1.02] hover:shadow-2xl transition-all duration-300">
-              Send Message →
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-4 bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-semibold tracking-wide hover:scale-[1.02] hover:shadow-2xl transition-all duration-300"
+            >
+              {loading ? "Sending..." : "Send Message →"}
             </button>
 
             <p className="text-center text-xs text-gray-500 mt-4">
               We respect your privacy and never share your details.
             </p>
-          </div>
+          </form>
         </div>
       </div>
 

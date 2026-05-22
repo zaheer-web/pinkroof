@@ -4,12 +4,14 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  useLocation,
 } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Navbar from "./header&footer/Navbar";
 import Footer from "./header&footer/Footer";
-
-
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -18,15 +20,28 @@ import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Conatct from "./pages/Conatct";
 import ScrollToTop from "./pages/ScrollToTop";
+import Dashboard from "./adminDeshboard/Dashboard";
 
-function App() {
+function Layout() {
+  const location = useLocation();
+
+  // Dashboard page check
+  const isDashboard = location.pathname === "/dashboard";
+
   return (
-    <BrowserRouter>
-
+    <>
       {/* SCROLL TO TOP */}
-      <ScrollToTop/>
+      <ScrollToTop />
 
-      <Navbar />
+      {/* TOAST ALERT */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        theme="colored"
+      />
+
+      {/* Navbar hide on dashboard */}
+      {!isDashboard && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -39,6 +54,11 @@ function App() {
         <Route
           path="/services"
           element={<Services />}
+        />
+
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
         />
 
         {/* <Route
@@ -57,7 +77,16 @@ function App() {
         />
       </Routes>
 
-      <Footer />
+      {/* Footer hide on dashboard */}
+      {!isDashboard && <Footer />}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Layout />
     </BrowserRouter>
   );
 }

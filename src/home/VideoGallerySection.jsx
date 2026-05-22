@@ -8,7 +8,7 @@ import video2 from "../img/video/va-9.mp4";
 import video3 from "../img/video/va-10.mp4";
 import video4 from "../img/video/va-11.mp4";
 import video5 from "../img/video/va-12.mp4";
-import video6 from "../img/video/va-13.mp4";
+import video6 from "../img/video/va-14.mp4";
 import video7 from "../img/video/va-7.mp4";
 
 // ================= THUMBNAILS =================
