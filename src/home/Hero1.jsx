@@ -196,54 +196,59 @@ export default function Hero1() {
           </motion.p>
 
           {/* BUTTONS */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="show"
-            custom={3}
-            className="
-              mt-10
-              flex
-              flex-wrap
-              items-center
-              gap-4
-            "
-          >
-            <button
-              className="
-                group
-                inline-flex
-                items-center
-                gap-3
-                rounded-full
-                bg-[#db3884]
-                px-7
-                py-4
-                text-sm
-                font-medium
-                text-white
-                transition-all
-                duration-300
-                shadow-xl
-                hover:gap-4
-                hover:bg-[#d6559d]
-                hover:shadow-[#db3884]/40
-              "
-            >
-              Explore Projects
+         <motion.div
+  variants={fadeUp}
+  initial="hidden"
+  animate="show"
+  custom={3}
+  className="
+    mt-10
+    flex
+    flex-wrap
+    items-center
+    gap-4
+  "
+>
+  <button
+    onClick={() => {
+      document
+        .getElementById("projects")
+        ?.scrollIntoView({
+          behavior: "smooth",
+        });
+    }}
+    className="
+      group
+      inline-flex
+      items-center
+      gap-3
+      
+      bg-[#db3884]
+      px-7
+      py-4
+      text-sm
+      font-medium
+      text-white
+      transition-all
+      duration-300
+      shadow-xl
+      hover:gap-4
+      hover:bg-[#d6559d]
+      hover:shadow-[#db3884]/40
+    "
+  >
+    Explore Projects
 
-              <ArrowUpRight
-                className="
-                  h-4
-                  w-4
-                  transition-transform
-                  group-hover:rotate-45
-                "
-              />
-            </button>
-
-            
-          </motion.div>
+    <ArrowUpRight
+      className="
+        h-4
+        w-4
+        transition-transform
+        group-hover:rotate-45
+      "
+    />
+  </button>
+</motion.div>
 
           {/* STATS */}
           <motion.div

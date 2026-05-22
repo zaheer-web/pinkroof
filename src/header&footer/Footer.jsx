@@ -3,6 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import {
   FaInstagram,
   FaWhatsapp,
+  FaGlobe,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 import {
@@ -37,8 +41,8 @@ export default function Footer() {
 
     {
       icon: <MessageCircle size={20} strokeWidth={1.8} />,
-      label: "Chat",
-      path: "/contact",
+      label: "About",
+      path: "/about",
     },
 
     {
@@ -73,61 +77,19 @@ export default function Footer() {
       >
         {/* GLOW */}
 
-        <div
-          className="
-            pointer-events-none
-            absolute
-            top-0
-            right-0
-            w-[320px]
-            h-[320px]
-            bg-[#ef91bc]/20
-            blur-[120px]
-            rounded-full
-          "
-        ></div>
+        <div className="pointer-events-none absolute top-0 right-0 w-[320px] h-[320px] bg-[#ef91bc]/20 blur-[120px] rounded-full"></div>
 
-        <div
-          className="
-            pointer-events-none
-            absolute
-            bottom-0
-            left-0
-            w-[320px]
-            h-[320px]
-            bg-[#d67eb3]/20
-            blur-[120px]
-            rounded-full
-          "
-        ></div>
+        <div className="pointer-events-none absolute bottom-0 left-0 w-[320px] h-[320px] bg-[#d67eb3]/20 blur-[120px] rounded-full"></div>
 
-        {/* GRID PATTERN */}
+        {/* GRID */}
 
-        <div
-          className="
-            absolute
-            inset-0
-            opacity-[0.03]
-            [background-image:linear-gradient(to_right,#db3884_1px,transparent_1px),linear-gradient(to_bottom,#db3884_1px,transparent_1px)]
-            [background-size:60px_60px]
-          "
-        ></div>
+        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(to_right,#db3884_1px,transparent_1px),linear-gradient(to_bottom,#db3884_1px,transparent_1px)] [background-size:60px_60px]"></div>
 
         {/* TOP */}
 
-        <div
-          className="
-            relative
-            z-10
-            px-6
-            md:px-16
-            py-16
-            grid
-            md:grid-cols-4
-            gap-10
-          "
-        >
-          {/* LEFT BRAND */}
+        <div className="relative z-10 px-6 md:px-16 py-16 grid md:grid-cols-4 gap-10">
+
+          {/* BRAND */}
 
           <div>
             <div className="flex items-center gap-3 mb-5">
@@ -137,28 +99,13 @@ export default function Footer() {
                 className="h-10 w-auto"
               />
 
-              <h2
-                className="
-                  font-heading
-                  text-2xl
-                  text-[#2a0f1f]
-                "
-              >
+              <h2 className="font-heading text-2xl text-[#2a0f1f]">
                 Pink Roof
-                <span className="text-[#db3884]">
-                  .
-                </span>
+                <span className="text-[#db3884]">.</span>
               </h2>
             </div>
 
-            <p
-              className="
-                text-sm
-                leading-relaxed
-                mb-6
-                text-[#5f4150]
-              "
-            >
+            <p className="text-sm leading-relaxed mb-6 text-[#5f4150]">
               Pink Roof Interiors creates modern and
               functional spaces that reflect your style
               and purpose.
@@ -167,12 +114,15 @@ export default function Footer() {
             {/* SOCIAL */}
 
             <div className="flex gap-4">
+
+              {/* INSTAGRAM */}
+
               <motion.a
                 whileHover={{
                   scale: 1.08,
                   y: -3,
                 }}
-                href="https://www.instagram.com/interiorpinkroof/?hl=en"
+                href="https://www.instagram.com/id.rukhsar_fatima_rizvi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -195,6 +145,8 @@ export default function Footer() {
               >
                 <FaInstagram />
               </motion.a>
+
+              {/* WHATSAPP */}
 
               <motion.a
                 whileHover={{
@@ -230,15 +182,7 @@ export default function Footer() {
           {/* SERVICES */}
 
           <div>
-            <h4
-              className="
-                text-xs
-                uppercase
-                mb-6
-                tracking-[3px]
-                text-[#db3884]
-              "
-            >
+            <h4 className="text-xs uppercase mb-6 tracking-[3px] text-[#db3884]">
               Services
             </h4>
 
@@ -253,30 +197,10 @@ export default function Footer() {
                   key={i}
                   className="group cursor-pointer"
                 >
-                  <span
-                    className="
-                      relative
-                      inline-block
-                      transition-all
-                      duration-300
-                      group-hover:text-[#db3884]
-                    "
-                  >
+                  <span className="relative inline-block transition-all duration-300 group-hover:text-[#db3884]">
                     {item}
 
-                    <span
-                      className="
-                        absolute
-                        left-0
-                        -bottom-1
-                        w-0
-                        h-[1px]
-                        bg-[#db3884]
-                        transition-all
-                        duration-300
-                        group-hover:w-full
-                      "
-                    ></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#db3884] transition-all duration-300 group-hover:w-full"></span>
                   </span>
                 </li>
               ))}
@@ -286,15 +210,7 @@ export default function Footer() {
           {/* QUICK LINKS */}
 
           <div>
-            <h4
-              className="
-                text-xs
-                uppercase
-                mb-6
-                tracking-[3px]
-                text-[#db3884]
-              "
-            >
+            <h4 className="text-xs uppercase mb-6 tracking-[3px] text-[#db3884]">
               Quick Links
             </h4>
 
@@ -302,7 +218,7 @@ export default function Footer() {
               {[
                 { to: "/", label: "Home" },
                 { to: "/about", label: "About" },
-                { to: "/process", label: "Process" },
+                
                 { to: "/services", label: "Services" },
                 { to: "/portfolio", label: "Portfolio" },
                 { to: "/contact", label: "Contact" },
@@ -310,30 +226,11 @@ export default function Footer() {
                 <li key={i}>
                   <Link
                     to={item.to}
-                    className="
-                      group
-                      relative
-                      inline-block
-                      transition-all
-                      duration-300
-                      hover:text-[#db3884]
-                    "
+                    className="group relative inline-block transition-all duration-300 hover:text-[#db3884]"
                   >
                     {item.label}
 
-                    <span
-                      className="
-                        absolute
-                        left-0
-                        -bottom-1
-                        w-0
-                        h-[1px]
-                        bg-[#db3884]
-                        transition-all
-                        duration-300
-                        group-hover:w-full
-                      "
-                    ></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#db3884] transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 </li>
               ))}
@@ -343,107 +240,78 @@ export default function Footer() {
           {/* CONTACT */}
 
           <div>
-            <h4
-              className="
-                text-xs
-                uppercase
-                mb-6
-                tracking-[3px]
-                text-[#db3884]
-              "
-            >
+            <h4 className="text-xs uppercase mb-6 tracking-[3px] text-[#db3884]">
               Contact
             </h4>
 
-            <ul className="space-y-4 text-sm text-[#5f4150]">
-              {[
-                "India",
-                "pinkroofinteriors@gmail.com",
-                "+91 8563980030",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="group cursor-pointer"
-                >
-                  <span
-                    className="
-                      relative
-                      inline-block
-                      transition-all
-                      duration-300
-                      group-hover:text-[#db3884]
-                    "
-                  >
-                    {item}
+            <div className="space-y-5 text-sm text-[#5f4150]">
 
-                    <span
-                      className="
-                        absolute
-                        left-0
-                        -bottom-1
-                        w-0
-                        h-[1px]
-                        bg-[#db3884]
-                        transition-all
-                        duration-300
-                        group-hover:w-full
-                      "
-                    ></span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+              {/* PHONE */}
+
+              <div className="flex items-center gap-3">
+                <FaPhoneAlt className="text-[#db3884]" />
+
+                <a
+                  href="tel:+918563980030"
+                  className="hover:text-[#db3884] transition"
+                >
+                  +91 85639 80030
+                </a>
+              </div>
+
+              {/* EMAIL */}
+
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-[#db3884]" />
+
+                <a
+                  href="mailto:contact.pinkroof@gmail.com"
+                  className="hover:text-[#db3884] transition"
+                >
+                  contact.pinkroof@gmail.com
+                </a>
+              </div>
+
+              {/* WEBSITE */}
+
+              <div className="flex items-center gap-3">
+                <FaGlobe className="text-[#db3884]" />
+
+                <a
+                  href="https://www.pinkroof.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#db3884] transition"
+                >
+                  www.pinkroof.in
+                </a>
+              </div>
+
+              {/* LOCATION */}
+
+              <div className="flex items-center gap-3">
+                <FaMapMarkerAlt className="text-[#db3884]" />
+
+                <p>Based in India</p>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* BOTTOM */}
 
-        <div
-          className="
-            relative
-            z-10
-            border-t
-            border-[#ef91bc]/20
-            px-6
-            md:px-16
-            py-6
-            flex
-            justify-between
-            text-xs
-            text-[#5f4150]
-            flex-wrap
-            gap-3
-          "
-        >
+        <div className="relative z-10 border-t border-[#ef91bc]/20 px-6 md:px-16 py-6 flex justify-between text-xs text-[#5f4150] flex-wrap gap-3">
           <p>© 2026 Pink Roof Interiors</p>
 
           <div className="flex gap-5">
             {["Privacy", "Terms"].map((item, i) => (
               <span
                 key={i}
-                className="
-                  relative
-                  group
-                  cursor-pointer
-                  hover:text-[#db3884]
-                  transition-all
-                "
+                className="relative group cursor-pointer hover:text-[#db3884] transition-all"
               >
                 {item}
 
-                <span
-                  className="
-                    absolute
-                    left-0
-                    -bottom-1
-                    w-0
-                    h-[1px]
-                    bg-[#db3884]
-                    transition-all
-                    duration-300
-                    group-hover:w-full
-                  "
-                ></span>
+                <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#db3884] transition-all duration-300 group-hover:w-full"></span>
               </span>
             ))}
           </div>
@@ -467,23 +335,7 @@ export default function Footer() {
           shadow-[0_-10px_30px_rgba(219,56,132,0.08)]
         "
       >
-        {/* TOP LINE */}
-
-        <div
-          className="
-            absolute
-            top-0
-            left-0
-            w-full
-            h-[1px]
-            bg-gradient-to-r
-            from-transparent
-            via-[#db3884]
-            to-transparent
-          "
-        ></div>
-
-        {/* MENU */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#db3884] to-transparent"></div>
 
         <div className="grid grid-cols-5 h-[74px]">
           {navItems.map((item, index) => {
@@ -494,19 +346,8 @@ export default function Footer() {
               <Link
                 key={index}
                 to={item.path}
-                className="
-                  relative
-                  flex
-                  flex-col
-                  items-center
-                  justify-center
-                  gap-1
-                  transition-all
-                  duration-300
-                "
+                className="relative flex flex-col items-center justify-center gap-1 transition-all duration-300"
               >
-                {/* ICON */}
-
                 <div
                   className={`
                     relative
@@ -529,8 +370,6 @@ export default function Footer() {
                   {item.icon}
                 </div>
 
-                {/* LABEL */}
-
                 <span
                   className={`
                     relative
@@ -548,8 +387,6 @@ export default function Footer() {
                 >
                   {item.label}
                 </span>
-
-                {/* ACTIVE LINE */}
 
                 <div
                   className={`

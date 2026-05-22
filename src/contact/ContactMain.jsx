@@ -1,152 +1,205 @@
 export default function ContactMain() {
   return (
-    <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-12 md:py-16 lg:py-20 bg-[#FDFBF7]">
-      
-      <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20">
+    <section className="relative overflow-hidden bg-gradient-to-br from-pink-50 via-white to-pink-100 px-4 sm:px-6 md:px-10 lg:px-16 py-16 md:py-24">
+
+      {/* BG EFFECTS */}
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-pink-300/30 blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-fuchsia-300/20 blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
 
         {/* LEFT SIDE */}
-        <div>
+        <div className="pt-4">
 
-          {/* LABEL */}
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-[1px] bg-[#C8A96E]" />
-            <span className="text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#C8A96E]">
-              Reach Us
+          {/* TAG */}
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-pink-100 border border-pink-200 mb-6">
+            <div className="w-2 h-2 bg-pink-500 animate-pulse" />
+
+            <span className="text-[11px] tracking-[0.2em] uppercase text-pink-600 font-medium">
+              Contact Us
             </span>
           </div>
 
           {/* HEADING */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-light text-[#1C1C1A] mb-6 font-[Cormorant_Garamond] leading-tight">
-            We're{" "}
-            <em className="text-[#C8A96E] italic not-italic font-normal">
-              Here
-            </em>{" "}
-            for You
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-tight font-bold text-gray-900 mb-6">
+            Let’s Build
+            <span className="block text-pink-500">
+              Something Beautiful
+            </span>
           </h2>
 
-          <div className="w-10 h-[1px] bg-[#D6C9B8] mb-6 md:mb-8"></div>
+          {/* DESC */}
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-lg mb-10">
+            We’d love to hear about your ideas, projects, and vision.
+            Fill out the form and our team will connect with you shortly.
+          </p>
 
-          {/* INFO */}
-          <div className="space-y-6 md:space-y-8 text-sm sm:text-base">
+          {/* INFO CARDS */}
+          <div className="space-y-4">
 
-            <div>
-              <div className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C8A96E] mb-1">
-                Email
-              </div>
-              <p className="text-[#1C1C1A] break-all">
-                hello@elarainteriors.in
-              </p>
-            </div>
-
-            <div>
-              <div className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C8A96E] mb-1">
-                Phone
-              </div>
-              <p className="text-[#1C1C1A]">+91 98765 43210</p>
-            </div>
-
-            <div>
-              <div className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C8A96E] mb-1">
-                Mumbai Studio
-              </div>
-              <p className="text-[#1C1C1A] leading-relaxed">
-                12A, Carter Road <br />
-                Bandra West, Mumbai 400 050
-              </p>
-            </div>
-
-            <div>
-              <div className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C8A96E] mb-1">
-                Delhi Studio
-              </div>
-              <p className="text-[#1C1C1A] leading-relaxed">
-                B-47, Hauz Khas Village <br />
-                New Delhi 110 016
-              </p>
-            </div>
-
-            <div>
-              <div className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#C8A96E] mb-1">
-                Office Hours
-              </div>
-              <p className="text-[#1C1C1A] leading-relaxed">
-                Monday – Saturday <br />
-                9:30 AM – 6:30 PM IST
-              </p>
-            </div>
-
-          </div>
-
-          {/* SOCIAL */}
-          <div className="flex gap-3 mt-8 md:mt-10">
-            {["in", "ig", "pi"].map((s, i) => (
+            {[
+              {
+                title: "Phone",
+                value: "+91 85639 80030",
+              },
+              {
+                title: "Email",
+                value: "contact.pinkroof@gmail.com",
+              },
+              {
+                title: "Website",
+                value: "www.pinkroof.in",
+                link: "https://www.pinkroof.in",
+              },
+              {
+                title: "Instagram",
+                value: "@id.rukhsar_fatima_rizvi",
+                link: "https://www.instagram.com/id.rukhsar_fatima_rizvi",
+              },
+              {
+                title: "Location",
+                value: "Based in India",
+              },
+            ].map((item, index) => (
               <div
-                key={i}
-                className="w-8 h-8 sm:w-9 sm:h-9 border border-[#C8A96E]/30 flex items-center justify-center text-xs sm:text-sm text-[#9B8F82] hover:text-[#C8A96E] hover:border-[#C8A96E] transition"
+                key={index}
+                className="group bg-white/70 backdrop-blur-xl border border-pink-100 p-5 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
               >
-                {s}
+
+                <p className="text-xs uppercase tracking-[0.2em] text-pink-500 mb-2">
+                  {item.title}
+                </p>
+
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-800 leading-relaxed text-sm sm:text-base group-hover:text-pink-600 transition break-all"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="text-gray-800 leading-relaxed text-sm sm:text-base group-hover:text-pink-600 transition">
+                    {item.value}
+                  </p>
+                )}
               </div>
             ))}
           </div>
 
+          {/* SOCIAL BUTTONS */}
+         
         </div>
 
-        {/* RIGHT FORM */}
-        <div className="bg-[#F7F4EE] p-6 sm:p-8 md:p-10 lg:p-12">
+        {/* RIGHT SIDE FORM */}
+        <div className="relative">
 
-          <h3 className="text-xl sm:text-2xl font-light mb-2 font-[Cormorant_Garamond]">
-            Start Your Project
-          </h3>
+          {/* GLOW */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-pink-400 to-fuchsia-400 blur opacity-20" />
 
-          <p className="text-xs sm:text-sm text-[#9B8F82] mb-6 sm:mb-8">
-            Fill in the form and we'll be in touch within one business day.
-          </p>
+          {/* FORM BOX */}
+          <div className="relative bg-white/80 backdrop-blur-2xl border border-white shadow-2xl p-6 sm:p-8 md:p-10">
 
-          {/* NAME */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <input className="input" placeholder="First Name" />
-            <input className="input" placeholder="Last Name" />
+            <div className="mb-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                Send a Message
+              </h3>
+
+              <p className="text-gray-500 text-sm sm:text-base">
+                Share your details and we’ll get back within 24 hours.
+              </p>
+            </div>
+
+            {/* INPUTS */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+
+              <input
+                type="text"
+                placeholder="First Name"
+                className="inputStyle"
+              />
+
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="inputStyle"
+              />
+            </div>
+
+            <input
+              type="email"
+              placeholder="Email Address"
+              className="inputStyle mb-4"
+            />
+
+            <input
+              type="text"
+              placeholder="Phone Number"
+              className="inputStyle mb-4"
+            />
+
+            {/* SELECTS */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+
+              <select className="inputStyle">
+                <option>Interior Design</option>
+                <option>Branding</option>
+                <option>Web Design</option>
+                <option>Consultation</option>
+              </select>
+
+              <select className="inputStyle">
+                <option>Budget Range</option>
+                <option>₹10k - ₹50k</option>
+                <option>₹50k - ₹1L</option>
+                <option>₹1L+</option>
+              </select>
+            </div>
+
+            {/* MESSAGE */}
+            <textarea
+              rows="5"
+              placeholder="Tell us about your project..."
+              className="inputStyle mb-6 resize-none"
+            />
+
+            {/* BUTTON */}
+            <button className="w-full py-4 bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white font-semibold tracking-wide hover:scale-[1.02] hover:shadow-2xl transition-all duration-300">
+              Send Message →
+            </button>
+
+            <p className="text-center text-xs text-gray-500 mt-4">
+              We respect your privacy and never share your details.
+            </p>
           </div>
-
-          <input className="input mb-4" placeholder="Email Address" />
-          <input className="input mb-4" placeholder="Phone Number" />
-
-          {/* SELECT */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <select className="input">
-              <option>Residential Design</option>
-              <option>Commercial Design</option>
-              <option>Hospitality Design</option>
-              <option>Renovation</option>
-              <option>Space Planning</option>
-              <option>Consultation Only</option>
-            </select>
-
-            <select className="input">
-              <option>Under ₹5 Lakhs</option>
-              <option>₹5 – 15 Lakhs</option>
-              <option>₹15 – 50 Lakhs</option>
-              <option>₹50 Lakhs – 1 Cr</option>
-              <option>Over ₹1 Crore</option>
-            </select>
-          </div>
-
-          <textarea
-            className="input mb-4 min-h-[120px]"
-            placeholder="Tell us about your project..."
-          />
-
-          <button className="w-full py-3 sm:py-4 bg-[#1C1C1A] text-white text-[10px] sm:text-xs tracking-[0.15em] uppercase hover:bg-[#C8A96E] transition">
-            Send Message →
-          </button>
-
-          <p className="text-[10px] sm:text-xs text-[#9B8F82] text-center mt-3">
-            We respect your privacy and will never share your details.
-          </p>
-
         </div>
-
       </div>
+
+      {/* CUSTOM CSS */}
+      <style jsx>{`
+        .inputStyle {
+          width: 100%;
+          padding: 14px 18px;
+          border: 1px solid #fbcfe8;
+          background: rgba(255,255,255,0.7);
+          backdrop-filter: blur(10px);
+          outline: none;
+          transition: all 0.3s ease;
+          font-size: 14px;
+          color: #111827;
+        }
+
+        .inputStyle:focus {
+          border-color: #ec4899;
+          box-shadow: 0 0 0 4px rgba(236,72,153,0.15);
+          background: white;
+        }
+
+        select.inputStyle {
+          appearance: none;
+        }
+      `}</style>
     </section>
   );
 }

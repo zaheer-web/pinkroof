@@ -1,6 +1,8 @@
 import React from "react";
 import img from '../img/pa-1.jpeg'
+import { useNavigate } from "react-router-dom";
 const AboutStory = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative overflow-hidden mt-10 bg-[#fcf9f8] py-20 px-6 md:px-16 lg:px-24 font-['Bodoni_Moda',_serif]">
       {/* Decorative Background Elements */}
@@ -72,9 +74,31 @@ const AboutStory = () => {
             </div>
           </div>
 
-          <button className="inline-flex items-center justify-center gap-3 bg-[#db3884] text-white px-10 py-5 text-[10px] tracking-[0.3em] uppercase hover:bg-[#b22d6b] transition-all transform hover:-translate-y-1 w-fit shadow-lg shadow-[#db3884]/20">
-            View Full Portfolio <span>→</span>
-          </button>
+          <button
+  onClick={() => navigate("/portfolio")}
+  className="
+    inline-flex
+    items-center
+    justify-center
+    gap-3
+    bg-[#db3884]
+    text-white
+    px-10
+    py-5
+    text-[10px]
+    tracking-[0.3em]
+    uppercase
+    hover:bg-[#b22d6b]
+    transition-all
+    transform
+    hover:-translate-y-1
+    w-fit
+    shadow-lg
+    shadow-[#db3884]/20
+  "
+>
+  View Full Portfolio <span>→</span>
+</button>
         </div>
 
         {/* RIGHT VISUALS */}

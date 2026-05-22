@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function AboutHero() {
+  const navigate = useNavigate();
   return (
     <section className="w-full bg-[#fcf9f8] overflow-hidden py-20 px-6 md:px-16 mt-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -71,13 +72,46 @@ export default function AboutHero() {
           {/* Buttons */}
           <div className="flex flex-wrap gap-5">
             
-            <button className="bg-[#db3884] hover:bg-[#c72f76] text-white px-10 py-4  uppercase tracking-[2px] text-sm font-semibold transition-all duration-300 hover:shadow-xl">
-              Explore Design
-            </button>
+           <button
+  onClick={() => navigate("/#projects")}
+  className="
+    bg-[#db3884]
+    hover:bg-[#c72f76]
+    text-white
+    px-10
+    py-4
+    uppercase
+    tracking-[2px]
+    text-sm
+    font-semibold
+    transition-all
+    duration-300
+    hover:shadow-xl
+  "
+>
+  Explore Design
+</button>
 
-            <button className="border border-[#db3884] text-[#db3884] hover:bg-[#db3884] hover:text-white px-10 py-4 uppercase tracking-[2px] text-sm font-semibold transition-all duration-300">
-              Contact Us
-            </button>
+           <button
+  onClick={() => navigate("/contact")}
+  className="
+    border
+    border-[#db3884]
+    text-[#db3884]
+    hover:bg-[#db3884]
+    hover:text-white
+    px-10
+    py-4
+    uppercase
+    tracking-[2px]
+    text-sm
+    font-semibold
+    transition-all
+    duration-300
+  "
+>
+  Contact Us
+</button>
 
           </div>
         </div>

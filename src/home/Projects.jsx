@@ -158,6 +158,7 @@ export default function Projects() {
 
   return (
     <section
+    id="projects"
       className="
         relative
         overflow-hidden

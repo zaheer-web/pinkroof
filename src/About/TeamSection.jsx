@@ -6,10 +6,12 @@ import img3 from '../img/za-16.png'
 import img4 from '../img/za-18.png'
 import img5 from '../img/za-19.png'
 import img6 from '../img/za-17.png'
+import { useNavigate } from "react-router-dom";
 
 
 
 const TeamSection = () => {
+  const navigate = useNavigate();
   const services = [
     {
       id: "01",
@@ -167,9 +169,27 @@ const TeamSection = () => {
         <div className="mt-32 text-center">
           <div className="w-px h-24 bg-gradient-to-b from-[#db3884] to-transparent mx-auto mb-12" />
           <h3 className="text-4xl md:text-5xl font-light mb-12 italic">Ready to define your silhouette?</h3>
-          <button className="group flex items-center gap-4 mx-auto text-[10px] uppercase tracking-[0.3em] text-[#db3884]">
-            Book a Private Consultation <span className="group-hover:translate-x-2 transition-transform">→</span>
-          </button>
+          <button
+  onClick={() => navigate("/contact")}
+  className="
+    group
+    cursor-pointer
+    flex
+    items-center
+    gap-4
+    mx-auto
+    text-[10px]
+    uppercase
+    tracking-[0.3em]
+    text-[#db3884]
+  "
+>
+  Book a Private Consultation
+
+  <span className="group-hover:translate-x-2 transition-transform">
+    →
+  </span>
+</button>
         </div>
 
       </div>

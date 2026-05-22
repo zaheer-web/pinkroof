@@ -1,62 +1,154 @@
+// components/contact/ContactSection.jsx
+
 export default function ContactSection() {
   return (
-    <section className="bg-[#1C1C1A] px-16 py-24 border-t border-[#C8A96E]/30">
-      
-      <div className="grid grid-cols-2 items-center gap-20">
+    <section className="relative overflow-hidden bg-[#fff7fb] px-6 md:px-16 py-24">
 
-        {/* LEFT CONTENT */}
-        <div>
+      {/* BACKGROUND GLOW */}
+      <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-[#db3884]/10 blur-[120px] rounded-full"></div>
 
-          {/* LABEL */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-8 h-[1px] bg-[#C8A96E]" />
-            <span className="text-[11px] tracking-[0.25em] uppercase text-[#C8A96E]">
-              Get In Touch
-            </span>
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#ef91bc]/10 blur-[120px] rounded-full"></div>
+
+      {/* GRID PATTERN */}
+      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#db3884_1px,transparent_1px),linear-gradient(to_bottom,#db3884_1px,transparent_1px)] bg-[size:70px_70px]"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* LEFT CONTENT */}
+          <div>
+
+            {/* LABEL */}
+            <div className="flex items-center gap-4 mb-6">
+
+              <div className="w-10 h-[1px] bg-[#db3884]"></div>
+
+              <span className="text-[11px] tracking-[0.3em] uppercase text-[#db3884]">
+                Get In Touch
+              </span>
+            </div>
+
+            {/* HEADING */}
+            <h2 className="text-[clamp(3rem,6vw,5rem)] leading-[1] font-serif font-light text-[#2b1120] mb-8">
+
+              Let&apos;s{" "}
+
+              <span className="italic text-[#db3884]">
+                Talk
+              </span>
+            </h2>
+
+            {/* TEXT */}
+            <p className="text-[#6d4d5d] text-base md:text-lg leading-[2] max-w-[550px]">
+              Every beautiful interior begins with a conversation.
+              Share your ideas, vision, and dream space with us —
+              and let Pinkroof Interior transform it into something timeless.
+            </p>
+
+            {/* CONTACT INFO */}
+            <div className="flex flex-col gap-5 mt-10">
+
+              <div className="flex items-center gap-4">
+
+                <div className="w-12 h-12 bg-[#db3884]/10 flex items-center justify-center">
+                  📞
+                </div>
+
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#db3884] mb-1">
+                    Phone
+                  </p>
+
+                  <p className="text-[#2b1120]">
+                    +91 85639 80030
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+
+                <div className="w-12 h-12 bg-[#db3884]/10 flex items-center justify-center">
+                  ✉️
+                </div>
+
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#db3884] mb-1">
+                    Email
+                  </p>
+
+                  <p className="text-[#2b1120]">
+                    contact.pinkroof@gmail.com
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+
+                <div className="w-12 h-12 bg-[#db3884]/10 flex items-center justify-center">
+                  📍
+                </div>
+
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#db3884] mb-1">
+                    Location
+                  </p>
+
+                  <p className="text-[#2b1120]">
+                    Lucknow, India
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* HEADING */}
-          <h2 className="text-[clamp(3rem,5vw,5rem)] font-serif font-light text-[#F7F4EE] leading-tight mb-6">
-            Let&apos;s{" "}
-            <em className="text-[#C8A96E] italic not-italic font-normal">
-              Talk
-            </em>
-          </h2>
+          {/* RIGHT CARD */}
+          <div className="flex justify-center lg:justify-end">
 
-          {/* TEXT */}
-          <p className="text-[#9B8F82] max-w-[500px] leading-[1.9] text-[15px]">
-            Every great project begins with a conversation. We'd love to hear
-            about your space and how we might help.
-          </p>
+            <div className="relative w-full max-w-[420px] bg-white/70 backdrop-blur-xl border border-[#db3884]/10 p-10 shadow-2xl">
 
-        </div>
+              {/* SMALL LABEL */}
+              <p className="text-[11px] uppercase tracking-[0.3em] text-[#db3884] mb-5">
+                Start Your Project
+              </p>
 
-        {/* RIGHT ICON BOX */}
-        <div className="flex justify-end">
+              {/* TITLE */}
+              <h3 className="text-3xl font-serif font-light text-[#2b1120] leading-tight mb-6">
 
-          <div className="w-[140px] h-[140px] border border-[#C8A96E]/20 rounded-xl flex items-center justify-center relative overflow-hidden">
+                Ready To Create Your{" "}
 
-            {/* subtle gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#C8A96E]/10 to-transparent"></div>
+                <span className="italic text-[#db3884]">
+                  Dream Space?
+                </span>
+              </h3>
 
-            {/* ICON (SVG MAIL) */}
-            <svg
-              className="w-14 h-14 text-[#C8A96E]/40"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M4 6h16v12H4z" />
-              <path d="M22 6l-10 7L2 6" />
-            </svg>
+              {/* TEXT */}
+              <p className="text-[#6d4d5d] leading-[1.9] mb-8">
+                From luxury homes to premium commercial interiors,
+                we craft elegant experiences tailored to your lifestyle.
+              </p>
 
+              {/* BUTTON */}
+             {/* BUTTON */}
+<a
+  href="https://wa.me/918563980030"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block w-full"
+>
+  <button className="w-full py-4 bg-[#db3884] text-white uppercase tracking-[0.25em] text-xs hover:bg-[#d6559d] transition duration-500 shadow-[0_0_30px_rgba(219,56,132,0.25)]">
+    Schedule Consultation
+  </button>
+</a>
+
+              {/* DECORATIVE ICON */}
+              <div className="absolute top-6 right-6 text-[#db3884]/10 text-7xl font-serif">
+                ✦
+              </div>
+            </div>
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

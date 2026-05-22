@@ -4,6 +4,7 @@ import Intro from '../Service/Intro'
 
 import ServicesList from '../Service/ServicesList'
 import Packages from '../Service/Packages'
+import ProcessSteps from '../Process/ProcessSteps'
 
 function Services() {
   return (
@@ -12,6 +13,8 @@ function Services() {
    <Intro/>
    
    <ServicesList/>
+   <ProcessSteps/>
+
    <Packages/>
 
    

@@ -9,7 +9,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   // SCROLL EFFECT
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
@@ -21,7 +20,6 @@ export default function Navbar() {
   }, []);
 
   // LOCK BODY SCROLL
-
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
@@ -38,7 +36,6 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
-
       <header
         className={`
           fixed
@@ -68,14 +65,12 @@ export default function Navbar() {
         `}
       >
         {/* GLOW */}
-
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#db3884]/5 via-[#d6559d]/5 to-[#ef91bc]/5"></div>
 
         {/* CONTAINER */}
-
         <div
           className="
-            max-w-[1480px]
+            max-w-[1400px]
             mx-auto
             flex
             items-center
@@ -89,7 +84,6 @@ export default function Navbar() {
           "
         >
           {/* LOGO */}
-
           <Link to="/" className="flex items-center flex-shrink-0">
             <motion.img
               whileHover={{ scale: 1.03 }}
@@ -106,7 +100,6 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP MENU */}
-
           <ul
             className="
               hidden
@@ -144,7 +137,6 @@ export default function Navbar() {
                       {item.label}
 
                       {/* ACTIVE LINE */}
-
                       <span
                         className={`
                           absolute
@@ -173,58 +165,41 @@ export default function Navbar() {
           </ul>
 
           {/* RIGHT SIDE */}
-
           <div className="flex items-center gap-3">
-            {/* CTA BUTTON */}
 
+            {/* WHATSAPP BUTTON */}
             <motion.a
-              whileHover={{
-                scale: 1.05,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-              href="https://wa.me/918563980030"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://wa.me/918563980030?text=Hello%20Pinkroof%20Interior%2C%20I%20want%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               className="
                 hidden
                 md:inline-flex
-
                 items-center
                 justify-center
-
                 relative
                 overflow-hidden
-
                 px-5
                 lg:px-7
-
                 py-2.5
                 lg:py-3
-
-               
-
                 bg-gradient-to-r
                 from-[#db3884]
                 via-[#d6559d]
                 to-[#d67eb3]
-
                 text-white
                 text-[10px]
                 lg:text-[11px]
-
                 uppercase
                 tracking-[0.16em]
-
                 transition-all
                 duration-500
-
                 shadow-[0_15px_35px_rgba(219,56,132,0.22)]
               "
             >
-              {/* SHINE */}
-
+              {/* SHINE EFFECT */}
               <span
                 className="
                   absolute
@@ -240,34 +215,28 @@ export default function Navbar() {
                 "
               ></span>
 
-              <span className="relative z-10">
-                Consultation
+              <span className="relative z-10 flex items-center gap-2">
+                 Consultation
               </span>
             </motion.a>
 
-            {/* MOBILE BUTTON */}
-
+            {/* MOBILE MENU BUTTON */}
             <button
               onClick={() => setOpen(true)}
               className="
                 lg:hidden
-
                 flex
                 flex-col
                 justify-center
                 gap-[5px]
-
                 relative
                 z-50
-
                 w-10
                 h-10
               "
             >
               <span className="w-7 h-[2px] bg-[#db3884] rounded-full"></span>
-
               <span className="w-7 h-[2px] bg-[#d6559d] rounded-full"></span>
-
               <span className="w-7 h-[2px] bg-[#ef91bc] rounded-full"></span>
             </button>
           </div>
@@ -275,7 +244,6 @@ export default function Navbar() {
       </header>
 
       {/* MOBILE MENU */}
-
       <AnimatePresence>
         {open && (
           <motion.div
@@ -286,31 +254,25 @@ export default function Navbar() {
               fixed
               inset-0
               z-[100]
-
               bg-gradient-to-br
               from-[#fffafd]
               via-[#fff1f8]
               to-[#fdebf4]
-
               flex
               flex-col
               items-center
               justify-center
-
               px-6
               text-center
-
               overflow-hidden
             "
           >
             {/* BG GLOW */}
-
             <div className="absolute top-0 left-0 h-[280px] w-[280px] rounded-full bg-[#ef91bc]/20 blur-[120px]"></div>
 
             <div className="absolute bottom-0 right-0 h-[280px] w-[280px] rounded-full bg-[#d67eb3]/20 blur-[120px]"></div>
 
             {/* CLOSE BUTTON */}
-
             <motion.button
               whileHover={{ rotate: 90 }}
               onClick={() => setOpen(false)}
@@ -320,12 +282,9 @@ export default function Navbar() {
                 right-5
                 sm:top-6
                 sm:right-8
-
                 text-[#db3884]
-
                 text-4xl
                 sm:text-5xl
-
                 z-50
               "
             >
@@ -333,7 +292,6 @@ export default function Navbar() {
             </motion.button>
 
             {/* MOBILE LINKS */}
-
             <div className="flex flex-col items-center gap-7 sm:gap-8">
               {navItems.map((item, i) => (
                 <motion.div
@@ -351,15 +309,11 @@ export default function Navbar() {
                       `
                       text-2xl
                       sm:text-3xl
-
                       uppercase
                       tracking-[0.18em]
-
                       transition-all
                       duration-300
-
                       relative
-
                       ${
                         isActive
                           ? "text-[#db3884]"
@@ -374,53 +328,38 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* MOBILE BUTTON */}
-
+            {/* MOBILE WHATSAPP BUTTON */}
             <motion.a
-              whileHover={{
-                scale: 1.05,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-              href="https://wa.me/918563980030"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://wa.me/918563980030?text=Hello%20Pinkroof%20Interior%2C%20I%20want%20to%20book%20a%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               className="
                 mt-10
-
                 px-8
                 sm:px-10
-
                 py-3
                 sm:py-4
-
-             
-
                 bg-gradient-to-r
                 from-[#db3884]
                 via-[#d6559d]
                 to-[#d67eb3]
-
                 text-white
-
                 uppercase
                 tracking-[0.16em]
-
                 text-[10px]
                 sm:text-[11px]
-
                 shadow-[0_15px_35px_rgba(219,56,132,0.22)]
               "
             >
-              Consultation
+               Consultation
             </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* NAVBAR SPACE */}
-
       <div className="h-[5px] sm:h-[2px] md:h-[0px]"></div>
     </>
   );
