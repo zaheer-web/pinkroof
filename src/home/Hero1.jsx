@@ -119,7 +119,7 @@ export default function Hero1() {
           >
             <Sparkles className="h-3.5 w-3.5 text-[#db3884]" />
 
-            Pinkingggg Roof Interior Studio
+            Pink Roof Interior Studio
           </motion.div>
 
           {/* HEADING */}
