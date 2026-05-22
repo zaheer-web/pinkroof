@@ -77,7 +77,7 @@ const PageHero = () => {
 
               <div>
                 <h3 className="text-5xl font-light text-white">
-                  120+
+                  250+
                 </h3>
 
                 <p className="mt-2 text-[#ef91bc] uppercase tracking-[0.2em] text-xs">
@@ -87,7 +87,7 @@ const PageHero = () => {
 
               <div>
                 <h3 className="text-5xl font-light text-white">
-                  08+
+                  07+
                 </h3>
 
                 <p className="mt-2 text-[#ef91bc] uppercase tracking-[0.2em] text-xs">

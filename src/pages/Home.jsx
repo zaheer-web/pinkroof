@@ -8,7 +8,7 @@ import CTA from '../home/CTA'
 import AboutHome from '../home/AboutHome'
 import Testimonials from '../home/Testimonials'
 import MainHero from '../home/MainHero'
-import View360 from '../home/View360'
+// import View360 from '../home/View360'
 import VideoGallerySection from '../home/VideoGallerySection'
 import Hero1 from '../home/Hero1'
 import AboutStory from '../About/AboutStory'
@@ -32,7 +32,7 @@ function Home() {
    <Projects/>
    <VideoGallerySection/>
    <Testimonials/>
-   <View360/>
+   {/* <View360/> */}
    <CTA/>
    
    </>

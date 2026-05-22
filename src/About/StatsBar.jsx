@@ -7,11 +7,11 @@ export default function StatsBar() {
       label: "Years Experience",
     },
     {
-      number: "120+",
+      number: "250+",
       label: "Projects Completed",
     },
     {
-      number: "98%",
+      number: "95%",
       label: "Client Satisfaction",
     },
     {

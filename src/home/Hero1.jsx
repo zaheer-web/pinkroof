@@ -268,9 +268,9 @@ export default function Hero1() {
             "
           >
             {[
-              { n: "340+", l: "Projects" },
+              { n: "250+", l: "Projects" },
               { n: "7+", l: "Years Experience" },
-              { n: "98%", l: "Client Satisfaction" },
+              { n: "95%", l: "Client Satisfaction" },
             ].map((s) => (
               <div key={s.l}>
                 <div className="font-serif text-3xl md:text-4xl text-[#db3884]">

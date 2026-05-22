@@ -356,7 +356,7 @@ export default function Hero() {
                 text-[#d6559d]
               "
             >
-              340+
+              250+
             </h3>
 
             <p
@@ -388,7 +388,7 @@ export default function Hero() {
                 text-[#d67eb3]
               "
             >
-              98%
+              95%
             </h3>
 
             <p

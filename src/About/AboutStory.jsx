@@ -1,5 +1,5 @@
 import React from "react";
-import img from '../img/pa-1.jpeg'
+import img from '../img/pa-2.jpeg'
 import { useNavigate } from "react-router-dom";
 const AboutStory = () => {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const AboutStory = () => {
             </div>
             <div className="bg-[#db3884]/5 border border-[#db3884]/20 p-6 transition-colors hover:bg-[#db3884]/10">
               <div className="flex items-baseline">
-                <span className="text-4xl font-light text-[#db3884]">120</span>
+                <span className="text-4xl font-light text-[#db3884]">250</span>
                 <span className="text-xl text-[#db3884] ml-1">+</span>
               </div>
               <p className="text-[10px] tracking-widest uppercase text-[#9a7a7a] mt-2">
