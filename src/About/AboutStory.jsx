@@ -134,7 +134,7 @@ const AboutStory = () => {
 
           {/* Experience Ribbon Detail */}
           <div className="absolute bottom-20 right-[-10px] bg-white p-4 shadow-lg border-l-4 border-[#db3884] z-30">
-            <p className="text-[10px] uppercase tracking-widest text-[#9a7a7a]">Est. 2017</p>
+            <p className="text-[10px] uppercase tracking-widest text-[#9a7a7a]">Est. 2019</p>
           </div>
         </div>
       </div>
