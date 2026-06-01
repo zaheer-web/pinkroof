@@ -15,10 +15,7 @@ import video9 from "../img/video/va-16.mp4";
 import video10 from "../img/video/va-17.mp4";
 import video11 from "../img/video/va-18.mp4";
 import video12 from "../img/video/va-19.mp4";
-
-
-
-
+import video13 from "../img/video/va-20.mp4";
 
 // ================= THUMBNAILS =================
 
@@ -34,77 +31,25 @@ import thumb9 from "../img/zo-8.jpg";
 import thumb10 from "../img/za-14.jpeg";
 import thumb11 from "../img/zo-9.jpg";
 import thumb12 from "../img/zo-10.webp";
-
-
+import thumb13 from "../img/zo-11.png";
 
 // ================= VIDEO DATA =================
 
 const videos = [
-  {
-    id: 1,
-    video: video1,
-    thumbnail: thumb1,
-  },
+  { id: 1, video: video1, thumbnail: thumb1 },
+  { id: 2, video: video2, thumbnail: thumb2 },
+  { id: 3, video: video3, thumbnail: thumb3 },
+  { id: 4, video: video4, thumbnail: thumb4 },
+  { id: 5, video: video5, thumbnail: thumb5 },
+  { id: 7, video: video7, thumbnail: thumb7 },
+  { id: 8, video: video8, thumbnail: thumb8 },
+  { id: 9, video: video9, thumbnail: thumb9 },
+  { id: 10, video: video10, thumbnail: thumb10 },
+  { id: 11, video: video11, thumbnail: thumb11 },
+  { id: 12, video: video12, thumbnail: thumb12 },
+  { id: 13, video: video13, thumbnail: thumb13 },
+  { id: 6, video: video6, thumbnail: thumb6 },
 
-  {
-    id: 2,
-    video: video2,
-    thumbnail: thumb2,
-  },
-
-  {
-    id: 3,
-    video: video3,
-    thumbnail: thumb3,
-  },
-
-  {
-    id: 4,
-    video: video4,
-    thumbnail: thumb4,
-  },
-
-  {
-    id: 5,
-    video: video5,
-    thumbnail: thumb5,
-  },
-
-  {
-    id: 6,
-    video: video6,
-    thumbnail: thumb6,
-  },
-
-  {
-    id: 7,
-    video: video7,
-    thumbnail: thumb7,
-  },
-   {
-    id: 8,
-    video: video8,
-    thumbnail: thumb8,
-  },
-   {
-    id: 9,
-    video: video9,
-    thumbnail: thumb9,
-  },
-   {
-    id: 10,
-    video: video10,
-    thumbnail: thumb10,
-  },
-  {
-    id: 11,
-    video: video11,
-    thumbnail: thumb11,
-  },{
-    id: 12,
-    video: video12,
-    thumbnail: thumb12,
-  },
 ];
 
 // ================= LIGHTBOX =================
@@ -149,7 +94,7 @@ function Lightbox({ video, onClose }) {
       {/* CLOSE BUTTON */}
 
       <motion.button
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9 }}
         onClick={onClose}
         className="
@@ -162,6 +107,7 @@ function Lightbox({ video, onClose }) {
           w-11
           items-center
           justify-center
+          rounded-full
           border
           border-white/20
           bg-white/10
@@ -178,10 +124,22 @@ function Lightbox({ video, onClose }) {
       {/* VIDEO */}
 
       <motion.video
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.8, opacity: 0 }}
-        transition={{ duration: 0.4 }}
+        initial={{
+          scale: 0.92,
+          opacity: 0,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+        }}
+        exit={{
+          scale: 0.92,
+          opacity: 0,
+        }}
+        transition={{
+          duration: 0.35,
+          ease: "easeOut",
+        }}
         src={video.video}
         autoPlay
         controls
@@ -190,6 +148,7 @@ function Lightbox({ video, onClose }) {
           max-h-[90vh]
           w-full
           max-w-6xl
+          rounded-[20px]
           object-cover
         "
       />
@@ -217,27 +176,40 @@ function VideoCard({ item, onClick, index }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
+      layout
+      initial={{
+        opacity: 0,
+        y: 30,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 30,
+      }}
       transition={{
-        duration: 0.8,
-        delay: index * 0.08,
+        duration: 0.35,
+        delay: index * 0.03,
       }}
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      whileHover={{
+        y: -5,
+      }}
       className="
         group
         relative
         h-[180px]
         cursor-pointer
         overflow-hidden
+        
         border
         border-[#ef91bc]/30
         bg-white/60
-        backdrop-blur-xl
-        shadow-[0_10px_35px_rgba(219,56,132,0.10)]
+        shadow-lg
 
         sm:h-[220px]
         md:h-[260px]
@@ -261,7 +233,7 @@ function VideoCard({ item, onClick, index }) {
           object-cover
           transition-all
           duration-700
-          group-hover:scale-110
+          group-hover:scale-105
         "
       />
 
@@ -270,11 +242,13 @@ function VideoCard({ item, onClick, index }) {
       <motion.img
         src={item.thumbnail}
         alt=""
-        initial={{ opacity: 1 }}
+        loading="lazy"
         animate={{
           opacity: hovered ? 0 : 1,
         }}
-        transition={{ duration: 0.4 }}
+        transition={{
+          duration: 0.3,
+        }}
         className="
           absolute
           inset-0
@@ -292,10 +266,10 @@ function VideoCard({ item, onClick, index }) {
           absolute
           inset-0
           z-[3]
-          bg-[#db3884]/10
+          bg-black/10
           transition-all
-          duration-500
-          group-hover:bg-[#db3884]/25
+          duration-300
+          group-hover:bg-black/20
         "
       />
 
@@ -312,24 +286,22 @@ function VideoCard({ item, onClick, index }) {
         "
       >
         <motion.div
-          whileHover={{ scale: 1.15 }}
+          whileHover={{
+            scale: 1.08,
+          }}
           className="
             flex
             h-14
             w-14
             items-center
             justify-center
+            rounded-full
             border
             border-white/30
             bg-white/20
             text-sm
             text-white
             backdrop-blur-xl
-            transition-all
-            duration-300
-
-            group-hover:scale-110
-            group-hover:bg-[#db3884]
 
             md:h-16
             md:w-16
@@ -347,6 +319,14 @@ function VideoCard({ item, onClick, index }) {
 
 export default function VideoGallerySection() {
   const [selectedVideo, setSelectedVideo] = useState(null);
+
+  // VIEW ALL STATE
+  const [showAll, setShowAll] = useState(false);
+
+  // SMOOTH OPEN/CLOSE
+  const visibleVideos = showAll
+    ? videos
+    : videos.slice(0, 8);
 
   return (
     <>
@@ -379,9 +359,6 @@ export default function VideoGallerySection() {
             w-[260px]
             bg-[#ef91bc]/25
             blur-[100px]
-
-            md:h-[320px]
-            md:w-[320px]
           "
         />
 
@@ -395,13 +372,11 @@ export default function VideoGallerySection() {
             w-[240px]
             bg-[#d67eb3]/25
             blur-[100px]
-
-            md:h-[300px]
-            md:w-[300px]
           "
         />
 
         <div className="relative z-10 mx-auto max-w-[1500px]">
+
           {/* HEADING */}
 
           <div className="mb-10 md:mb-14">
@@ -437,7 +412,8 @@ export default function VideoGallerySection() {
 
           {/* VIDEO GRID */}
 
-          <div
+          <motion.div
+            layout
             className="
               grid
               grid-cols-2
@@ -451,15 +427,53 @@ export default function VideoGallerySection() {
               md:gap-5
             "
           >
-            {videos.map((item, index) => (
-              <VideoCard
-                key={item.id}
-                item={item}
-                index={index}
-                onClick={() => setSelectedVideo(item)}
-              />
-            ))}
-          </div>
+            <AnimatePresence mode="popLayout">
+
+              {visibleVideos.map((item, index) => (
+                <VideoCard
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  onClick={() => setSelectedVideo(item)}
+                />
+              ))}
+
+            </AnimatePresence>
+          </motion.div>
+
+          {/* VIEW ALL BUTTON */}
+
+          {videos.length > 8 && (
+            <div className="mt-12 flex justify-center">
+
+              <motion.button
+                whileHover={{
+                  scale: 1.03,
+                }}
+                whileTap={{
+                  scale: 0.97,
+                }}
+                onClick={() => setShowAll(!showAll)}
+                className="
+                  rounded-full
+                  bg-[#db3884]
+                  px-8
+                  py-3
+                  text-sm
+                  font-semibold
+                  text-white
+                  shadow-lg
+                  transition-all
+                  duration-300
+                  hover:bg-[#c72f75]
+                "
+              >
+                {showAll ? "View Less" : "View All"}
+              </motion.button>
+
+            </div>
+          )}
+
         </div>
       </section>
 
