@@ -10,6 +10,15 @@ import video4 from "../img/video/va-11.mp4";
 import video5 from "../img/video/va-12.mp4";
 import video6 from "../img/video/va-14.mp4";
 import video7 from "../img/video/va-7.mp4";
+import video8 from "../img/video/va-15.mp4";
+import video9 from "../img/video/va-16.mp4";
+import video10 from "../img/video/va-17.mp4";
+import video11 from "../img/video/va-18.mp4";
+import video12 from "../img/video/va-19.mp4";
+
+
+
+
 
 // ================= THUMBNAILS =================
 
@@ -20,6 +29,13 @@ import thumb4 from "../img/zo-3.png";
 import thumb5 from "../img/za-4.jpeg";
 import thumb6 from "../img/za-5.jpeg";
 import thumb7 from "../img/zo-7.png";
+import thumb8 from "../img/zo-11.jpg";
+import thumb9 from "../img/zo-8.jpg";
+import thumb10 from "../img/za-14.jpeg";
+import thumb11 from "../img/zo-9.jpg";
+import thumb12 from "../img/zo-10.webp";
+
+
 
 // ================= VIDEO DATA =================
 
@@ -64,6 +80,30 @@ const videos = [
     id: 7,
     video: video7,
     thumbnail: thumb7,
+  },
+   {
+    id: 8,
+    video: video8,
+    thumbnail: thumb8,
+  },
+   {
+    id: 9,
+    video: video9,
+    thumbnail: thumb9,
+  },
+   {
+    id: 10,
+    video: video10,
+    thumbnail: thumb10,
+  },
+  {
+    id: 11,
+    video: video11,
+    thumbnail: thumb11,
+  },{
+    id: 12,
+    video: video12,
+    thumbnail: thumb12,
   },
 ];
 
