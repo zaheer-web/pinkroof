@@ -4,17 +4,17 @@ import { motion, AnimatePresence } from "framer-motion";
 // ================= VIDEOS =================
 
 import video1 from "../img/video/va-8.mp4";
-import video2 from "../img/video/va-9.mp4";
-import video3 from "../img/video/va-10.mp4";
+import video2 from "../img/video/va-22.mp4";
+import video3 from "../img/video/va-23.mp4";
 import video4 from "../img/video/va-11.mp4";
 import video5 from "../img/video/va-12.mp4";
 import video6 from "../img/video/va-14.mp4";
-import video7 from "../img/video/va-7.mp4";
+import video7 from "../img/video/va-24.mp4";
 import video8 from "../img/video/va-15.mp4";
-import video9 from "../img/video/va-16.mp4";
+import video9 from "../img/video/va-25.mp4";
 import video10 from "../img/video/va-17.mp4";
 import video11 from "../img/video/va-18.mp4";
-import video12 from "../img/video/va-19.mp4";
+import video12 from "../img/video/va-26.mp4";
 import video13 from "../img/video/va-20.mp4";
 
 // ================= THUMBNAILS =================
@@ -47,8 +47,8 @@ const videos = [
   { id: 10, video: video10, thumbnail: thumb10 },
   { id: 11, video: video11, thumbnail: thumb11 },
   { id: 12, video: video12, thumbnail: thumb12 },
-  { id: 13, video: video13, thumbnail: thumb13 },
-  { id: 6, video: video6, thumbnail: thumb6 },
+  { id: 13, video: video13, thumbnail: thumb6 },
+  
 
 ];
 
