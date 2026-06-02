@@ -274,18 +274,7 @@ export default function Footer() {
 
               {/* WEBSITE */}
 
-              <div className="flex items-center gap-3">
-                <FaGlobe className="text-[#db3884]" />
-
-                <a
-                  href="https://www.pinkroof.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#db3884] transition"
-                >
-                  www.pinkroof.in
-                </a>
-              </div>
+              
 
               {/* LOCATION */}
 
