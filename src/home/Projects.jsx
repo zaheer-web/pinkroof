@@ -32,8 +32,8 @@ import th3 from "../img/3image/th-8.png";
 import th4 from "../img/3image/th-9.png";
 
 import ca1 from "../img/cafe/ca-1.webp";
-import ca2 from "../img/cafe/ca-2.avif";
-import ca3 from "../img/cafe/ca-3.jpg";
+import ca2 from "../img/cafe/ca-2.jpeg";
+import ca3 from "../img/cafe/ca-3.jpeg";
 import ca4 from "../img/cafe/ca-4.avif";
 
 import ga1 from "../img/government/ga-1.jpeg";
@@ -45,6 +45,14 @@ import ho1 from "../img/hostle/ha-1.jpeg";
 import ho2 from "../img/hostle/ha-2.jpeg";
 import ho3 from "../img/hostle/ha-3.jpeg";
 import ho4 from "../img/hostle/ha-4.jpeg";
+
+
+import oo1 from "../img/office/gg-1.jpeg";
+import oo2 from "../img/office/gg-2.jpeg";
+import oo3 from "../img/office/gg-3.jpeg";
+import oo4 from "../img/office/gg-4.jpeg";
+
+
 
 export default function Projects() {
   const [active, setActive] = useState("All");
@@ -63,6 +71,7 @@ export default function Projects() {
     "Government",
     "Salon",
     "Restaurant/cafe",
+    "OFFICE",
   ];
 
   const projects = [
@@ -97,9 +106,9 @@ export default function Projects() {
     { category: "Residential", img: ra4 },
 
     { category: "Restaurant/cafe", img: ca3 },
-    { category: "Restaurant/cafe", img: ca2 },
-    { category: "Restaurant/cafe", img: ca1 },
     { category: "Restaurant/cafe", img: ca4 },
+    { category: "Restaurant/cafe", img: ca1 },
+    { category: "Restaurant/cafe", img: ca2 },
 
     { category: "Government", img: ga1 },
     { category: "Government", img: ga2 },
@@ -110,6 +119,13 @@ export default function Projects() {
     { category: "Hostel", img: ho1 },
     { category: "Hostel", img: ho2 },
     { category: "Hostel", img: ho4 },
+
+    { category: "OFFICE", img: oo1 },
+    { category: "OFFICE", img: oo2 },
+    { category: "OFFICE", img: oo3 },
+    { category: "OFFICE", img: oo4 },
+
+
   ];
 
   useEffect(() => {

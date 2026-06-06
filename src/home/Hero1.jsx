@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Play, Sparkles } from "lucide-react";
 
-import heroMain from "../img/za-13.jpeg";
+import heroMain from "../img/na-1.jpeg";
 
 
 const fadeUp = {

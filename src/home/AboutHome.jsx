@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
-import img1 from "../img/za-3.jpeg";
-import img2 from "../img/za-4.jpeg";
-import img3 from "../img/za-5.jpeg";
+import img1 from "../img/na-2.jpeg";
+import img2 from "../img/na-3.jpeg";
+import img3 from "../img/na-4.jpeg";
 
 export default function AboutHome() {
   const features = [

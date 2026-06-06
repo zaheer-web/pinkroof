@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useAnimationFrame } from "framer-motion";
 
 import img1 from "../img/3image/th-1.png";
-import img2 from "../img/cafe/ca-2.avif";
+import img2 from "../img/cafe/ca-2.jpeg";
 import img3 from "../img/facade/fa-2.jpeg";
 import img4 from "../img/hotel/ha-6.jpeg";
 import img5 from "../img/kitchen/ka-7.jpeg";
@@ -22,7 +22,7 @@ import img18 from "../img/salon/sa-1.jpeg";
 import img19 from "../img/za-5.jpeg";
 import img20 from "../img/za-13.jpeg";
 import img21 from "../img/3image/th-4.png";
-import img22 from "../img/cafe/ca-3.jpg";
+import img22 from "../img/cafe/ca-3.jpeg";
 import img23 from "../img/facade/fa-6.jpeg";
 import img24 from "../img/hotel/ha-2.jpeg";
 import img25 from "../img/kitchen/ka-1.jpeg";
